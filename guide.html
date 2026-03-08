@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Guide — Juan Carlos Calvo Esquivel | Monteverde</title>
+  <meta name="description" content="Meet Juan Carlos Calvo Esquivel — 30+ years as a naturalist guide in Monteverde's cloud forest. Expert birding, night tours, and private experiences.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Juan Carlos Calvo</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      <a href="guide.html" data-en="The Guide" data-es="El Guía">The Guide</a>
+      <a href="places.html" data-en="Places & Hours" data-es="Lugares y Horarios">Places & Hours</a>
+      <a href="index.html#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
+      <div class="lang-toggle">
+        <button id="langEN" class="active">EN</button>
+        <button id="langES">ES</button>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height: 70vh;">
+    <div class="hero-bg"></div>
+    <svg class="grain" viewBox="0 0 1024 1024" preserveAspectRatio="none">
+      <filter id="grain-filter-guide">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+        <feColorMatrix type="saturate" values="0"/>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#grain-filter-guide)" opacity="0.4"/>
+    </svg>
+    <div class="leaves-container">
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="eyebrow" data-en="Naturalist Guide" data-es="Guía Naturalista">Naturalist Guide</div>
+        <h1 data-en="Meet Your <em>Guide</em>" data-es="Conoce a tu <em>Guía</em>">Meet Your <em>Guide</em></h1>
+        <p class="hero-sub" data-en="A life dedicated to the cloud forest." data-es="Una vida dedicada al bosque nuboso.">A life dedicated to the cloud forest.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bio Section -->
+  <section class="section">
+    <div class="container">
+      <div class="bio-grid">
+        <div class="bio-portrait reveal">
+          <span class="bio-portrait-icon">🌿</span>
+          <div class="bio-badge" data-en="30+ Years" data-es="30+ Años">30+ Years</div>
+        </div>
+        <div class="bio-text reveal">
+          <h2 data-en="Juan Carlos <em>Calvo Esquivel</em>" data-es="Juan Carlos <em>Calvo Esquivel</em>">Juan Carlos <em>Calvo Esquivel</em></h2>
+          <p data-en="My name is Juan Carlos Calvo Esquivel, and I've spent over 30 years walking the trails of Monteverde's cloud forest. For me, this isn't a job — it's a calling. I grew up surrounded by the mist and the music of the bellbird, and every day I discover something new in these forests." data-es="Mi nombre es Juan Carlos Calvo Esquivel, y he pasado más de 30 años recorriendo los senderos del bosque nuboso de Monteverde. Para mí, esto no es un trabajo — es una vocación. Crecí rodeado de la neblina y la música del pájaro campana, y cada día descubro algo nuevo en estos bosques.">My name is Juan Carlos Calvo Esquivel, and I've spent over 30 years walking the trails of Monteverde's cloud forest. For me, this isn't a job — it's a calling. I grew up surrounded by the mist and the music of the bellbird, and every day I discover something new in these forests.</p>
+          <p data-en="I guide in both English and Spanish, and my goal is simple: to help you see what most people walk right past." data-es="Guío en inglés y español, y mi objetivo es simple: ayudarte a ver lo que la mayoría de las personas pasan por alto.">I guide in both English and Spanish, and my goal is simple: to help you see what most people walk right past.</p>
+
+          <div class="credential-badges">
+            <div class="credential">
+              <span class="credential-icon">🏆</span>
+              <span data-en="30+ Years" data-es="30+ Años">30+ Years</span>
+            </div>
+            <div class="credential">
+              <span class="credential-icon">🌐</span>
+              <span data-en="Bilingual EN/ES" data-es="Bilingüe EN/ES">Bilingual EN/ES</span>
+            </div>
+            <div class="credential">
+              <span class="credential-icon">🌿</span>
+              <span data-en="Flora & Fauna Expert" data-es="Experto en Flora y Fauna">Flora & Fauna Expert</span>
+            </div>
+            <div class="credential">
+              <span class="credential-icon">📜</span>
+              <span data-en="ICT Certified" data-es="Certificado ICT">ICT Certified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiences Full Detail -->
+  <section class="section" style="background: var(--forest);">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="eyebrow" data-en="Experiences" data-es="Experiencias">Experiences</div>
+        <h2 data-en="Our <em>Tours</em>" data-es="Nuestros <em>Tours</em>">Our <em>Tours</em></h2>
+      </div>
+
+      <!-- Day Tour -->
+      <div class="experience-detail reveal" id="day-tour">
+        <div class="exp-detail-header">
+          <h3 data-en="Cloud Forest Day Tour" data-es="Tour Diurno del Bosque Nuboso">Cloud Forest Day Tour</h3>
+        </div>
+        <div class="exp-detail-body">
+          <div>
+            <p class="exp-description" data-en="Walk the legendary trails of the Monteverde Cloud Forest Biological Reserve with an expert naturalist at your side. Spot the Resplendent Quetzal, learn about 400+ bird species, and understand the fragile ecosystem that makes Monteverde one of Earth's most biodiverse places." data-es="Recorre los senderos legendarios de la Reserva Biológica Bosque Nuboso de Monteverde con un naturalista experto. Observa el Quetzal Resplandeciente y aprende sobre más de 400 especies de aves.">Walk the legendary trails of the Monteverde Cloud Forest Biological Reserve with an expert naturalist at your side. Spot the Resplendent Quetzal, learn about 400+ bird species, and understand the fragile ecosystem that makes Monteverde one of Earth's most biodiverse places.</p>
+            <div class="exp-info-grid">
+              <div class="exp-info-item">
+                <h4 data-en="Duration" data-es="Duración">Duration</h4>
+                <p>~2.5 hours</p>
+              </div>
+              <div class="exp-info-item">
+                <h4 data-en="Language" data-es="Idioma">Language</h4>
+                <p data-en="English / Spanish" data-es="Inglés / Español">English / Spanish</p>
+              </div>
+              <div class="exp-info-item">
+                <h4 data-en="Schedule" data-es="Horario">Schedule</h4>
+                <p data-en="8:00 AM · 11:30 AM (daily, subject to availability)" data-es="8:00 AM · 11:30 AM (diario, sujeto a disponibilidad)">8:00 AM · 11:30 AM (daily, subject to availability)</p>
+              </div>
+              <div class="exp-info-item">
+                <h4 data-en="What's Included" data-es="Qué Incluye">What's Included</h4>
+                <ul>
+                  <li data-en="Expert naturalist guide" data-es="Guía naturalista experto">Expert naturalist guide</li>
+                  <li data-en="Binoculars" data-es="Binoculares">Binoculars</li>
+                  <li data-en="Wildlife spotting scope" data-es="Telescopio para avistamiento">Wildlife spotting scope</li>
+                </ul>
+              </div>
+              <div class="exp-info-item">
+                <h4 data-en="What to Bring" data-es="Qué Traer">What to Bring</h4>
+                <ul>
+                  <li data-en="Comfortable walking shoes" data-es="Zapatos cómodos para caminar">Comfortable walking shoes</li>
+                  <li data-en="Rain jacket" data-es="Chaqueta impermeable">Rain jacket</li>
+                  <li data-en="Water" data-es="Agua">Water</li>
+                  <li data-en="Camera" data-es="Cámara">Camera</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="exp-pricing">
+            <h4 data-en="Pricing" data-es="Precios">Pricing</h4>
+            <div class="price-row">
+              <span class="price-type" data-en="Group Tour (per person)" data-es="Tour Grupal (por persona)">Group Tour (per person)</span>
+              <span class="price-amount">$30 USD</span>
+            </div>
+            <div class="price-row">
+              <span class="price-type" data-en="Private Tour (up to 4 people)" data-es="Tour Privado (hasta 4 personas)">Private Tour (up to 4 people)</span>
+              <span class="price-amount">$180 USD</span>
+            </div>
+            <p class="price-note" data-en="+ Reserve entrance fee (paid separately at the reserve)" data-es="+ Tarifa de entrada a la reserva (se paga por separado)">+ Reserve entrance fee (paid separately at the reserve)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Night Tour -->
+      <div class="experience-detail reveal" id="night-tour">
+        <div class="exp-detail-header">
+          <h3 data-en="Night Tour — Refugio Monteverde" data-es="Tour Nocturno — Refugio Monteverde">Night Tour — Refugio Monteverde</h3>
+        </div>
+        <div class="exp-detail-body">
+          <div>
+            <p class="exp-description" data-en="Discover Monteverde after dark. 80% of the cloud forest's wildlife is nocturnal — and this is your chance to witness it. Red-eyed tree frogs, pit vipers, sloths, armadillos, sleeping toucans, and fireflies. An experience unlike anything you've seen before." data-es="Descubre Monteverde de noche. El 80% de la fauna del bosque nuboso es nocturna — y esta es tu oportunidad de verla. Ranas de ojos rojos, víboras, perezosos, armadillos y luciérnagas. Una experiencia única.">Discover Monteverde after dark. 80% of the cloud forest's wildlife is nocturnal — and this is your chance to witness it. Red-eyed tree frogs, pit vipers, sloths, armadillos, sleeping toucans, and fireflies. An experience unlike anything you've seen before.</p>
+            <div class="exp-info-grid">
+              <div class="exp-info-item">
+                <h4 data-en="Duration" data-es="Duración">Duration</h4>
+                <p>~2 hours</p>
+              </div>
+              <div class="exp-info-item">
+                <h4 data-en="Language" data-es="Idioma">Language</h4>
+                <p data-en="English / Spanish" data-es="Inglés / Español">English / Spanish</p>
+              </div>
+              <div class="exp-info-item">
+                <h4 data-en="Schedule" data-es="Horario">Schedule</h4>
+                <p data-en="6:00 PM (nightly)" data-es="6:00 PM (todas las noches)">6:00 PM (nightly)</p>
+              </div>
+              <div class="exp-info-item">
+                <h4 data-en="What's Included" data-es="Qué Incluye">What's Included</h4>
+                <ul>
+                  <li data-en="Powerful guide flashlight" data-es="Linterna profesional de guía">Powerful guide flashlight</li>
+                  <li data-en="Naturalist guide" data-es="Guía naturalista">Naturalist guide</li>
+                  <li data-en="Telescope for photography" data-es="Telescopio para fotografía">Telescope for photography</li>
+                </ul>
+              </div>
+            </div>
+            <div class="place-note" style="margin-top: 32px;" data-en="80% of cloud forest wildlife is nocturnal — the night tour offers the highest wildlife encounter rate." data-es="El 80% de la fauna del bosque nuboso es nocturna — el tour nocturno ofrece la mayor tasa de encuentros con vida silvestre.">80% of cloud forest wildlife is nocturnal — the night tour offers the highest wildlife encounter rate.</div>
+          </div>
+          <div class="exp-pricing">
+            <h4 data-en="Pricing" data-es="Precios">Pricing</h4>
+            <div class="price-row">
+              <span class="price-type" data-en="Group Tour (per person)" data-es="Tour Grupal (por persona)">Group Tour (per person)</span>
+              <span class="price-amount">$30 USD</span>
+            </div>
+            <div class="price-row">
+              <span class="price-type" data-en="Private Tour (up to 4 people)" data-es="Tour Privado (hasta 4 personas)">Private Tour (up to 4 people)</span>
+              <span class="price-amount">$180 USD</span>
+            </div>
+            <p class="price-note" data-en="+ Reserve entrance fee (paid separately at the reserve)" data-es="+ Tarifa de entrada a la reserva (se paga por separado)">+ Reserve entrance fee (paid separately at the reserve)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Private Tour -->
+      <div class="experience-detail reveal" id="private-tour">
+        <div class="exp-detail-header">
+          <h3 data-en="Private Exclusive Tour" data-es="Tour Privado Exclusivo">Private Exclusive Tour</h3>
+          <span class="exp-badge" data-en="Most Popular" data-es="Más Popular">Most Popular</span>
+        </div>
+        <div class="exp-detail-body">
+          <div>
+            <p class="exp-description" data-en="Design your own Monteverde adventure. Choose your trail, your pace, your time. Perfect for families, couples, or groups who want a fully personalized experience with zero compromise. Available morning, midday, or evening." data-es="Diseña tu propia aventura en Monteverde. Escoge tu sendero, tu ritmo, tu horario. Perfecto para familias, parejas o grupos que desean una experiencia completamente personalizada. Disponible en la mañana, mediodía o noche.">Design your own Monteverde adventure. Choose your trail, your pace, your time. Perfect for families, couples, or groups who want a fully personalized experience with zero compromise. Available morning, midday, or evening.</p>
+            <div class="exp-info-grid">
+              <div class="exp-info-item">
+                <h4 data-en="Schedule" data-es="Horario">Schedule</h4>
+                <p data-en="8:00 AM · 11:30 AM · 6:00 PM" data-es="8:00 AM · 11:30 AM · 6:00 PM">8:00 AM · 11:30 AM · 6:00 PM</p>
+              </div>
+              <div class="exp-info-item">
+                <h4 data-en="Language" data-es="Idioma">Language</h4>
+                <p data-en="English / Spanish" data-es="Inglés / Español">English / Spanish</p>
+              </div>
+              <div class="exp-info-item">
+                <h4 data-en="Includes" data-es="Incluye">Includes</h4>
+                <ul>
+                  <li data-en="Personalized itinerary" data-es="Itinerario personalizado">Personalized itinerary</li>
+                  <li data-en="Expert naturalist guide" data-es="Guía naturalista experto">Expert naturalist guide</li>
+                  <li data-en="All equipment provided" data-es="Todo el equipo proporcionado">All equipment provided</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="exp-pricing">
+            <h4 data-en="Pricing" data-es="Precios">Pricing</h4>
+            <div class="price-row">
+              <span class="price-type" data-en="Private Tour (up to 4 people)" data-es="Tour Privado (hasta 4 personas)">Private Tour (up to 4 people)</span>
+              <span class="price-amount">$180 USD</span>
+            </div>
+            <p class="price-note" data-en="+ Reserve entrance fees (paid separately). Additional guests welcome — contact us for group rates." data-es="+ Tarifas de entrada a la reserva (se pagan por separado). Invitados adicionales bienvenidos — contáctanos para tarifas de grupo.">+ Reserve entrance fees (paid separately). Additional guests welcome — contact us for group rates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking CTA -->
+  <section class="booking-cta">
+    <div class="container reveal">
+      <h2 data-en="Ready for Your Monteverde <em>Experience</em>?" data-es="¿Listo para Tu <em>Experiencia</em> en Monteverde?">Ready for Your Monteverde <em>Experience</em>?</h2>
+      <div class="booking-cta-buttons">
+        <a href="index.html#booking" class="btn-gold" data-en="Book Now" data-es="Reservar Ahora">Book Now</a>
+        <a href="https://wa.me/50688887777" class="btn-ghost" target="_blank" rel="noopener" data-en="WhatsApp Us" data-es="Escríbenos por WhatsApp">WhatsApp Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Juan Carlos Calvo</div>
+          <p class="footer-tagline" data-en="Expert naturalist guide in Monteverde, Costa Rica. Over 30 years of experience exploring the cloud forest." data-es="Guía naturalista experto en Monteverde, Costa Rica. Más de 30 años de experiencia explorando el bosque nuboso.">Expert naturalist guide in Monteverde, Costa Rica. Over 30 years of experience exploring the cloud forest.</p>
+        </div>
+        <div>
+          <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+            <a href="guide.html" data-en="The Guide" data-es="El Guía">The Guide</a>
+            <a href="places.html" data-en="Places & Hours" data-es="Lugares y Horarios">Places & Hours</a>
+            <a href="index.html#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
+          </div>
+        </div>
+        <div>
+          <h4 data-en="Contact" data-es="Contacto">Contact</h4>
+          <div class="footer-contact">
+            <a href="https://wa.me/50688887777" target="_blank" rel="noopener">📱 +506 8888-7777</a>
+            <a href="mailto:juancarlos@monteverdeguide.com">✉ juancarlos@monteverdeguide.com</a>
+            <p>📍 Monteverde, Puntarenas, Costa Rica</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Juan Carlos Calvo Esquivel · <span data-en="Developed by" data-es="Desarrollado por">Developed by</span> TyT Software & Solutions
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

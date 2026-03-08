@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Places & Hours — Juan Carlos Calvo Esquivel | Monteverde</title>
+  <meta name="description" content="Explore the Monteverde Cloud Forest Reserve and Refugio Monteverde. Hours, entrance fees, location maps, and visitor tips.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Juan Carlos Calvo</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      <a href="guide.html" data-en="The Guide" data-es="El Guía">The Guide</a>
+      <a href="places.html" data-en="Places & Hours" data-es="Lugares y Horarios">Places & Hours</a>
+      <a href="index.html#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
+      <div class="lang-toggle">
+        <button id="langEN" class="active">EN</button>
+        <button id="langES">ES</button>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height: 70vh;">
+    <div class="hero-bg"></div>
+    <svg class="grain" viewBox="0 0 1024 1024" preserveAspectRatio="none">
+      <filter id="grain-filter-places">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+        <feColorMatrix type="saturate" values="0"/>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#grain-filter-places)" opacity="0.4"/>
+    </svg>
+    <div class="leaves-container">
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+      <div class="leaf"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="eyebrow" data-en="Destinations" data-es="Destinos">Destinations</div>
+        <h1 data-en="Where We <em>Explore</em>" data-es="Donde <em>Exploramos</em>">Where We <em>Explore</em></h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Place 1: Monteverde Cloud Forest Reserve -->
+  <section class="place-section">
+    <div class="container">
+      <div class="place-header reveal">
+        <div class="eyebrow" data-en="Reserve" data-es="Reserva">Reserve</div>
+        <h2 data-en="Reserva Biológica Bosque Nuboso <em>Monteverde</em>" data-es="Reserva Biológica Bosque Nuboso <em>Monteverde</em>">Reserva Biológica Bosque Nuboso <em>Monteverde</em></h2>
+      </div>
+
+      <p class="place-description reveal" data-en="Established in 1972 and spanning over 10,500 hectares, the Monteverde Cloud Forest Biological Reserve protects one of the last pristine cloud forests in Central America. Home to 400+ bird species, 100 mammal species, 2,500+ plant species, and 50% of Costa Rica's total biodiversity. This is the crown jewel of Monteverde." data-es="Establecida en 1972 y con una extensión de más de 10,500 hectáreas, la Reserva Biológica Bosque Nuboso de Monteverde protege uno de los últimos bosques nubosos prístinos de Centroamérica. Hogar de más de 400 especies de aves, 100 especies de mamíferos, más de 2,500 especies de plantas y el 50% de la biodiversidad total de Costa Rica. Esta es la joya de la corona de Monteverde.">Established in 1972 and spanning over 10,500 hectares, the Monteverde Cloud Forest Biological Reserve protects one of the last pristine cloud forests in Central America. Home to 400+ bird species, 100 mammal species, 2,500+ plant species, and 50% of Costa Rica's total biodiversity. This is the crown jewel of Monteverde.</p>
+
+      <div class="place-facts reveal">
+        <div class="fact-card">
+          <span class="fact-value">10,500</span>
+          <span class="fact-label" data-en="Hectares" data-es="Hectáreas">Hectares</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-value">400+</span>
+          <span class="fact-label" data-en="Bird Species" data-es="Especies de Aves">Bird Species</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-value">70,000</span>
+          <span class="fact-label" data-en="Annual Visitors" data-es="Visitantes Anuales">Annual Visitors</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-value">90%</span>
+          <span class="fact-label" data-en="Virgin Forest" data-es="Bosque Virgen">Virgin Forest</span>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <table class="hours-table">
+          <thead>
+            <tr>
+              <th data-en="Day" data-es="Día">Day</th>
+              <th data-en="Hours" data-es="Horario">Hours</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-en="Monday – Sunday" data-es="Lunes – Domingo">Monday – Sunday</td>
+              <td>7:00 AM – 4:00 PM</td>
+            </tr>
+            <tr>
+              <td data-en="Last admission" data-es="Última admisión">Last admission</td>
+              <td>3:00 PM</td>
+            </tr>
+            <tr>
+              <td data-en="Night tours" data-es="Tours nocturnos">Night tours</td>
+              <td data-en="By reservation" data-es="Con reservación">By reservation</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="reveal" style="margin-bottom: 24px;">
+        <table class="hours-table" style="max-width: 400px;">
+          <thead>
+            <tr>
+              <th data-en="Entrance Fees (approx.)" data-es="Tarifas de Entrada (aprox.)">Entrance Fees (approx.)</th>
+              <th data-en="Price" data-es="Precio">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-en="Adults" data-es="Adultos">Adults</td>
+              <td>~$25 USD</td>
+            </tr>
+            <tr>
+              <td data-en="Students" data-es="Estudiantes">Students</td>
+              <td>~$14 USD</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="place-note reveal" data-en="Entrance fees are NOT included in the tour price and are paid separately at the reserve." data-es="Las tarifas de entrada NO están incluidas en el precio del tour y se pagan por separado en la reserva.">Entrance fees are NOT included in the tour price and are paid separately at the reserve.</div>
+
+      <div class="place-map reveal">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.8!2d-84.7899!3d10.2993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa019e1c7e1e5e1%3A0x1234567890abcdef!2sMonteverde+Cloud+Forest+Reserve!5e0!3m2!1sen!2scr!4v1"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Monteverde Cloud Forest Reserve Location"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Place 2: Refugio Monteverde -->
+  <section class="place-section" style="background: var(--forest);">
+    <div class="container">
+      <div class="place-header reveal">
+        <div class="eyebrow" data-en="Wildlife Refuge" data-es="Refugio de Vida Silvestre">Wildlife Refuge</div>
+        <h2 data-en="Refugio Monteverde — <em>Night Tour Reserve</em>" data-es="Refugio Monteverde — <em>Reserva de Tour Nocturno</em>">Refugio Monteverde — <em>Night Tour Reserve</em></h2>
+      </div>
+
+      <p class="place-description reveal" data-en="A 55-acre private conservation area and natural wildlife refuge in the heart of Monteverde. Unlike a zoo, wildlife here is completely wild and observed in its natural state. Sloths, red-eyed tree frogs, pit vipers, ocelots, tarantulas, armadillos, and fireflies — the night reveals Monteverde's true self." data-es="Un área de conservación privada de 55 acres y refugio natural de vida silvestre en el corazón de Monteverde. A diferencia de un zoológico, la fauna aquí es completamente salvaje y se observa en su estado natural. Perezosos, ranas de ojos rojos, víboras, ocelotes, tarántulas, armadillos y luciérnagas — la noche revela el verdadero ser de Monteverde.">A 55-acre private conservation area and natural wildlife refuge in the heart of Monteverde. Unlike a zoo, wildlife here is completely wild and observed in its natural state. Sloths, red-eyed tree frogs, pit vipers, ocelots, tarantulas, armadillos, and fireflies — the night reveals Monteverde's true self.</p>
+
+      <div class="place-facts reveal">
+        <div class="fact-card">
+          <span class="fact-value">55</span>
+          <span class="fact-label" data-en="Acres" data-es="Acres">Acres</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-value">100%</span>
+          <span class="fact-label" data-en="Wild Animals" data-es="Animales Salvajes">Wild Animals</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-value" data-en="Private" data-es="Privada">Private</span>
+          <span class="fact-label" data-en="Reserve" data-es="Reserva">Reserve</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-value" data-en="Night" data-es="Nocturno">Night</span>
+          <span class="fact-label" data-en="Specialist" data-es="Especialista">Specialist</span>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <table class="hours-table">
+          <thead>
+            <tr>
+              <th data-en="Session" data-es="Sesión">Session</th>
+              <th data-en="Time" data-es="Horario">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-en="Night Tour" data-es="Tour Nocturno">Night Tour</td>
+              <td data-en="6:00 PM (daily)" data-es="6:00 PM (diario)">6:00 PM (daily)</td>
+            </tr>
+            <tr>
+              <td data-en="Private Night Tour" data-es="Tour Nocturno Privado">Private Night Tour</td>
+              <td data-en="Flexible, by reservation" data-es="Flexible, con reservación">Flexible, by reservation</td>
+            </tr>
+            <tr>
+              <td data-en="Day visits" data-es="Visitas diurnas">Day visits</td>
+              <td>7:00 AM – 4:00 PM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="place-note reveal" data-en="Reserve your night tour at least 24 hours in advance. Free cancellation with 24h notice." data-es="Reserva tu tour nocturno con al menos 24 horas de anticipación. Cancelación gratuita con 24 horas de aviso.">Reserve your night tour at least 24 hours in advance. Free cancellation with 24h notice.</div>
+
+      <div class="place-map reveal">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.8!2d-84.8175!3d10.3100!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa019c3c3c3c3c3%3A0xabcdef1234567890!2sSanta+Elena+Monteverde!5e0!3m2!1sen!2scr!4v1"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Refugio Monteverde Location"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plan Your Visit Tips -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="eyebrow" data-en="Tips" data-es="Consejos">Tips</div>
+        <h2 data-en="Plan Your <em>Visit</em>" data-es="Planifica Tu <em>Visita</em>">Plan Your <em>Visit</em></h2>
+      </div>
+      <div class="tips-grid">
+        <div class="tip-card reveal">
+          <span class="tip-icon">🌧️</span>
+          <h4 data-en="Weather" data-es="Clima">Weather</h4>
+          <p data-en="Bring a light rain jacket — mist and light rain are part of the cloud forest experience." data-es="Trae una chaqueta impermeable ligera — la neblina y la lluvia ligera son parte de la experiencia del bosque nuboso.">Bring a light rain jacket — mist and light rain are part of the cloud forest experience.</p>
+        </div>
+        <div class="tip-card reveal">
+          <span class="tip-icon">👟</span>
+          <h4 data-en="Gear" data-es="Equipo">Gear</h4>
+          <p data-en="Wear comfortable closed-toe shoes. Trails can be muddy and uneven." data-es="Usa zapatos cerrados y cómodos. Los senderos pueden ser fangosos e irregulares.">Wear comfortable closed-toe shoes. Trails can be muddy and uneven.</p>
+        </div>
+        <div class="tip-card reveal">
+          <span class="tip-icon">📷</span>
+          <h4 data-en="Camera" data-es="Cámara">Camera</h4>
+          <p data-en="A telephoto lens is ideal for wildlife. For night tours, no flash — your guide will have a telescope." data-es="Un lente telefoto es ideal para la fauna. Para tours nocturnos, sin flash — tu guía tendrá un telescopio.">A telephoto lens is ideal for wildlife. For night tours, no flash — your guide will have a telescope.</p>
+        </div>
+        <div class="tip-card reveal">
+          <span class="tip-icon">⏰</span>
+          <h4 data-en="Timing" data-es="Horarios">Timing</h4>
+          <p data-en="Morning tours offer the best bird sightings. Night tours guarantee the highest wildlife encounter rate." data-es="Los tours matutinos ofrecen los mejores avistamientos de aves. Los tours nocturnos garantizan la mayor tasa de encuentros con fauna.">Morning tours offer the best bird sightings. Night tours guarantee the highest wildlife encounter rate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking CTA -->
+  <section class="booking-cta">
+    <div class="container reveal">
+      <h2 data-en="Ready to <em>Explore</em>?" data-es="¿Listo para <em>Explorar</em>?">Ready to <em>Explore</em>?</h2>
+      <div class="booking-cta-buttons">
+        <a href="index.html#booking" class="btn-gold" data-en="Book Your Tour" data-es="Reserva Tu Tour">Book Your Tour</a>
+        <a href="https://wa.me/50688887777" class="btn-ghost" target="_blank" rel="noopener" data-en="WhatsApp Us" data-es="Escríbenos por WhatsApp">WhatsApp Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Juan Carlos Calvo</div>
+          <p class="footer-tagline" data-en="Expert naturalist guide in Monteverde, Costa Rica. Over 30 years of experience exploring the cloud forest." data-es="Guía naturalista experto en Monteverde, Costa Rica. Más de 30 años de experiencia explorando el bosque nuboso.">Expert naturalist guide in Monteverde, Costa Rica. Over 30 years of experience exploring the cloud forest.</p>
+        </div>
+        <div>
+          <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+            <a href="guide.html" data-en="The Guide" data-es="El Guía">The Guide</a>
+            <a href="places.html" data-en="Places & Hours" data-es="Lugares y Horarios">Places & Hours</a>
+            <a href="index.html#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
+          </div>
+        </div>
+        <div>
+          <h4 data-en="Contact" data-es="Contacto">Contact</h4>
+          <div class="footer-contact">
+            <a href="https://wa.me/50688887777" target="_blank" rel="noopener">📱 +506 8888-7777</a>
+            <a href="mailto:juancarlos@monteverdeguide.com">✉ juancarlos@monteverdeguide.com</a>
+            <p>📍 Monteverde, Puntarenas, Costa Rica</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Juan Carlos Calvo Esquivel · <span data-en="Developed by" data-es="Desarrollado por">Developed by</span> TyT Software & Solutions
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
