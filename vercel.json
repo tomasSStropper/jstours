@@ -1,9 +1,6 @@
 {
-  "version": 2,
-  "builds": [{ "src": "**/*.html", "use": "@vercel/static" }],
-  "routes": [
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/guide", "dest": "/guide.html" },
-    { "src": "/places", "dest": "/places.html" }
+  "rewrites": [
+    { "source": "/guide", "destination": "/guide.html" },
+    { "source": "/places", "destination": "/places.html" }
   ]
 }
