@@ -1711,3 +1711,53 @@ button, input, textarea, select {
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 500;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(37,211,102,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: waBounce 3s ease-in-out 2s infinite;
+  cursor: none;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(37,211,102,0.45);
+}
+
+@keyframes waBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.whatsapp-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    padding: 14px;
+    cursor: auto;
+  }
+
+  .whatsapp-label {
+    display: none;
+  }
+}
