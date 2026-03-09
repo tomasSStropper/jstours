@@ -212,7 +212,7 @@
         whatsappMsg += 'People: ' + people + '\n';
         if (message) whatsappMsg += 'Message: ' + message + '\n';
 
-        var whatsappURL = 'https://wa.me/50688887777?text=' + encodeURIComponent(whatsappMsg);
+        var whatsappURL = 'https://wa.me/50663914901?text=' + encodeURIComponent(whatsappMsg);
         window.open(whatsappURL, '_blank');
 
         bookingForm.reset();
