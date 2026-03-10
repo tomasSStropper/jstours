@@ -7,30 +7,27 @@
   <meta name="description" content="Explore the Monteverde Cloud Forest Reserve and Refugio Monteverde. Hours, entrance fees, location maps, and visitor tips.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- Custom Cursor -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-ring"></div>
-
   <!-- Navbar -->
   <nav class="navbar">
-    <a href="index.html" class="nav-logo"><span class="logo-main">JC Tours</span><span class="logo-sub">Juan Carlos Calvo · Monteverde</span></a>
+    <a href="index.html" class="nav-logo">
+      <span class="logo-main">JC Tours</span>
+      <span class="logo-sub">Juan Carlos Calvo &middot; Monteverde</span>
+    </a>
     <div class="nav-links" id="navLinks">
       <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
-      <a href="guide.html" data-en="The Guide" data-es="El Guía">The Guide</a>
-      <a href="places.html" data-en="Places & Hours" data-es="Lugares y Horarios">Places & Hours</a>
+      <a href="guide.html" data-en="The Guide" data-es="El Gu&iacute;a">The Guide</a>
+      <a href="places.html" data-en="Places & Hours" data-es="Lugares">Places & Hours</a>
       <a href="index.html#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
-      <div class="lang-toggle">
-        <button id="langEN" class="active">EN</button>
-        <button id="langES">ES</button>
+      <div style="margin-top:8px;">
+        <button class="lang-btn" id="langToggle">ES</button>
       </div>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span>
       <span></span>
       <span></span>
     </button>
@@ -39,24 +36,24 @@
   <!-- Hero -->
   <section class="hero" style="min-height: 70vh;">
     <div class="hero-bg"></div>
-    <svg class="grain" viewBox="0 0 1024 1024" preserveAspectRatio="none">
-      <filter id="grain-filter-places">
-        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
-        <feColorMatrix type="saturate" values="0"/>
-      </filter>
-      <rect width="100%" height="100%" filter="url(#grain-filter-places)" opacity="0.4"/>
-    </svg>
-    <div class="leaves-container">
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-    </div>
+    <div class="grain"></div>
     <div class="container">
-      <div class="hero-content">
+      <div class="hero-content" style="padding-top:120px;">
         <div class="eyebrow" data-en="Destinations" data-es="Destinos">Destinations</div>
-        <h1 data-en="Where We <em>Explore</em>" data-es="Donde <em>Exploramos</em>">Where We <em>Explore</em></h1>
+        <h1 class="hero-title" style="font-size:clamp(36px,5vw,72px);">
+          <span class="line-1" data-en="Where We" data-es="Donde">Where We</span>
+          <span class="line-2"><em data-en="Explore." data-es="Exploramos.">Explore.</em></span>
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reserve intro -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="eyebrow" data-en="The Forest" data-es="El Bosque">The Forest</div>
+        <p class="place-description" style="margin-bottom:0;" data-en="Less than 0.26% of the planet's surface is covered by tropical cloud forests. You are about to walk through one of the most intact examples on Earth. Most visitors spend 2 hours here and see almost nothing. With Juan Carlos, you will spend the same 2 hours and see everything." data-es="Menos del 0.26% de la superficie del planeta est&aacute; cubierta por bosques nubosos. Con Juan Carlos, esas 2 horas las ves todo.">Less than 0.26% of the planet's surface is covered by tropical cloud forests. You are about to walk through one of the most intact examples on Earth. Most visitors spend 2 hours here and see almost nothing. With Juan Carlos, you will spend the same 2 hours and see everything.</p>
       </div>
     </div>
   </section>
@@ -66,15 +63,15 @@
     <div class="container">
       <div class="place-header reveal">
         <div class="eyebrow" data-en="Reserve" data-es="Reserva">Reserve</div>
-        <h2 data-en="Reserva Biológica Bosque Nuboso <em>Monteverde</em>" data-es="Reserva Biológica Bosque Nuboso <em>Monteverde</em>">Reserva Biológica Bosque Nuboso <em>Monteverde</em></h2>
+        <h2 data-en="Reserva Biol&oacute;gica Bosque Nuboso <em>Monteverde</em>" data-es="Reserva Biol&oacute;gica Bosque Nuboso <em>Monteverde</em>">Reserva Biol&oacute;gica Bosque Nuboso <em>Monteverde</em></h2>
       </div>
 
-      <p class="place-description reveal" data-en="Established in 1972 and spanning over 10,500 hectares, the Monteverde Cloud Forest Biological Reserve protects one of the last pristine cloud forests in Central America. Home to 400+ bird species, 100 mammal species, 2,500+ plant species, and 50% of Costa Rica's total biodiversity. This is the crown jewel of Monteverde." data-es="Establecida en 1972 y con una extensión de más de 10,500 hectáreas, la Reserva Biológica Bosque Nuboso de Monteverde protege uno de los últimos bosques nubosos prístinos de Centroamérica. Hogar de más de 400 especies de aves, 100 especies de mamíferos, más de 2,500 especies de plantas y el 50% de la biodiversidad total de Costa Rica. Esta es la joya de la corona de Monteverde.">Established in 1972 and spanning over 10,500 hectares, the Monteverde Cloud Forest Biological Reserve protects one of the last pristine cloud forests in Central America. Home to 400+ bird species, 100 mammal species, 2,500+ plant species, and 50% of Costa Rica's total biodiversity. This is the crown jewel of Monteverde.</p>
+      <p class="place-description reveal" data-en="Established in 1972 and spanning over 10,500 hectares, the Monteverde Cloud Forest Biological Reserve protects one of the last pristine cloud forests in Central America. Home to 400+ bird species, 100 mammal species, 2,500+ plant species, and 50% of Costa Rica's total biodiversity. This is the crown jewel of Monteverde." data-es="Establecida en 1972 y con una extensi&oacute;n de m&aacute;s de 10,500 hect&aacute;reas, la Reserva Biol&oacute;gica Bosque Nuboso de Monteverde protege uno de los &uacute;ltimos bosques nubosos pr&iacute;stinos de Centroam&eacute;rica. Hogar de m&aacute;s de 400 especies de aves, 100 especies de mam&iacute;feros, m&aacute;s de 2,500 especies de plantas y el 50% de la biodiversidad total de Costa Rica. Esta es la joya de la corona de Monteverde.">Established in 1972 and spanning over 10,500 hectares, the Monteverde Cloud Forest Biological Reserve protects one of the last pristine cloud forests in Central America. Home to 400+ bird species, 100 mammal species, 2,500+ plant species, and 50% of Costa Rica's total biodiversity. This is the crown jewel of Monteverde.</p>
 
       <div class="place-facts reveal">
         <div class="fact-card">
           <span class="fact-value">10,500</span>
-          <span class="fact-label" data-en="Hectares" data-es="Hectáreas">Hectares</span>
+          <span class="fact-label" data-en="Hectares" data-es="Hect&aacute;reas">Hectares</span>
         </div>
         <div class="fact-card">
           <span class="fact-value">400+</span>
@@ -94,22 +91,22 @@
         <table class="hours-table">
           <thead>
             <tr>
-              <th data-en="Day" data-es="Día">Day</th>
+              <th data-en="Day" data-es="D&iacute;a">Day</th>
               <th data-en="Hours" data-es="Horario">Hours</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td data-en="Monday – Sunday" data-es="Lunes – Domingo">Monday – Sunday</td>
-              <td>7:00 AM – 4:00 PM</td>
+              <td data-en="Monday &ndash; Sunday" data-es="Lunes &ndash; Domingo">Monday &ndash; Sunday</td>
+              <td>7:00 AM &ndash; 4:00 PM</td>
             </tr>
             <tr>
-              <td data-en="Last admission" data-es="Última admisión">Last admission</td>
+              <td data-en="Last admission" data-es="&Uacute;ltima admisi&oacute;n">Last admission</td>
               <td>3:00 PM</td>
             </tr>
             <tr>
               <td data-en="Night tours" data-es="Tours nocturnos">Night tours</td>
-              <td data-en="By reservation" data-es="Con reservación">By reservation</td>
+              <td data-en="By reservation" data-es="Con reservaci&oacute;n">By reservation</td>
             </tr>
           </tbody>
         </table>
@@ -136,7 +133,7 @@
         </table>
       </div>
 
-      <div class="place-note reveal" data-en="Entrance fees are NOT included in the tour price and are paid separately at the reserve." data-es="Las tarifas de entrada NO están incluidas en el precio del tour y se pagan por separado en la reserva.">Entrance fees are NOT included in the tour price and are paid separately at the reserve.</div>
+      <div class="place-note reveal" data-en="Entrance fees are NOT included in the tour price and are paid separately at the reserve." data-es="Las tarifas de entrada NO est&aacute;n incluidas en el precio del tour y se pagan por separado en la reserva.">Entrance fees are NOT included in the tour price and are paid separately at the reserve.</div>
 
       <div class="place-map reveal">
         <iframe
@@ -154,10 +151,10 @@
     <div class="container">
       <div class="place-header reveal">
         <div class="eyebrow" data-en="Wildlife Refuge" data-es="Refugio de Vida Silvestre">Wildlife Refuge</div>
-        <h2 data-en="Refugio Monteverde — <em>Night Tour Reserve</em>" data-es="Refugio Monteverde — <em>Reserva de Tour Nocturno</em>">Refugio Monteverde — <em>Night Tour Reserve</em></h2>
+        <h2 data-en="Refugio Monteverde &mdash; <em>Night Tour Reserve</em>" data-es="Refugio Monteverde &mdash; <em>Reserva de Tour Nocturno</em>">Refugio Monteverde &mdash; <em>Night Tour Reserve</em></h2>
       </div>
 
-      <p class="place-description reveal" data-en="A 55-acre private conservation area and natural wildlife refuge in the heart of Monteverde. Unlike a zoo, wildlife here is completely wild and observed in its natural state. Sloths, red-eyed tree frogs, pit vipers, ocelots, tarantulas, armadillos, and fireflies — the night reveals Monteverde's true self." data-es="Un área de conservación privada de 55 acres y refugio natural de vida silvestre en el corazón de Monteverde. A diferencia de un zoológico, la fauna aquí es completamente salvaje y se observa en su estado natural. Perezosos, ranas de ojos rojos, víboras, ocelotes, tarántulas, armadillos y luciérnagas — la noche revela el verdadero ser de Monteverde.">A 55-acre private conservation area and natural wildlife refuge in the heart of Monteverde. Unlike a zoo, wildlife here is completely wild and observed in its natural state. Sloths, red-eyed tree frogs, pit vipers, ocelots, tarantulas, armadillos, and fireflies — the night reveals Monteverde's true self.</p>
+      <p class="place-description reveal" data-en="A 55-acre private conservation area and natural wildlife refuge in the heart of Monteverde. Unlike a zoo, wildlife here is completely wild and observed in its natural state. Sloths, red-eyed tree frogs, pit vipers, ocelots, tarantulas, armadillos, and fireflies &mdash; the night reveals Monteverde's true self." data-es="Un &aacute;rea de conservaci&oacute;n privada de 55 acres y refugio natural de vida silvestre en el coraz&oacute;n de Monteverde. A diferencia de un zool&oacute;gico, la fauna aqu&iacute; es completamente salvaje y se observa en su estado natural. Perezosos, ranas de ojos rojos, v&iacute;boras, ocelotes, tar&aacute;ntulas, armadillos y luci&eacute;rnagas &mdash; la noche revela el verdadero ser de Monteverde.">A 55-acre private conservation area and natural wildlife refuge in the heart of Monteverde. Unlike a zoo, wildlife here is completely wild and observed in its natural state. Sloths, red-eyed tree frogs, pit vipers, ocelots, tarantulas, armadillos, and fireflies &mdash; the night reveals Monteverde's true self.</p>
 
       <div class="place-facts reveal">
         <div class="fact-card">
@@ -182,7 +179,7 @@
         <table class="hours-table">
           <thead>
             <tr>
-              <th data-en="Session" data-es="Sesión">Session</th>
+              <th data-en="Session" data-es="Sesi&oacute;n">Session</th>
               <th data-en="Time" data-es="Horario">Time</th>
             </tr>
           </thead>
@@ -193,17 +190,17 @@
             </tr>
             <tr>
               <td data-en="Private Night Tour" data-es="Tour Nocturno Privado">Private Night Tour</td>
-              <td data-en="Flexible, by reservation" data-es="Flexible, con reservación">Flexible, by reservation</td>
+              <td data-en="Flexible, by reservation" data-es="Flexible, con reservaci&oacute;n">Flexible, by reservation</td>
             </tr>
             <tr>
               <td data-en="Day visits" data-es="Visitas diurnas">Day visits</td>
-              <td>7:00 AM – 4:00 PM</td>
+              <td>7:00 AM &ndash; 4:00 PM</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <div class="place-note reveal" data-en="Reserve your night tour at least 24 hours in advance. Free cancellation with 24h notice." data-es="Reserva tu tour nocturno con al menos 24 horas de anticipación. Cancelación gratuita con 24 horas de aviso.">Reserve your night tour at least 24 hours in advance. Free cancellation with 24h notice.</div>
+      <div class="place-note reveal" data-en="Reserve your night tour at least 24 hours in advance. Free cancellation with 24h notice." data-es="Reserva tu tour nocturno con al menos 24 horas de anticipaci&oacute;n. Cancelaci&oacute;n gratuita con 24 horas de aviso.">Reserve your night tour at least 24 hours in advance. Free cancellation with 24h notice.</div>
 
       <div class="place-map reveal">
         <iframe
@@ -225,22 +222,22 @@
       </div>
       <div class="tips-grid">
         <div class="tip-card reveal">
-          <span class="tip-icon">🌧️</span>
+          <span class="tip-icon">&#127783;&#65039;</span>
           <h4 data-en="Weather" data-es="Clima">Weather</h4>
-          <p data-en="Bring a light rain jacket — mist and light rain are part of the cloud forest experience." data-es="Trae una chaqueta impermeable ligera — la neblina y la lluvia ligera son parte de la experiencia del bosque nuboso.">Bring a light rain jacket — mist and light rain are part of the cloud forest experience.</p>
+          <p data-en="Bring a light rain jacket &mdash; mist and light rain are part of the cloud forest experience." data-es="Trae una chaqueta impermeable ligera &mdash; la neblina y la lluvia ligera son parte de la experiencia del bosque nuboso.">Bring a light rain jacket &mdash; mist and light rain are part of the cloud forest experience.</p>
         </div>
         <div class="tip-card reveal">
-          <span class="tip-icon">👟</span>
+          <span class="tip-icon">&#128095;</span>
           <h4 data-en="Gear" data-es="Equipo">Gear</h4>
-          <p data-en="Wear comfortable closed-toe shoes. Trails can be muddy and uneven." data-es="Usa zapatos cerrados y cómodos. Los senderos pueden ser fangosos e irregulares.">Wear comfortable closed-toe shoes. Trails can be muddy and uneven.</p>
+          <p data-en="Wear comfortable closed-toe shoes. Trails can be muddy and uneven." data-es="Usa zapatos cerrados y c&oacute;modos. Los senderos pueden ser fangosos e irregulares.">Wear comfortable closed-toe shoes. Trails can be muddy and uneven.</p>
         </div>
         <div class="tip-card reveal">
-          <span class="tip-icon">📷</span>
-          <h4 data-en="Camera" data-es="Cámara">Camera</h4>
-          <p data-en="A telephoto lens is ideal for wildlife. For night tours, no flash — your guide will have a telescope." data-es="Un lente telefoto es ideal para la fauna. Para tours nocturnos, sin flash — tu guía tendrá un telescopio.">A telephoto lens is ideal for wildlife. For night tours, no flash — your guide will have a telescope.</p>
+          <span class="tip-icon">&#128247;</span>
+          <h4 data-en="Camera" data-es="C&aacute;mara">Camera</h4>
+          <p data-en="A telephoto lens is ideal for wildlife. For night tours, no flash &mdash; your guide will have a telescope." data-es="Un lente telefoto es ideal para la fauna. Para tours nocturnos, sin flash &mdash; tu gu&iacute;a tendr&aacute; un telescopio.">A telephoto lens is ideal for wildlife. For night tours, no flash &mdash; your guide will have a telescope.</p>
         </div>
         <div class="tip-card reveal">
-          <span class="tip-icon">⏰</span>
+          <span class="tip-icon">&#9200;</span>
           <h4 data-en="Timing" data-es="Horarios">Timing</h4>
           <p data-en="Morning tours offer the best bird sightings. Night tours guarantee the highest wildlife encounter rate." data-es="Los tours matutinos ofrecen los mejores avistamientos de aves. Los tours nocturnos garantizan la mayor tasa de encuentros con fauna.">Morning tours offer the best bird sightings. Night tours guarantee the highest wildlife encounter rate.</p>
         </div>
@@ -251,50 +248,53 @@
   <!-- Booking CTA -->
   <section class="booking-cta">
     <div class="container reveal">
-      <h2 data-en="Ready to <em>Explore</em>?" data-es="¿Listo para <em>Explorar</em>?">Ready to <em>Explore</em>?</h2>
+      <h2 data-en="Ready to <em>Explore</em>?" data-es="&iquest;Listo para <em>Explorar</em>?">Ready to <em>Explore</em>?</h2>
       <div class="booking-cta-buttons">
         <a href="index.html#booking" class="btn-gold" data-en="Book Your Tour" data-es="Reserva Tu Tour">Book Your Tour</a>
-        <a href="https://wa.me/50663914901" class="btn-ghost" target="_blank" rel="noopener" data-en="WhatsApp Us" data-es="Escríbenos por WhatsApp">WhatsApp Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="https://wa.me/50663914901" class="btn-ghost" target="_blank" rel="noopener" data-en="WhatsApp Us" data-es="Escr&iacute;benos por WhatsApp">WhatsApp Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-logo">JC Tours</div>
-          <p class="footer-tagline" data-en="Expert naturalist guide in Monteverde, Costa Rica. Over 30 years of experience exploring the cloud forest." data-es="Guía naturalista experto en Monteverde, Costa Rica. Más de 30 años de experiencia explorando el bosque nuboso.">Expert naturalist guide in Monteverde, Costa Rica. Over 30 years of experience exploring the cloud forest.</p>
-        </div>
-        <div>
-          <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
-          <div class="footer-links">
-            <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
-            <a href="guide.html" data-en="The Guide" data-es="El Guía">The Guide</a>
-            <a href="places.html" data-en="Places & Hours" data-es="Lugares y Horarios">Places & Hours</a>
-            <a href="index.html#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
-          </div>
-        </div>
-        <div>
-          <h4 data-en="Contact" data-es="Contacto">Contact</h4>
-          <div class="footer-contact">
-            <a href="https://wa.me/50663914901" target="_blank" rel="noopener">📱 +506 6391-4901</a>
-            <a href="mailto:jce1310@hotmail.com">✉ jce1310@hotmail.com</a>
-            <p>📍 Monteverde, Puntarenas, Costa Rica</p>
-          </div>
-        </div>
+  <footer>
+    <div class="footer-main">
+      <div class="footer-brand">
+        <span class="footer-logo">JC Tours</span>
+        <p data-en="Naturalist guide. Monteverde, Costa Rica."
+           data-es="Gu&iacute;a naturalista. Monteverde, Costa Rica.">
+          Naturalist guide. Monteverde, Costa Rica.
+        </p>
       </div>
-      <div class="footer-bottom">
-        © 2025 JC Tours · Juan Carlos Calvo Esquivel · <span data-en="Developed by" data-es="Desarrollado por">Developed by</span> TyT Software & Solutions
+      <div class="footer-links">
+        <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+        <a href="guide.html" data-en="The Guide" data-es="El Gu&iacute;a">The Guide</a>
+        <a href="places.html" data-en="Places & Hours" data-es="Lugares">Places & Hours</a>
+        <a href="index.html#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
       </div>
+      <div class="footer-contact">
+        <a href="https://wa.me/50663914901" target="_blank">+506 6391-4901</a>
+        <a href="mailto:jce1310@hotmail.com">jce1310@hotmail.com</a>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g309277-d11739359-Reviews-JC_Nature_Tour-Monteverde_Cloud_Forest_Reserve_Monteverde_Province_of_Puntarenas.html"
+           target="_blank" data-en="TripAdvisor Reviews" data-es="Rese&ntilde;as TripAdvisor">TripAdvisor Reviews</a>
+        <a href="https://www.airbnb.co.cr/experiences/6914172"
+           target="_blank" data-en="Airbnb Experience" data-es="Experiencia Airbnb">Airbnb Experience</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 JC Tours &middot; Juan Carlos Calvo Esquivel &middot; Monteverde, Costa Rica</span>
+      <span class="tyt-credit">Crafted by <a href="#" target="_blank">TyT Software & Solutions</a></span>
     </div>
   </footer>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/50663914901" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    <span class="whatsapp-label" data-en="Chat with us" data-es="Escríbenos">Chat with us</span>
+  <a href="https://wa.me/50663914901?text=Hello%20Juan%20Carlos!%20I%20found%20JC%20Tours%20and%20I%27m%20interested%20in%20booking%20a%20tour%20in%20Monteverde."
+     target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <path d="M13 1C6.4 1 1 6.4 1 13c0 2.1.6 4.2 1.6 5.9L1 25l6.3-1.6C9 24.4 11 25 13 25c6.6 0 12-5.4 12-12S19.6 1 13 1z" fill="white"/>
+      <path d="M18.5 15.8c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.2-.5 0-.2-.7-1.6-.9-2.2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.3s1 2.7 1.1 2.8c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3 0-.1-.2-.2-.5-.3z" fill="#25D366"/>
+    </svg>
+    <span class="whatsapp-label" data-en="Book via WhatsApp" data-es="Reservar por WhatsApp">Book via WhatsApp</span>
   </a>
 
   <script src="js/main.js"></script>

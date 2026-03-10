@@ -7,96 +7,100 @@
   <meta name="description" content="30+ years guiding travelers through Monteverde's cloud forest. Expert naturalist tours, bird watching, and night wildlife experiences in Costa Rica.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- Custom Cursor -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-ring"></div>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <a href="index.html" class="nav-logo"><span class="logo-main">JC Tours</span><span class="logo-sub">Juan Carlos Calvo · Monteverde</span></a>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
-      <a href="guide.html" data-en="The Guide" data-es="El Guía">The Guide</a>
-      <a href="places.html" data-en="Places & Hours" data-es="Lugares y Horarios">Places & Hours</a>
-      <a href="#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
-      <div class="lang-toggle">
-        <button id="langEN" class="active">EN</button>
-        <button id="langES">ES</button>
-      </div>
-    </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
-
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-
-    <!-- Grain Overlay -->
-    <svg class="grain" viewBox="0 0 1024 1024" preserveAspectRatio="none">
-      <filter id="grain-filter">
-        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
-        <feColorMatrix type="saturate" values="0"/>
-      </filter>
-      <rect width="100%" height="100%" filter="url(#grain-filter)" opacity="0.4"/>
-    </svg>
-
-    <!-- Floating Leaves -->
-    <div class="leaves-container">
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
+  <section class="hero" id="home">
+    <div class="hero-canvas">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="grain"></div>
     </div>
 
-    <div class="container">
-      <div class="hero-content">
-        <div class="eyebrow">Monteverde · Costa Rica</div>
-        <h1 data-en="Where the Cloud <em>Breathes</em>" data-es="Donde la Nube <em>Respira</em>">Where the Cloud <em>Breathes</em></h1>
-        <p class="hero-sub" data-en="30 years guiding travelers through one of Earth's rarest ecosystems." data-es="30 años guiando viajeros a través de uno de los ecosistemas más raros del planeta.">30 years guiding travelers through one of Earth's rarest ecosystems.</p>
-        <div class="hero-ctas">
-          <a href="#booking" class="btn-gold" data-en="Book Your Experience" data-es="Reserva Tu Experiencia">Book Your Experience</a>
-          <a href="guide.html" class="btn-ghost" data-en="Meet Juan Carlos" data-es="Conoce a Juan Carlos">Meet Juan Carlos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <nav class="hero-nav">
+      <a href="index.html" class="logo">
+        <span class="logo-main">JC Tours</span>
+        <span class="logo-sub">Juan Carlos Calvo &middot; Monteverde</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="guide.html" data-en="The Guide" data-es="El Gu&iacute;a">The Guide</a></li>
+        <li><a href="places.html" data-en="Places & Hours" data-es="Lugares">Places & Hours</a></li>
+        <li><a href="#booking" class="nav-cta" data-en="Book Now" data-es="Reservar">Book Now</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="lang-btn" id="langToggle">ES</button>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="tag-dot"></span>
+        <span data-en="Monteverde &middot; Costa Rica &middot; Since 1994"
+              data-es="Monteverde &middot; Costa Rica &middot; Desde 1994">
+          Monteverde &middot; Costa Rica &middot; Since 1994
+        </span>
+      </div>
+      <h1 class="hero-title">
+        <span class="line-1" data-en="The Forest" data-es="El Bosque">The Forest</span>
+        <span class="line-2">
+          <em data-en="Has Secrets." data-es="Tiene Secretos.">Has Secrets.</em>
+        </span>
+        <span class="line-3"
+              data-en="Juan Carlos Knows Them All."
+              data-es="Juan Carlos Los Conoce Todos.">
+          Juan Carlos Knows Them All.
+        </span>
+      </h1>
+      <p class="hero-sub"
+         data-en="30 years. 400 bird species. One cloud forest. Zero tourists who left disappointed."
+         data-es="30 a&ntilde;os. 400 especies de aves. Un bosque nuboso. Cero turistas decepcionados.">
+        30 years. 400 bird species. One cloud forest. Zero tourists who left disappointed.
+      </p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn-primary"
+           data-en="Reserve Your Experience"
+           data-es="Reserv&aacute; tu Experiencia">Reserve Your Experience</a>
+        <a href="guide.html" class="btn-text">
+          <span data-en="Meet Juan Carlos" data-es="Conoc&eacute; a Juan Carlos">Meet Juan Carlos</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num" data-target="30" data-suffix="+">30+</span>
+          <span class="stat-label" data-en="Years" data-es="A&ntilde;os">Years</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="400" data-suffix="+">400+</span>
+          <span class="stat-label" data-en="Bird Species" data-es="Especies">Bird Species</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">5&#9733;</span>
+          <span class="stat-label" data-en="Rated" data-es="Calificaci&oacute;n">Rated</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">EN/ES</span>
+          <span class="stat-label" data-en="Bilingual" data-es="Biling&uuml;e">Bilingual</span>
         </div>
       </div>
     </div>
 
-    <!-- Scroll Indicator -->
     <div class="scroll-indicator">
-      <span data-en="scroll" data-es="scroll">scroll</span>
       <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- Stats Strip -->
-  <section class="stats-strip">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card reveal">
-          <div class="stat-number">30+</div>
-          <div class="stat-label" data-en="Years of Experience" data-es="Años de Experiencia">Years of Experience</div>
-        </div>
-        <div class="stat-card reveal">
-          <div class="stat-number">400+</div>
-          <div class="stat-label" data-en="Bird Species" data-es="Especies de Aves">Bird Species</div>
-        </div>
-        <div class="stat-card reveal">
-          <div class="stat-number">EN/ES</div>
-          <div class="stat-label" data-en="Bilingual Guide" data-es="Guía Bilingüe">Bilingual Guide</div>
-        </div>
-      </div>
+      <span data-en="Scroll" data-es="Bajar">Scroll</span>
     </div>
   </section>
 
@@ -104,7 +108,7 @@
   <section class="trust-bar reveal">
     <div class="trust-inner">
       <a href="https://www.tripadvisor.com/Attraction_Review-g309277-d11739359-Reviews-JC_Nature_Tour-Monteverde_Cloud_Forest_Reserve_Monteverde_Province_of_Puntarenas.html"
-         target="_blank" class="trust-item trust-tripadvisor">
+         target="_blank" class="trust-item">
         <div class="trust-logo">
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
             <circle cx="14" cy="14" r="14" fill="#34E0A1"/>
@@ -116,33 +120,28 @@
           <span class="trust-platform">TripAdvisor</span>
         </div>
         <div class="trust-rating">
-          <span class="trust-stars">★★★★★</span>
-          <span class="trust-score" data-en="Excellent · 5.0" data-es="Excelente · 5.0">Excellent · 5.0</span>
+          <span class="trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="trust-score" data-en="Excellent &middot; 5.0" data-es="Excelente &middot; 5.0">Excellent &middot; 5.0</span>
         </div>
-        <span class="trust-cta" data-en="Read Reviews →" data-es="Ver Reseñas →">Read Reviews →</span>
+        <span class="trust-cta" data-en="Read Reviews &rarr;" data-es="Ver Rese&ntilde;as &rarr;">Read Reviews &rarr;</span>
       </a>
-
       <div class="trust-divider"></div>
-
       <a href="https://www.airbnb.co.cr/experiences/6914172"
-         target="_blank" class="trust-item trust-airbnb">
+         target="_blank" class="trust-item">
         <div class="trust-logo">
-          <svg width="24" height="28" viewBox="0 0 24 28" fill="none">
-            <path d="M12 2C8 8 3 12 3 17a9 9 0 0018 0C21 12 16 8 12 2z" fill="#FF5A5F"/>
+          <svg width="22" height="26" viewBox="0 0 22 26" fill="none">
+            <path d="M11 1C7 7 2 11 2 16a9 9 0 0018 0C20 11 15 7 11 1z" fill="#FF5A5F"/>
           </svg>
           <span class="trust-platform">Airbnb</span>
         </div>
         <div class="trust-rating">
-          <span class="trust-stars">★★★★★</span>
-          <span class="trust-score" data-en="Verified Experience"
-                data-es="Experiencia Verificada">Verified Experience</span>
+          <span class="trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="trust-score" data-en="Verified Experience" data-es="Experiencia Verificada">Verified Experience</span>
         </div>
-        <span class="trust-cta" data-en="View on Airbnb →" data-es="Ver en Airbnb →">View on Airbnb →</span>
+        <span class="trust-cta" data-en="View on Airbnb &rarr;" data-es="Ver en Airbnb &rarr;">View on Airbnb &rarr;</span>
       </a>
-
       <div class="trust-divider"></div>
-
-      <a href="https://wa.me/50663914901" target="_blank" class="trust-item trust-whatsapp">
+      <a href="https://wa.me/50663914901" target="_blank" class="trust-item">
         <div class="trust-logo">
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
             <circle cx="14" cy="14" r="14" fill="#25D366"/>
@@ -151,8 +150,7 @@
           <span class="trust-platform">WhatsApp</span>
         </div>
         <div class="trust-rating">
-          <span class="trust-score" data-en="Reply within 1 hour"
-                data-es="Responde en 1 hora">Reply within 1 hour</span>
+          <span class="trust-score" data-en="Reply within 1 hour" data-es="Responde en 1 hora">Reply within 1 hour</span>
         </div>
         <span class="trust-cta">+506 6391-4901</span>
       </a>
@@ -165,38 +163,39 @@
       <div class="section-header reveal">
         <div class="eyebrow" data-en="Experiences" data-es="Experiencias">Experiences</div>
         <h2 data-en="Discover <em>Monteverde</em>" data-es="Descubre <em>Monteverde</em>">Discover <em>Monteverde</em></h2>
-        <p data-en="Three unique ways to experience the cloud forest with an expert naturalist guide." data-es="Tres formas únicas de experimentar el bosque nuboso con un guía naturalista experto.">Three unique ways to experience the cloud forest with an expert naturalist guide.</p>
+        <p data-en="Not a bus tour. Not a group of 40 strangers. This is Monteverde the way it was meant to be experienced &mdash; intimate, unhurried, and guided by someone who has spent three decades learning every trail, every bird call, every secret the forest keeps."
+           data-es="No es un tour en bus. No es un grupo de 40 extra&ntilde;os. Esto es Monteverde como debe experimentarse &mdash; &iacute;ntimo, sin prisa, guiado por alguien que ha pasado tres d&eacute;cadas aprendiendo cada sendero.">Not a bus tour. Not a group of 40 strangers. This is Monteverde the way it was meant to be experienced &mdash; intimate, unhurried, and guided by someone who has spent three decades learning every trail, every bird call, every secret the forest keeps.</p>
       </div>
       <div class="experiences-grid">
         <div class="exp-card reveal">
-          <span class="exp-icon">🌿</span>
+          <span class="exp-icon">&#127807;</span>
           <h3 data-en="Cloud Forest Day Tour" data-es="Tour Diurno del Bosque Nuboso">Cloud Forest Day Tour</h3>
-          <p data-en="Walk the legendary trails of the Monteverde Cloud Forest Reserve. Spot the Resplendent Quetzal and over 400 bird species." data-es="Recorre los senderos legendarios de la Reserva del Bosque Nuboso de Monteverde. Observa el Quetzal Resplandeciente y más de 400 especies de aves.">Walk the legendary trails of the Monteverde Cloud Forest Reserve. Spot the Resplendent Quetzal and over 400 bird species.</p>
+          <p data-en="Walk the legendary trails of the Monteverde Cloud Forest Reserve. Spot the Resplendent Quetzal and over 400 bird species." data-es="Recorre los senderos legendarios de la Reserva del Bosque Nuboso de Monteverde. Observa el Quetzal Resplandeciente y m&aacute;s de 400 especies de aves.">Walk the legendary trails of the Monteverde Cloud Forest Reserve. Spot the Resplendent Quetzal and over 400 bird species.</p>
           <div class="exp-meta">
-            <span data-en="⏱ ~2.5 hours · 8:00 AM & 11:30 AM" data-es="⏱ ~2.5 horas · 8:00 AM & 11:30 AM">⏱ ~2.5 hours · 8:00 AM & 11:30 AM</span>
+            <span data-en="&#9201; ~2.5 hours &middot; 8:00 AM & 11:30 AM" data-es="&#9201; ~2.5 horas &middot; 8:00 AM & 11:30 AM">&#9201; ~2.5 hours &middot; 8:00 AM & 11:30 AM</span>
           </div>
           <div class="exp-price" data-en="From $30 USD" data-es="Desde $30 USD">From $30 USD</div>
-          <a href="guide.html#day-tour" class="exp-link" data-en="View Details →" data-es="Ver Detalles →">View Details →</a>
+          <a href="guide.html#day-tour" class="exp-link" data-en="View Details &rarr;" data-es="Ver Detalles &rarr;">View Details &rarr;</a>
         </div>
         <div class="exp-card reveal">
-          <span class="exp-icon">🌙</span>
+          <span class="exp-icon">&#127769;</span>
           <h3 data-en="Night Tour" data-es="Tour Nocturno">Night Tour</h3>
-          <p data-en="80% of cloud forest wildlife is nocturnal. Discover red-eyed tree frogs, sloths, pit vipers, and fireflies after dark." data-es="El 80% de la fauna del bosque nuboso es nocturna. Descubre ranas de ojos rojos, perezosos, víboras y luciérnagas.">80% of cloud forest wildlife is nocturnal. Discover red-eyed tree frogs, sloths, pit vipers, and fireflies after dark.</p>
+          <p data-en="80% of cloud forest wildlife is nocturnal. Discover red-eyed tree frogs, sloths, pit vipers, and fireflies after dark." data-es="El 80% de la fauna del bosque nuboso es nocturna. Descubre ranas de ojos rojos, perezosos, v&iacute;boras y luci&eacute;rnagas.">80% of cloud forest wildlife is nocturnal. Discover red-eyed tree frogs, sloths, pit vipers, and fireflies after dark.</p>
           <div class="exp-meta">
-            <span data-en="⏱ ~2 hours · 6:00 PM nightly" data-es="⏱ ~2 horas · 6:00 PM cada noche">⏱ ~2 hours · 6:00 PM nightly</span>
+            <span data-en="&#9201; ~2 hours &middot; 6:00 PM nightly" data-es="&#9201; ~2 horas &middot; 6:00 PM cada noche">&#9201; ~2 hours &middot; 6:00 PM nightly</span>
           </div>
           <div class="exp-price" data-en="From $30 USD" data-es="Desde $30 USD">From $30 USD</div>
-          <a href="guide.html#night-tour" class="exp-link" data-en="View Details →" data-es="Ver Detalles →">View Details →</a>
+          <a href="guide.html#night-tour" class="exp-link" data-en="View Details &rarr;" data-es="Ver Detalles &rarr;">View Details &rarr;</a>
         </div>
         <div class="exp-card reveal">
-          <span class="exp-icon">✨</span>
+          <span class="exp-icon">&#10024;</span>
           <h3 data-en="Private Exclusive Tour" data-es="Tour Privado Exclusivo">Private Exclusive Tour</h3>
-          <p data-en="Design your own Monteverde adventure. Choose your trail, your pace, your time. Perfect for families and couples." data-es="Diseña tu propia aventura en Monteverde. Escoge tu sendero, tu ritmo, tu horario. Perfecto para familias y parejas.">Design your own Monteverde adventure. Choose your trail, your pace, your time. Perfect for families and couples.</p>
+          <p data-en="Design your own Monteverde adventure. Choose your trail, your pace, your time. Perfect for families and couples." data-es="Dise&ntilde;a tu propia aventura en Monteverde. Escoge tu sendero, tu ritmo, tu horario. Perfecto para familias y parejas.">Design your own Monteverde adventure. Choose your trail, your pace, your time. Perfect for families and couples.</p>
           <div class="exp-meta">
-            <span data-en="⏱ Flexible · 8:00 AM, 11:30 AM or 6:00 PM" data-es="⏱ Flexible · 8:00 AM, 11:30 AM o 6:00 PM">⏱ Flexible · 8:00 AM, 11:30 AM or 6:00 PM</span>
+            <span data-en="&#9201; Flexible &middot; 8:00 AM, 11:30 AM or 6:00 PM" data-es="&#9201; Flexible &middot; 8:00 AM, 11:30 AM o 6:00 PM">&#9201; Flexible &middot; 8:00 AM, 11:30 AM or 6:00 PM</span>
           </div>
           <div class="exp-price" data-en="$180 USD (up to 4)" data-es="$180 USD (hasta 4)">$180 USD (up to 4)</div>
-          <a href="guide.html#private-tour" class="exp-link" data-en="View Details →" data-es="Ver Detalles →">View Details →</a>
+          <a href="guide.html#private-tour" class="exp-link" data-en="View Details &rarr;" data-es="Ver Detalles &rarr;">View Details &rarr;</a>
         </div>
       </div>
     </div>
@@ -206,8 +205,8 @@
   <section class="section" style="background: var(--forest);">
     <div class="container">
       <div class="section-header reveal">
-        <div class="eyebrow" data-en="Gallery" data-es="Galería">Gallery</div>
-        <h2 data-en="Through the <em>Mist</em>" data-es="A Través de la <em>Neblina</em>">Through the <em>Mist</em></h2>
+        <div class="eyebrow" data-en="Gallery" data-es="Galer&iacute;a">Gallery</div>
+        <h2 data-en="Through the <em>Mist</em>" data-es="A Trav&eacute;s de la <em>Neblina</em>">Through the <em>Mist</em></h2>
       </div>
       <div class="gallery-grid reveal">
         <div class="gallery-item">
@@ -220,7 +219,7 @@
         </div>
         <div class="gallery-item">
           <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800" alt="Green mountains of Costa Rica" loading="lazy">
-          <div class="gallery-overlay"><span data-en="Mountain Vistas" data-es="Vistas de Montaña">Mountain Vistas</span></div>
+          <div class="gallery-overlay"><span data-en="Mountain Vistas" data-es="Vistas de Monta&ntilde;a">Mountain Vistas</span></div>
         </div>
         <div class="gallery-item">
           <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800" alt="Forest trail in Monteverde" loading="lazy">
@@ -239,24 +238,43 @@
     <div class="container">
       <div class="section-header reveal">
         <div class="eyebrow" data-en="Testimonials" data-es="Testimonios">Testimonials</div>
-        <h2 data-en="What Travelers <em>Say</em>" data-es="Lo que Dicen los <em>Viajeros</em>">What Travelers <em>Say</em></h2>
+        <h2 data-en="They Came as Tourists. They Left as <em>Believers.</em>" data-es="Llegaron como turistas. Se fueron como <em>creyentes.</em>">They Came as Tourists. They Left as <em>Believers.</em></h2>
       </div>
       <div class="testimonials-grid">
         <div class="testimonial-card reveal">
-          <p class="testimonial-text" data-en="Juan Carlos has an extraordinary eye for wildlife. He spotted a quetzal before any of us even heard it. Truly magical." data-es="Juan Carlos tiene un ojo extraordinario para la vida silvestre. Avistó un quetzal antes de que cualquiera de nosotros lo escuchara. Verdaderamente mágico.">Juan Carlos has an extraordinary eye for wildlife. He spotted a quetzal before any of us even heard it. Truly magical.</p>
-          <div class="testimonial-author">— Sarah M., United States</div>
-          <div class="testimonial-stars">★★★★★</div>
+          <span class="testimonial-avatar">&#127465;&#127466;</span>
+          <span class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <p class="testimonial-text" data-en="Juan Carlos is an excellent guide. He takes a lot of time to explain the ecosystem and goes into great detail. The tour is worth every penny &mdash; we can only recommend it." data-es="Juan Carlos es un excelente gu&iacute;a. Se toma el tiempo para explicar el ecosistema en gran detalle. Vale absolutamente cada centavo.">Juan Carlos is an excellent guide. He takes a lot of time to explain the ecosystem and goes into great detail. The tour is worth every penny &mdash; we can only recommend it.</p>
+          <div class="testimonial-author">Verified TripAdvisor Reviewer</div>
+          <div class="testimonial-origin" data-en="Germany &middot; Cloud Forest Day Tour" data-es="Alemania &middot; Tour Diurno">Germany &middot; Cloud Forest Day Tour</div>
         </div>
         <div class="testimonial-card reveal">
-          <p class="testimonial-text" data-en="The night tour was the highlight of our entire Costa Rica trip. We saw sloths, frogs, and a pit viper!" data-es="El tour nocturno fue lo mejor de todo nuestro viaje a Costa Rica. ¡Vimos perezosos, ranas y una víbora!">The night tour was the highlight of our entire Costa Rica trip. We saw sloths, frogs, and a pit viper!</p>
-          <div class="testimonial-author">— James T., Canada</div>
-          <div class="testimonial-stars">★★★★★</div>
+          <span class="testimonial-avatar">&#127462;&#127482;</span>
+          <span class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <p class="testimonial-text" data-en="Our best guide in Costa Rica. He knew exactly where to find the Resplendent Quetzal. He even went outside the reserve to help us spot howler monkeys after the tour. Truly above and beyond." data-es="El mejor gu&iacute;a en Costa Rica. Sab&iacute;a exactamente d&oacute;nde encontrar el Quetzal Resplandeciente. Fue m&aacute;s all&aacute; de lo esperado.">Our best guide in Costa Rica. He knew exactly where to find the Resplendent Quetzal. He even went outside the reserve to help us spot howler monkeys after the tour. Truly above and beyond.</p>
+          <div class="testimonial-author">Verified TripAdvisor Reviewer</div>
+          <div class="testimonial-origin" data-en="Australia &middot; Private Tour" data-es="Australia &middot; Tour Privado">Australia &middot; Private Tour</div>
         </div>
         <div class="testimonial-card reveal">
-          <p class="testimonial-text" data-en="30 years of knowledge in every single step. This was not just a tour — it was an education." data-es="30 años de conocimiento en cada paso. Esto no fue solo un tour — fue una educación.">30 years of knowledge in every single step. This was not just a tour — it was an education.</p>
-          <div class="testimonial-author">— Elena R., Germany</div>
-          <div class="testimonial-stars">★★★★★</div>
+          <span class="testimonial-avatar">&#127482;&#127480;</span>
+          <span class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <p class="testimonial-text" data-en="JC showed us so many creatures on our night walk. We loved him so much that we signed up for another hike the very next day. Everyone in our group had an incredible experience." data-es="JC nos mostr&oacute; tantas criaturas en el tour nocturno. Lo disfrutamos tanto que nos inscribimos en otra caminata al d&iacute;a siguiente.">JC showed us so many creatures on our night walk. We loved him so much that we signed up for another hike the very next day. Everyone in our group had an incredible experience.</p>
+          <div class="testimonial-author">Verified TripAdvisor Reviewer</div>
+          <div class="testimonial-origin" data-en="United States &middot; Night Tour" data-es="Estados Unidos &middot; Tour Nocturno">United States &middot; Night Tour</div>
         </div>
+      </div>
+      <div style="text-align:center;margin-top:48px;" class="reveal">
+        <a href="https://www.tripadvisor.com/Attraction_Review-g309277-d11739359-Reviews-JC_Nature_Tour-Monteverde_Cloud_Forest_Reserve_Monteverde_Province_of_Puntarenas.html"
+           target="_blank" class="btn-tripadvisor">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="9" fill="#34E0A1"/>
+            <circle cx="5.5" cy="9" r="2" fill="white"/>
+            <circle cx="12.5" cy="9" r="2" fill="white"/>
+            <circle cx="5.5" cy="9" r=".8" fill="#34E0A1"/>
+            <circle cx="12.5" cy="9" r=".8" fill="#34E0A1"/>
+          </svg>
+          <span data-en="Read All Reviews on TripAdvisor" data-es="Ver todas las rese&ntilde;as en TripAdvisor">Read All Reviews on TripAdvisor</span>
+        </a>
       </div>
     </div>
   </section>
@@ -267,23 +285,42 @@
       <div class="booking-grid">
         <div class="booking-info reveal">
           <div class="eyebrow" data-en="Reservations" data-es="Reservaciones">Reservations</div>
-          <h2 data-en="Book Your <em>Experience</em>" data-es="Reserva Tu <em>Experiencia</em>">Book Your <em>Experience</em></h2>
-          <p data-en="Fill in the form and we'll confirm your tour within 24 hours. All tours are subject to availability and weather conditions." data-es="Completa el formulario y confirmaremos tu tour en 24 horas. Todos los tours están sujetos a disponibilidad y condiciones climáticas.">Fill in the form and we'll confirm your tour within 24 hours. All tours are subject to availability and weather conditions.</p>
+          <h2 data-en="Your Monteverde Story Starts <em>Here.</em>" data-es="Tu historia en Monteverde empieza <em>aqu&iacute;.</em>">Your Monteverde Story Starts <em>Here.</em></h2>
+          <p data-en="Limited spots per day. Juan Carlos keeps groups small &mdash; because the forest deserves it, and so do you." data-es="Cupos limitados por d&iacute;a. Juan Carlos mantiene grupos peque&ntilde;os &mdash; porque el bosque lo merece, y vos tambi&eacute;n.">Limited spots per day. Juan Carlos keeps groups small &mdash; because the forest deserves it, and so do you.</p>
 
-          <div class="contact-direct">
-            <p data-en="Or contact us directly:" data-es="O contáctanos directamente:">Or contact us directly:</p>
-            <a href="https://wa.me/50663914901" class="contact-link" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              +506 6391-4901
-            </a>
-            <a href="mailto:jce1310@hotmail.com" class="contact-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
-              jce1310@hotmail.com
-            </a>
-          </div>
-
-          <div class="cancellation-note">
-            <p data-en="✓ Free cancellation with 24-hour notice. No prepayment required — pay on the day of your tour." data-es="✓ Cancelación gratuita con 24 horas de anticipación. No se requiere prepago — paga el día de tu tour.">✓ Free cancellation with 24-hour notice. No prepayment required — pay on the day of your tour.</p>
+          <div class="direct-contact">
+            <p data-en="Or reach us directly:" data-es="O cont&aacute;ctanos directamente:">Or reach us directly:</p>
+            <div class="contact-methods">
+              <a href="https://wa.me/50663914901" target="_blank" class="contact-method">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <circle cx="9" cy="9" r="9" fill="#25D366"/>
+                  <path d="M12.5 10.5c-.2-.1-1.1-.5-1.3-.6-.2-.1-.3-.1-.5.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.8-.3-1.6-1-.6-.5-.9-1.1-1-1.3-.1-.2 0-.3.1-.4l.3-.3c.1-.1.1-.2.1-.3 0-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3 0-.5.2-.2.2-.7.6-.7 1.5s.7 1.8.8 1.9c.1.1 1.3 2 3.2 2.8.5.2.8.3 1.1.4.5.1.9.1 1.2 0 .4-.1 1.1-.4 1.2-.9.1-.4.1-.8.1-.8 0-.1-.1-.1-.3-.2z" fill="white"/>
+                </svg>
+                <span>+506 6391-4901</span>
+              </a>
+              <a href="mailto:jce1310@hotmail.com" class="contact-method">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <rect x="2" y="4" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                  <path d="M2 5l7 5 7-5" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+                <span>jce1310@hotmail.com</span>
+              </a>
+              <a href="https://www.tripadvisor.com/Attraction_Review-g309277-d11739359-Reviews-JC_Nature_Tour-Monteverde_Cloud_Forest_Reserve_Monteverde_Province_of_Puntarenas.html"
+                 target="_blank" class="contact-method">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <circle cx="9" cy="9" r="9" fill="#34E0A1"/>
+                  <circle cx="5.5" cy="9" r="2" fill="white"/>
+                  <circle cx="12.5" cy="9" r="2" fill="white"/>
+                  <circle cx="5.5" cy="9" r=".8" fill="#34E0A1"/>
+                  <circle cx="12.5" cy="9" r=".8" fill="#34E0A1"/>
+                </svg>
+                <span data-en="Reviews on TripAdvisor" data-es="Rese&ntilde;as en TripAdvisor">Reviews on TripAdvisor</span>
+              </a>
+            </div>
+            <p class="cancel-note" data-en="&#10003; Free cancellation &middot; 24h advance notice required"
+               data-es="&#10003; Cancelaci&oacute;n gratuita &middot; Aviso con 24h de anticipaci&oacute;n">
+              &#10003; Free cancellation &middot; 24h advance notice required
+            </p>
           </div>
         </div>
 
@@ -294,11 +331,11 @@
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="email" data-en="Email" data-es="Correo Electrónico">Email</label>
+              <label for="email" data-en="Email" data-es="Correo Electr&oacute;nico">Email</label>
               <input type="email" id="email" name="email" required placeholder="email@example.com">
             </div>
             <div class="form-group">
-              <label for="phone" data-en="Phone (optional)" data-es="Teléfono (opcional)">Phone (optional)</label>
+              <label for="phone" data-en="Phone (optional)" data-es="Tel&eacute;fono (opcional)">Phone (optional)</label>
               <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
             </div>
           </div>
@@ -307,7 +344,7 @@
             <select id="tour" name="tour" required>
               <option value="" data-en="Select a tour" data-es="Selecciona un tour">Select a tour</option>
               <option value="day" data-en="Cloud Forest Day Tour" data-es="Tour Diurno del Bosque Nuboso">Cloud Forest Day Tour</option>
-              <option value="night" data-en="Night Tour — Refugio Monteverde" data-es="Tour Nocturno — Refugio Monteverde">Night Tour — Refugio Monteverde</option>
+              <option value="night" data-en="Night Tour &mdash; Refugio Monteverde" data-es="Tour Nocturno &mdash; Refugio Monteverde">Night Tour &mdash; Refugio Monteverde</option>
               <option value="private" data-en="Private Exclusive Tour" data-es="Tour Privado Exclusivo">Private Exclusive Tour</option>
             </select>
           </div>
@@ -317,13 +354,13 @@
               <input type="date" id="date" name="date" required>
             </div>
             <div class="form-group">
-              <label for="people" data-en="Number of People" data-es="Número de Personas">Number of People</label>
+              <label for="people" data-en="Number of People" data-es="N&uacute;mero de Personas">Number of People</label>
               <input type="number" id="people" name="people" min="1" max="20" required placeholder="2">
             </div>
           </div>
           <div class="form-group">
             <label for="message" data-en="Message" data-es="Mensaje">Message</label>
-            <textarea id="message" name="message" rows="4" data-en-placeholder="Tell us about your trip..." data-es-placeholder="Cuéntanos sobre tu viaje..."></textarea>
+            <textarea id="message" name="message" rows="4" data-en-placeholder="Tell us about your trip..." data-es-placeholder="Cu&eacute;ntanos sobre tu viaje..."></textarea>
           </div>
           <button type="submit" class="btn-submit" data-en="Send Reservation Request" data-es="Enviar Solicitud de Reserva">Send Reservation Request</button>
         </form>
@@ -332,41 +369,44 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-logo">JC Tours</div>
-          <p class="footer-tagline" data-en="Expert naturalist guide in Monteverde, Costa Rica. Over 30 years of experience exploring the cloud forest." data-es="Guía naturalista experto en Monteverde, Costa Rica. Más de 30 años de experiencia explorando el bosque nuboso.">Expert naturalist guide in Monteverde, Costa Rica. Over 30 years of experience exploring the cloud forest.</p>
-        </div>
-        <div>
-          <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
-          <div class="footer-links">
-            <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
-            <a href="guide.html" data-en="The Guide" data-es="El Guía">The Guide</a>
-            <a href="places.html" data-en="Places & Hours" data-es="Lugares y Horarios">Places & Hours</a>
-            <a href="#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
-          </div>
-        </div>
-        <div>
-          <h4 data-en="Contact" data-es="Contacto">Contact</h4>
-          <div class="footer-contact">
-            <a href="https://wa.me/50663914901" target="_blank" rel="noopener">📱 +506 6391-4901</a>
-            <a href="mailto:jce1310@hotmail.com">✉ jce1310@hotmail.com</a>
-            <p>📍 Monteverde, Puntarenas, Costa Rica</p>
-          </div>
-        </div>
+  <footer>
+    <div class="footer-main">
+      <div class="footer-brand">
+        <span class="footer-logo">JC Tours</span>
+        <p data-en="Naturalist guide. Monteverde, Costa Rica."
+           data-es="Gu&iacute;a naturalista. Monteverde, Costa Rica.">
+          Naturalist guide. Monteverde, Costa Rica.
+        </p>
       </div>
-      <div class="footer-bottom">
-        © 2025 JC Tours · Juan Carlos Calvo Esquivel · <span data-en="Developed by" data-es="Desarrollado por">Developed by</span> TyT Software & Solutions
+      <div class="footer-links">
+        <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+        <a href="guide.html" data-en="The Guide" data-es="El Gu&iacute;a">The Guide</a>
+        <a href="places.html" data-en="Places & Hours" data-es="Lugares">Places & Hours</a>
+        <a href="#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
       </div>
+      <div class="footer-contact">
+        <a href="https://wa.me/50663914901" target="_blank">+506 6391-4901</a>
+        <a href="mailto:jce1310@hotmail.com">jce1310@hotmail.com</a>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g309277-d11739359-Reviews-JC_Nature_Tour-Monteverde_Cloud_Forest_Reserve_Monteverde_Province_of_Puntarenas.html"
+           target="_blank" data-en="TripAdvisor Reviews" data-es="Rese&ntilde;as TripAdvisor">TripAdvisor Reviews</a>
+        <a href="https://www.airbnb.co.cr/experiences/6914172"
+           target="_blank" data-en="Airbnb Experience" data-es="Experiencia Airbnb">Airbnb Experience</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 JC Tours &middot; Juan Carlos Calvo Esquivel &middot; Monteverde, Costa Rica</span>
+      <span class="tyt-credit">Crafted by <a href="#" target="_blank">TyT Software & Solutions</a></span>
     </div>
   </footer>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/50663914901" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    <span class="whatsapp-label" data-en="Chat with us" data-es="Escríbenos">Chat with us</span>
+  <a href="https://wa.me/50663914901?text=Hello%20Juan%20Carlos!%20I%20found%20JC%20Tours%20and%20I%27m%20interested%20in%20booking%20a%20tour%20in%20Monteverde."
+     target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <path d="M13 1C6.4 1 1 6.4 1 13c0 2.1.6 4.2 1.6 5.9L1 25l6.3-1.6C9 24.4 11 25 13 25c6.6 0 12-5.4 12-12S19.6 1 13 1z" fill="white"/>
+      <path d="M18.5 15.8c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.2-.5 0-.2-.7-1.6-.9-2.2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.3s1 2.7 1.1 2.8c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3 0-.1-.2-.2-.5-.3z" fill="#25D366"/>
+    </svg>
+    <span class="whatsapp-label" data-en="Book via WhatsApp" data-es="Reservar por WhatsApp">Book via WhatsApp</span>
   </a>
 
   <script src="js/main.js"></script>
