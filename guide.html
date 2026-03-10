@@ -7,30 +7,27 @@
   <meta name="description" content="Meet Juan Carlos Calvo Esquivel — 30+ years as a naturalist guide in Monteverde's cloud forest. Expert birding, night tours, and private experiences.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- Custom Cursor -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-ring"></div>
-
   <!-- Navbar -->
   <nav class="navbar">
-    <a href="index.html" class="nav-logo"><span class="logo-main">JC Tours</span><span class="logo-sub">Juan Carlos Calvo · Monteverde</span></a>
+    <a href="index.html" class="nav-logo">
+      <span class="logo-main">JC Tours</span>
+      <span class="logo-sub">Juan Carlos Calvo &middot; Monteverde</span>
+    </a>
     <div class="nav-links" id="navLinks">
       <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
-      <a href="guide.html" data-en="The Guide" data-es="El Guía">The Guide</a>
-      <a href="places.html" data-en="Places & Hours" data-es="Lugares y Horarios">Places & Hours</a>
+      <a href="guide.html" data-en="The Guide" data-es="El Gu&iacute;a">The Guide</a>
+      <a href="places.html" data-en="Places & Hours" data-es="Lugares">Places & Hours</a>
       <a href="index.html#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
-      <div class="lang-toggle">
-        <button id="langEN" class="active">EN</button>
-        <button id="langES">ES</button>
+      <div style="margin-top:8px;">
+        <button class="lang-btn" id="langToggle">ES</button>
       </div>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span>
       <span></span>
       <span></span>
     </button>
@@ -39,24 +36,14 @@
   <!-- Hero -->
   <section class="hero" style="min-height: 70vh;">
     <div class="hero-bg"></div>
-    <svg class="grain" viewBox="0 0 1024 1024" preserveAspectRatio="none">
-      <filter id="grain-filter-guide">
-        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
-        <feColorMatrix type="saturate" values="0"/>
-      </filter>
-      <rect width="100%" height="100%" filter="url(#grain-filter-guide)" opacity="0.4"/>
-    </svg>
-    <div class="leaves-container">
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-      <div class="leaf"></div>
-    </div>
+    <div class="grain"></div>
     <div class="container">
-      <div class="hero-content">
-        <div class="eyebrow" data-en="Naturalist Guide" data-es="Guía Naturalista">Naturalist Guide</div>
-        <h1 data-en="Meet Your <em>Guide</em>" data-es="Conoce a tu <em>Guía</em>">Meet Your <em>Guide</em></h1>
+      <div class="hero-content" style="padding-top:120px;">
+        <div class="eyebrow" data-en="Naturalist Guide" data-es="Gu&iacute;a Naturalista">Naturalist Guide</div>
+        <h1 class="hero-title" style="font-size:clamp(36px,5vw,72px);">
+          <span class="line-1" data-en="Meet Your" data-es="Conoc&eacute; a tu">Meet Your</span>
+          <span class="line-2"><em data-en="Guide." data-es="Gu&iacute;a.">Guide.</em></span>
+        </h1>
         <p class="hero-sub" data-en="A life dedicated to the cloud forest." data-es="Una vida dedicada al bosque nuboso.">A life dedicated to the cloud forest.</p>
       </div>
     </div>
@@ -67,29 +54,28 @@
     <div class="container">
       <div class="bio-grid">
         <div class="bio-portrait reveal">
-          <span class="bio-portrait-icon">🌿</span>
-          <div class="bio-badge" data-en="30+ Years" data-es="30+ Años">30+ Years</div>
+          <span class="bio-portrait-icon">&#127807;</span>
+          <div class="bio-badge" data-en="30+ Years" data-es="30+ A&ntilde;os">30+ Years</div>
         </div>
         <div class="bio-text reveal">
           <h2 data-en="Juan Carlos <em>Calvo Esquivel</em>" data-es="Juan Carlos <em>Calvo Esquivel</em>">Juan Carlos <em>Calvo Esquivel</em></h2>
-          <p data-en="My name is Juan Carlos Calvo Esquivel, and I've spent over 30 years walking the trails of Monteverde's cloud forest. For me, this isn't a job — it's a calling. I grew up surrounded by the mist and the music of the bellbird, and every day I discover something new in these forests." data-es="Mi nombre es Juan Carlos Calvo Esquivel, y he pasado más de 30 años recorriendo los senderos del bosque nuboso de Monteverde. Para mí, esto no es un trabajo — es una vocación. Crecí rodeado de la neblina y la música del pájaro campana, y cada día descubro algo nuevo en estos bosques.">My name is Juan Carlos Calvo Esquivel, and I've spent over 30 years walking the trails of Monteverde's cloud forest. For me, this isn't a job — it's a calling. I grew up surrounded by the mist and the music of the bellbird, and every day I discover something new in these forests.</p>
-          <p data-en="I guide in both English and Spanish, and my goal is simple: to help you see what most people walk right past." data-es="Guío en inglés y español, y mi objetivo es simple: ayudarte a ver lo que la mayoría de las personas pasan por alto.">I guide in both English and Spanish, and my goal is simple: to help you see what most people walk right past.</p>
+          <p data-en="My name is Juan Carlos Calvo Esquivel. I was born in the mountains of Costa Rica, and I have never left &mdash; not because I couldn't, but because I found everything worth finding right here. For over 30 years I have walked these trails, watching the forest change with the seasons, listening to birds that most people will never hear in their lifetime. I guide in English and Spanish, and I bring one thing that no app or tour company can offer: a lifetime of paying attention." data-es="Mi nombre es Juan Carlos Calvo Esquivel. Nac&iacute; en las monta&ntilde;as de Costa Rica y nunca me fui &mdash; no porque no pudiera, sino porque aqu&iacute; encontr&eacute; todo lo que vale la pena encontrar. Por m&aacute;s de 30 a&ntilde;os he caminado estos senderos, escuchando aves que la mayor&iacute;a nunca escuchar&aacute; en su vida.">My name is Juan Carlos Calvo Esquivel. I was born in the mountains of Costa Rica, and I have never left &mdash; not because I couldn't, but because I found everything worth finding right here. For over 30 years I have walked these trails, watching the forest change with the seasons, listening to birds that most people will never hear in their lifetime. I guide in English and Spanish, and I bring one thing that no app or tour company can offer: a lifetime of paying attention.</p>
 
           <div class="credential-badges">
             <div class="credential">
-              <span class="credential-icon">🏆</span>
-              <span data-en="30+ Years" data-es="30+ Años">30+ Years</span>
+              <span class="credential-icon">&#127942;</span>
+              <span data-en="30+ Years" data-es="30+ A&ntilde;os">30+ Years</span>
             </div>
             <div class="credential">
-              <span class="credential-icon">🌐</span>
-              <span data-en="Bilingual EN/ES" data-es="Bilingüe EN/ES">Bilingual EN/ES</span>
+              <span class="credential-icon">&#127760;</span>
+              <span data-en="Bilingual EN/ES" data-es="Biling&uuml;e EN/ES">Bilingual EN/ES</span>
             </div>
             <div class="credential">
-              <span class="credential-icon">🌿</span>
+              <span class="credential-icon">&#127807;</span>
               <span data-en="Flora & Fauna Expert" data-es="Experto en Flora y Fauna">Flora & Fauna Expert</span>
             </div>
             <div class="credential">
-              <span class="credential-icon">📜</span>
+              <span class="credential-icon">&#128220;</span>
               <span data-en="ICT Certified" data-es="Certificado ICT">ICT Certified</span>
             </div>
           </div>
@@ -113,35 +99,35 @@
         </div>
         <div class="exp-detail-body">
           <div>
-            <p class="exp-description" data-en="Walk the legendary trails of the Monteverde Cloud Forest Biological Reserve with an expert naturalist at your side. Spot the Resplendent Quetzal, learn about 400+ bird species, and understand the fragile ecosystem that makes Monteverde one of Earth's most biodiverse places." data-es="Recorre los senderos legendarios de la Reserva Biológica Bosque Nuboso de Monteverde con un naturalista experto. Observa el Quetzal Resplandeciente y aprende sobre más de 400 especies de aves.">Walk the legendary trails of the Monteverde Cloud Forest Biological Reserve with an expert naturalist at your side. Spot the Resplendent Quetzal, learn about 400+ bird species, and understand the fragile ecosystem that makes Monteverde one of Earth's most biodiverse places.</p>
+            <p class="exp-description" data-en="Walk the legendary trails of the Monteverde Cloud Forest Biological Reserve with an expert naturalist at your side. Spot the Resplendent Quetzal, learn about 400+ bird species, and understand the fragile ecosystem that makes Monteverde one of Earth's most biodiverse places." data-es="Recorre los senderos legendarios de la Reserva Biol&oacute;gica Bosque Nuboso de Monteverde con un naturalista experto. Observa el Quetzal Resplandeciente y aprende sobre m&aacute;s de 400 especies de aves.">Walk the legendary trails of the Monteverde Cloud Forest Biological Reserve with an expert naturalist at your side. Spot the Resplendent Quetzal, learn about 400+ bird species, and understand the fragile ecosystem that makes Monteverde one of Earth's most biodiverse places.</p>
             <div class="exp-info-grid">
               <div class="exp-info-item">
-                <h4 data-en="Duration" data-es="Duración">Duration</h4>
+                <h4 data-en="Duration" data-es="Duraci&oacute;n">Duration</h4>
                 <p>~2.5 hours</p>
               </div>
               <div class="exp-info-item">
                 <h4 data-en="Language" data-es="Idioma">Language</h4>
-                <p data-en="English / Spanish" data-es="Inglés / Español">English / Spanish</p>
+                <p data-en="English / Spanish" data-es="Ingl&eacute;s / Espa&ntilde;ol">English / Spanish</p>
               </div>
               <div class="exp-info-item">
                 <h4 data-en="Schedule" data-es="Horario">Schedule</h4>
-                <p data-en="8:00 AM · 11:30 AM (daily, subject to availability)" data-es="8:00 AM · 11:30 AM (diario, sujeto a disponibilidad)">8:00 AM · 11:30 AM (daily, subject to availability)</p>
+                <p data-en="8:00 AM &middot; 11:30 AM (daily, subject to availability)" data-es="8:00 AM &middot; 11:30 AM (diario, sujeto a disponibilidad)">8:00 AM &middot; 11:30 AM (daily, subject to availability)</p>
               </div>
               <div class="exp-info-item">
-                <h4 data-en="What's Included" data-es="Qué Incluye">What's Included</h4>
+                <h4 data-en="What's Included" data-es="Qu&eacute; Incluye">What's Included</h4>
                 <ul>
-                  <li data-en="Expert naturalist guide" data-es="Guía naturalista experto">Expert naturalist guide</li>
+                  <li data-en="Expert naturalist guide" data-es="Gu&iacute;a naturalista experto">Expert naturalist guide</li>
                   <li data-en="Binoculars" data-es="Binoculares">Binoculars</li>
                   <li data-en="Wildlife spotting scope" data-es="Telescopio para avistamiento">Wildlife spotting scope</li>
                 </ul>
               </div>
               <div class="exp-info-item">
-                <h4 data-en="What to Bring" data-es="Qué Traer">What to Bring</h4>
+                <h4 data-en="What to Bring" data-es="Qu&eacute; Traer">What to Bring</h4>
                 <ul>
-                  <li data-en="Comfortable walking shoes" data-es="Zapatos cómodos para caminar">Comfortable walking shoes</li>
+                  <li data-en="Comfortable walking shoes" data-es="Zapatos c&oacute;modos para caminar">Comfortable walking shoes</li>
                   <li data-en="Rain jacket" data-es="Chaqueta impermeable">Rain jacket</li>
                   <li data-en="Water" data-es="Agua">Water</li>
-                  <li data-en="Camera" data-es="Cámara">Camera</li>
+                  <li data-en="Camera" data-es="C&aacute;mara">Camera</li>
                 </ul>
               </div>
             </div>
@@ -164,34 +150,34 @@
       <!-- Night Tour -->
       <div class="experience-detail reveal" id="night-tour">
         <div class="exp-detail-header">
-          <h3 data-en="Night Tour — Refugio Monteverde" data-es="Tour Nocturno — Refugio Monteverde">Night Tour — Refugio Monteverde</h3>
+          <h3 data-en="Night Tour &mdash; Refugio Monteverde" data-es="Tour Nocturno &mdash; Refugio Monteverde">Night Tour &mdash; Refugio Monteverde</h3>
         </div>
         <div class="exp-detail-body">
           <div>
-            <p class="exp-description" data-en="Discover Monteverde after dark. 80% of the cloud forest's wildlife is nocturnal — and this is your chance to witness it. Red-eyed tree frogs, pit vipers, sloths, armadillos, sleeping toucans, and fireflies. An experience unlike anything you've seen before." data-es="Descubre Monteverde de noche. El 80% de la fauna del bosque nuboso es nocturna — y esta es tu oportunidad de verla. Ranas de ojos rojos, víboras, perezosos, armadillos y luciérnagas. Una experiencia única.">Discover Monteverde after dark. 80% of the cloud forest's wildlife is nocturnal — and this is your chance to witness it. Red-eyed tree frogs, pit vipers, sloths, armadillos, sleeping toucans, and fireflies. An experience unlike anything you've seen before.</p>
+            <p class="exp-description" data-en="Discover Monteverde after dark. 80% of the cloud forest's wildlife is nocturnal &mdash; and this is your chance to witness it. Red-eyed tree frogs, pit vipers, sloths, armadillos, sleeping toucans, and fireflies. An experience unlike anything you've seen before." data-es="Descubre Monteverde de noche. El 80% de la fauna del bosque nuboso es nocturna &mdash; y esta es tu oportunidad de verla. Ranas de ojos rojos, v&iacute;boras, perezosos, armadillos y luci&eacute;rnagas. Una experiencia &uacute;nica.">Discover Monteverde after dark. 80% of the cloud forest's wildlife is nocturnal &mdash; and this is your chance to witness it. Red-eyed tree frogs, pit vipers, sloths, armadillos, sleeping toucans, and fireflies. An experience unlike anything you've seen before.</p>
             <div class="exp-info-grid">
               <div class="exp-info-item">
-                <h4 data-en="Duration" data-es="Duración">Duration</h4>
+                <h4 data-en="Duration" data-es="Duraci&oacute;n">Duration</h4>
                 <p>~2 hours</p>
               </div>
               <div class="exp-info-item">
                 <h4 data-en="Language" data-es="Idioma">Language</h4>
-                <p data-en="English / Spanish" data-es="Inglés / Español">English / Spanish</p>
+                <p data-en="English / Spanish" data-es="Ingl&eacute;s / Espa&ntilde;ol">English / Spanish</p>
               </div>
               <div class="exp-info-item">
                 <h4 data-en="Schedule" data-es="Horario">Schedule</h4>
                 <p data-en="6:00 PM (nightly)" data-es="6:00 PM (todas las noches)">6:00 PM (nightly)</p>
               </div>
               <div class="exp-info-item">
-                <h4 data-en="What's Included" data-es="Qué Incluye">What's Included</h4>
+                <h4 data-en="What's Included" data-es="Qu&eacute; Incluye">What's Included</h4>
                 <ul>
-                  <li data-en="Powerful guide flashlight" data-es="Linterna profesional de guía">Powerful guide flashlight</li>
-                  <li data-en="Naturalist guide" data-es="Guía naturalista">Naturalist guide</li>
-                  <li data-en="Telescope for photography" data-es="Telescopio para fotografía">Telescope for photography</li>
+                  <li data-en="Powerful guide flashlight" data-es="Linterna profesional de gu&iacute;a">Powerful guide flashlight</li>
+                  <li data-en="Naturalist guide" data-es="Gu&iacute;a naturalista">Naturalist guide</li>
+                  <li data-en="Telescope for photography" data-es="Telescopio para fotograf&iacute;a">Telescope for photography</li>
                 </ul>
               </div>
             </div>
-            <div class="place-note" style="margin-top: 32px;" data-en="80% of cloud forest wildlife is nocturnal — the night tour offers the highest wildlife encounter rate." data-es="El 80% de la fauna del bosque nuboso es nocturna — el tour nocturno ofrece la mayor tasa de encuentros con vida silvestre.">80% of cloud forest wildlife is nocturnal — the night tour offers the highest wildlife encounter rate.</div>
+            <div class="place-note" style="margin-top: 32px;" data-en="80% of cloud forest wildlife is nocturnal &mdash; the night tour offers the highest wildlife encounter rate." data-es="El 80% de la fauna del bosque nuboso es nocturna &mdash; el tour nocturno ofrece la mayor tasa de encuentros con vida silvestre.">80% of cloud forest wildlife is nocturnal &mdash; the night tour offers the highest wildlife encounter rate.</div>
           </div>
           <div class="exp-pricing">
             <h4 data-en="Pricing" data-es="Precios">Pricing</h4>
@@ -212,25 +198,25 @@
       <div class="experience-detail reveal" id="private-tour">
         <div class="exp-detail-header">
           <h3 data-en="Private Exclusive Tour" data-es="Tour Privado Exclusivo">Private Exclusive Tour</h3>
-          <span class="exp-badge" data-en="Most Popular" data-es="Más Popular">Most Popular</span>
+          <span class="exp-badge" data-en="Most Popular" data-es="M&aacute;s Popular">Most Popular</span>
         </div>
         <div class="exp-detail-body">
           <div>
-            <p class="exp-description" data-en="Design your own Monteverde adventure. Choose your trail, your pace, your time. Perfect for families, couples, or groups who want a fully personalized experience with zero compromise. Available morning, midday, or evening." data-es="Diseña tu propia aventura en Monteverde. Escoge tu sendero, tu ritmo, tu horario. Perfecto para familias, parejas o grupos que desean una experiencia completamente personalizada. Disponible en la mañana, mediodía o noche.">Design your own Monteverde adventure. Choose your trail, your pace, your time. Perfect for families, couples, or groups who want a fully personalized experience with zero compromise. Available morning, midday, or evening.</p>
+            <p class="exp-description" data-en="Design your own Monteverde adventure. Choose your trail, your pace, your time. Perfect for families, couples, or groups who want a fully personalized experience with zero compromise. Available morning, midday, or evening." data-es="Dise&ntilde;a tu propia aventura en Monteverde. Escoge tu sendero, tu ritmo, tu horario. Perfecto para familias, parejas o grupos que desean una experiencia completamente personalizada. Disponible en la ma&ntilde;ana, mediod&iacute;a o noche.">Design your own Monteverde adventure. Choose your trail, your pace, your time. Perfect for families, couples, or groups who want a fully personalized experience with zero compromise. Available morning, midday, or evening.</p>
             <div class="exp-info-grid">
               <div class="exp-info-item">
                 <h4 data-en="Schedule" data-es="Horario">Schedule</h4>
-                <p data-en="8:00 AM · 11:30 AM · 6:00 PM" data-es="8:00 AM · 11:30 AM · 6:00 PM">8:00 AM · 11:30 AM · 6:00 PM</p>
+                <p data-en="8:00 AM &middot; 11:30 AM &middot; 6:00 PM" data-es="8:00 AM &middot; 11:30 AM &middot; 6:00 PM">8:00 AM &middot; 11:30 AM &middot; 6:00 PM</p>
               </div>
               <div class="exp-info-item">
                 <h4 data-en="Language" data-es="Idioma">Language</h4>
-                <p data-en="English / Spanish" data-es="Inglés / Español">English / Spanish</p>
+                <p data-en="English / Spanish" data-es="Ingl&eacute;s / Espa&ntilde;ol">English / Spanish</p>
               </div>
               <div class="exp-info-item">
                 <h4 data-en="Includes" data-es="Incluye">Includes</h4>
                 <ul>
                   <li data-en="Personalized itinerary" data-es="Itinerario personalizado">Personalized itinerary</li>
-                  <li data-en="Expert naturalist guide" data-es="Guía naturalista experto">Expert naturalist guide</li>
+                  <li data-en="Expert naturalist guide" data-es="Gu&iacute;a naturalista experto">Expert naturalist guide</li>
                   <li data-en="All equipment provided" data-es="Todo el equipo proporcionado">All equipment provided</li>
                 </ul>
               </div>
@@ -242,7 +228,7 @@
               <span class="price-type" data-en="Private Tour (up to 4 people)" data-es="Tour Privado (hasta 4 personas)">Private Tour (up to 4 people)</span>
               <span class="price-amount">$180 USD</span>
             </div>
-            <p class="price-note" data-en="+ Reserve entrance fees (paid separately). Additional guests welcome — contact us for group rates." data-es="+ Tarifas de entrada a la reserva (se pagan por separado). Invitados adicionales bienvenidos — contáctanos para tarifas de grupo.">+ Reserve entrance fees (paid separately). Additional guests welcome — contact us for group rates.</p>
+            <p class="price-note" data-en="+ Reserve entrance fees (paid separately). Additional guests welcome &mdash; contact us for group rates." data-es="+ Tarifas de entrada a la reserva (se pagan por separado). Invitados adicionales bienvenidos &mdash; cont&aacute;ctanos para tarifas de grupo.">+ Reserve entrance fees (paid separately). Additional guests welcome &mdash; contact us for group rates.</p>
           </div>
         </div>
       </div>
@@ -252,50 +238,53 @@
   <!-- Booking CTA -->
   <section class="booking-cta">
     <div class="container reveal">
-      <h2 data-en="Ready for Your Monteverde <em>Experience</em>?" data-es="¿Listo para Tu <em>Experiencia</em> en Monteverde?">Ready for Your Monteverde <em>Experience</em>?</h2>
+      <h2 data-en="Ready for Your Monteverde <em>Experience</em>?" data-es="&iquest;Listo para Tu <em>Experiencia</em> en Monteverde?">Ready for Your Monteverde <em>Experience</em>?</h2>
       <div class="booking-cta-buttons">
         <a href="index.html#booking" class="btn-gold" data-en="Book Now" data-es="Reservar Ahora">Book Now</a>
-        <a href="https://wa.me/50663914901" class="btn-ghost" target="_blank" rel="noopener" data-en="WhatsApp Us" data-es="Escríbenos por WhatsApp">WhatsApp Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="https://wa.me/50663914901" class="btn-ghost" target="_blank" rel="noopener" data-en="WhatsApp Us" data-es="Escr&iacute;benos por WhatsApp">WhatsApp Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-logo">JC Tours</div>
-          <p class="footer-tagline" data-en="Expert naturalist guide in Monteverde, Costa Rica. Over 30 years of experience exploring the cloud forest." data-es="Guía naturalista experto en Monteverde, Costa Rica. Más de 30 años de experiencia explorando el bosque nuboso.">Expert naturalist guide in Monteverde, Costa Rica. Over 30 years of experience exploring the cloud forest.</p>
-        </div>
-        <div>
-          <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
-          <div class="footer-links">
-            <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
-            <a href="guide.html" data-en="The Guide" data-es="El Guía">The Guide</a>
-            <a href="places.html" data-en="Places & Hours" data-es="Lugares y Horarios">Places & Hours</a>
-            <a href="index.html#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
-          </div>
-        </div>
-        <div>
-          <h4 data-en="Contact" data-es="Contacto">Contact</h4>
-          <div class="footer-contact">
-            <a href="https://wa.me/50663914901" target="_blank" rel="noopener">📱 +506 6391-4901</a>
-            <a href="mailto:jce1310@hotmail.com">✉ jce1310@hotmail.com</a>
-            <p>📍 Monteverde, Puntarenas, Costa Rica</p>
-          </div>
-        </div>
+  <footer>
+    <div class="footer-main">
+      <div class="footer-brand">
+        <span class="footer-logo">JC Tours</span>
+        <p data-en="Naturalist guide. Monteverde, Costa Rica."
+           data-es="Gu&iacute;a naturalista. Monteverde, Costa Rica.">
+          Naturalist guide. Monteverde, Costa Rica.
+        </p>
       </div>
-      <div class="footer-bottom">
-        © 2025 JC Tours · Juan Carlos Calvo Esquivel · <span data-en="Developed by" data-es="Desarrollado por">Developed by</span> TyT Software & Solutions
+      <div class="footer-links">
+        <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+        <a href="guide.html" data-en="The Guide" data-es="El Gu&iacute;a">The Guide</a>
+        <a href="places.html" data-en="Places & Hours" data-es="Lugares">Places & Hours</a>
+        <a href="index.html#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
       </div>
+      <div class="footer-contact">
+        <a href="https://wa.me/50663914901" target="_blank">+506 6391-4901</a>
+        <a href="mailto:jce1310@hotmail.com">jce1310@hotmail.com</a>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g309277-d11739359-Reviews-JC_Nature_Tour-Monteverde_Cloud_Forest_Reserve_Monteverde_Province_of_Puntarenas.html"
+           target="_blank" data-en="TripAdvisor Reviews" data-es="Rese&ntilde;as TripAdvisor">TripAdvisor Reviews</a>
+        <a href="https://www.airbnb.co.cr/experiences/6914172"
+           target="_blank" data-en="Airbnb Experience" data-es="Experiencia Airbnb">Airbnb Experience</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 JC Tours &middot; Juan Carlos Calvo Esquivel &middot; Monteverde, Costa Rica</span>
+      <span class="tyt-credit">Crafted by <a href="#" target="_blank">TyT Software & Solutions</a></span>
     </div>
   </footer>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/50663914901" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    <span class="whatsapp-label" data-en="Chat with us" data-es="Escríbenos">Chat with us</span>
+  <a href="https://wa.me/50663914901?text=Hello%20Juan%20Carlos!%20I%20found%20JC%20Tours%20and%20I%27m%20interested%20in%20booking%20a%20tour%20in%20Monteverde."
+     target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <path d="M13 1C6.4 1 1 6.4 1 13c0 2.1.6 4.2 1.6 5.9L1 25l6.3-1.6C9 24.4 11 25 13 25c6.6 0 12-5.4 12-12S19.6 1 13 1z" fill="white"/>
+      <path d="M18.5 15.8c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.2-.5 0-.2-.7-1.6-.9-2.2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.3s1 2.7 1.1 2.8c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3 0-.1-.2-.2-.5-.3z" fill="#25D366"/>
+    </svg>
+    <span class="whatsapp-label" data-en="Book via WhatsApp" data-es="Reservar por WhatsApp">Book via WhatsApp</span>
   </a>
 
   <script src="js/main.js"></script>
