@@ -7,13 +7,15 @@
   <meta name="description" content="30+ years guiding travelers through Monteverde's cloud forest. Expert naturalist tours, bird watching, and night wildlife experiences in Costa Rica.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="hero-bridge.jpg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
   <!-- Hero Section -->
   <section class="hero" id="home">
+    <div class="hero-overlay"></div>
     <div class="hero-canvas">
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
@@ -29,6 +31,8 @@
       <ul class="nav-links">
         <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
         <li><a href="guide.html" data-en="The Guide" data-es="El Gu&iacute;a">The Guide</a></li>
+        <li><a href="#wildlife" data-en="Wildlife" data-es="Fauna">Wildlife</a></li>
+        <li><a href="#faq" data-en="FAQ" data-es="Preguntas">FAQ</a></li>
         <li><a href="places.html" data-en="Places & Hours" data-es="Lugares">Places & Hours</a></li>
         <li><a href="#booking" class="nav-cta" data-en="Book Now" data-es="Reservar">Book Now</a></li>
       </ul>
@@ -157,6 +161,28 @@
     </div>
   </section>
 
+  <!-- About / Guide -->
+  <section class="section about" id="about">
+    <div class="container about-grid">
+      <div class="about-text reveal">
+        <span class="section-tag" data-en="THE GUIDE" data-es="EL GU&Iacute;A">THE GUIDE</span>
+        <h2 class="section-title" data-en="Juan <em>Carlos</em>" data-es="Juan <em>Carlos</em>">Juan <em>Carlos</em></h2>
+        <p data-en="Born in Monteverde. 30+ years guiding the cloud forest. Bilingual EN/ES naturalist with a lifetime of paying attention."
+           data-es="Nacido en Monteverde. M&aacute;s de 30 a&ntilde;os guiando el bosque nuboso. Naturalista biling&uuml;e EN/ES con una vida dedicada a observar.">Born in Monteverde. 30+ years guiding the cloud forest. Bilingual EN/ES naturalist with a lifetime of paying attention.</p>
+        <a href="guide.html" class="btn-ghost" data-en="MORE ABOUT JUAN CARLOS" data-es="M&Aacute;S SOBRE JUAN CARLOS">MORE ABOUT JUAN CARLOS</a>
+      </div>
+      <div class="guide-photos">
+        <div class="guide-photo-main">
+          <img src="guide-group.jpeg" alt="Juan Carlos with guests in Monteverde">
+        </div>
+        <div class="guide-photo-stack">
+          <img src="guide-teaching.jpeg" alt="Juan Carlos explaining wildlife">
+          <img src="guide-action.jpeg" alt="Juan Carlos scanning the forest canopy">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Featured Experiences -->
   <section class="section">
     <div class="container">
@@ -233,6 +259,51 @@
     </div>
   </section>
 
+  <!-- Wildlife -->
+  <section class="wildlife" id="wildlife">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-en="WILDLIFE" data-es="FAUNA">WILDLIFE</span>
+        <h2 class="section-title" data-en="What You'll <em>See</em>" data-es="Qu&eacute; <em>Ver&aacute;s</em>">What You'll <em>See</em></h2>
+        <p class="section-sub"
+           data-en="Real photos taken inside Monteverde Cloud Forest Reserve. Not stock images."
+           data-es="Fotos reales dentro de la Reserva. No son de banco de im&aacute;genes.">
+          Real photos taken inside Monteverde Cloud Forest Reserve. Not stock images.
+        </p>
+      </div>
+      <div class="wildlife-grid">
+        <div class="wildlife-card">
+          <img src="wildlife-quetzal.jpeg" alt="Resplendent Quetzal &mdash; Monteverde">
+          <div class="wildlife-label">
+            <span class="wildlife-name">Resplendent Quetzal</span>
+            <span class="wildlife-tag" data-en="Rare &middot; Day Tour" data-es="Raro &middot; Tour D&iacute;a">Rare &middot; Day Tour</span>
+          </div>
+        </div>
+        <div class="wildlife-card wildlife-card--tall">
+          <img src="wildlife-hummingbird-violet.jpeg" alt="Violet Sabrewing Hummingbird">
+          <div class="wildlife-label">
+            <span class="wildlife-name">Violet Sabrewing</span>
+            <span class="wildlife-tag" data-en="Common &middot; All Tours" data-es="Frecuente &middot; Todos">Common &middot; All Tours</span>
+          </div>
+        </div>
+        <div class="wildlife-card">
+          <img src="wildlife-hummingbird-green.jpeg" alt="Coppery-headed Emerald Hummingbird">
+          <div class="wildlife-label">
+            <span class="wildlife-name">Coppery-headed Emerald</span>
+            <span class="wildlife-tag" data-en="Endemic &middot; Day Tour" data-es="End&eacute;mico &middot; Tour D&iacute;a">Endemic &middot; Day Tour</span>
+          </div>
+        </div>
+        <div class="wildlife-card">
+          <img src="wildlife-hawk.jpeg" alt="Forest Hawk &mdash; Monteverde">
+          <div class="wildlife-label">
+            <span class="wildlife-name">Broad-winged Hawk</span>
+            <span class="wildlife-tag" data-en="Rare &middot; Private Tour" data-es="Raro &middot; Tour Privado">Rare &middot; Private Tour</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Testimonials -->
   <section class="section testimonials-section">
     <div class="container">
@@ -275,6 +346,79 @@
           </svg>
           <span data-en="Read All Reviews on TripAdvisor" data-es="Ver todas las rese&ntilde;as en TripAdvisor">Read All Reviews on TripAdvisor</span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-en="FAQ" data-es="PREGUNTAS">FAQ</span>
+        <h2 class="section-title" data-en="Before You <em>Ask</em>" data-es="Antes de <em>Preguntar</em>">Before You <em>Ask</em></h2>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="What is included in the tour price?"
+                  data-es="&iquest;Qu&eacute; incluye el precio del tour?">What is included in the tour price?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-en="The price includes expert guide service, high-quality optical equipment (telescope and binoculars), and a printed bird identification guide. Reserve entry fees are NOT included &mdash; paid separately at the entrance."
+               data-es="El precio incluye gu&iacute;a experto, equipo &oacute;ptico de alta calidad (telescopio y binoculares) y gu&iacute;a impresa de identificaci&oacute;n de aves. Las entradas a la reserva NO est&aacute;n incluidas &mdash; se pagan aparte en la entrada.">The price includes expert guide service, telescope, binoculars, and a bird ID guide. Reserve entry fees are paid separately at the entrance.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="Is the tour suitable for children and elderly people?"
+                  data-es="&iquest;Es el tour apto para ni&ntilde;os y adultos mayores?">Is the tour suitable for children and elderly people?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-en="Yes. The trails are well-maintained and accessible. Juan Carlos adapts the pace to every group. The Private Tour is especially recommended for families and older adults."
+               data-es="S&iacute;. Los senderos est&aacute;n bien mantenidos y son accesibles. Juan Carlos adapta el ritmo a cada grupo. El Tour Privado es especialmente recomendado para familias y adultos mayores.">Yes. Juan Carlos adapts the pace to every group. The Private Tour is especially recommended for families with children and older adults.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="What should I wear and bring?"
+                  data-es="&iquest;Qu&eacute; ropa y equipo debo traer?">What should I wear and bring?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-en="Wear long pants, a light waterproof jacket, and comfortable closed-toe shoes or hiking boots. Bring water, insect repellent, and a camera. The cloud forest is cool and misty &mdash; layers are recommended."
+               data-es="Use pantal&oacute;n largo, chaqueta impermeable liviana y zapatos cerrados o botas de senderismo. Traiga agua, repelente y c&aacute;mara. El bosque nuboso es fresco y h&uacute;medo &mdash; se recomiendan capas.">Long pants, light waterproof jacket, and hiking shoes. Bring water, repellent, and a camera. Layers recommended &mdash; the cloud forest is cool and misty.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="What is the cancellation policy?"
+                  data-es="&iquest;Cu&aacute;l es la pol&iacute;tica de cancelaci&oacute;n?">What is the cancellation policy?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-en="Free cancellation with 24 hours advance notice. Tours operate rain or shine &mdash; the cloud forest is beautiful in all weather. In case of severe weather, Juan Carlos will contact you directly to reschedule."
+               data-es="Cancelaci&oacute;n gratuita con 24 horas de anticipaci&oacute;n. Los tours operan con lluvia o sol. En caso de clima severo, Juan Carlos le contactar&aacute; para reagendar.">Free cancellation with 24h notice. Tours run rain or shine. Severe weather &rarr; Juan Carlos contacts you to reschedule.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="How do I confirm my reservation?"
+                  data-es="&iquest;C&oacute;mo confirmo mi reservaci&oacute;n?">How do I confirm my reservation?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-en="Fill out the form below and Juan Carlos will confirm via WhatsApp within a few hours. You can also message him directly at +506 6391-4901. Spots are limited &mdash; early booking is recommended."
+               data-es="Complete el formulario abajo y Juan Carlos confirmar&aacute; por WhatsApp en pocas horas. Tambi&eacute;n puede escribirle al +506 6391-4901. Los cupos son limitados &mdash; se recomienda reservar con anticipaci&oacute;n.">Fill out the form below and Juan Carlos confirms via WhatsApp within hours. Direct: +506 6391-4901. Spots are limited.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -324,24 +468,24 @@
           </div>
         </div>
 
-        <form class="booking-form reveal" id="bookingForm" novalidate>
+        <form class="booking-form reveal" id="booking-form" onsubmit="return false;">
           <div class="form-group">
-            <label for="name" data-en="Full Name" data-es="Nombre Completo">Full Name</label>
-            <input type="text" id="name" name="name" required data-en-placeholder="Your full name" data-es-placeholder="Tu nombre completo" placeholder="Your full name">
+            <label for="f-name" data-en="Full Name" data-es="Nombre Completo">Full Name</label>
+            <input type="text" id="f-name" name="name" required data-en-placeholder="Your full name" data-es-placeholder="Tu nombre completo" placeholder="Your full name">
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="email" data-en="Email" data-es="Correo Electr&oacute;nico">Email</label>
-              <input type="email" id="email" name="email" required placeholder="email@example.com">
+              <label for="f-email" data-en="Email" data-es="Correo Electr&oacute;nico">Email</label>
+              <input type="email" id="f-email" name="email" required placeholder="email@example.com">
             </div>
             <div class="form-group">
-              <label for="phone" data-en="Phone (optional)" data-es="Tel&eacute;fono (opcional)">Phone (optional)</label>
-              <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+              <label for="f-phone" data-en="Phone (optional)" data-es="Tel&eacute;fono (opcional)">Phone (optional)</label>
+              <input type="tel" id="f-phone" name="phone" placeholder="+1 (555) 000-0000">
             </div>
           </div>
           <div class="form-group">
-            <label for="tour" data-en="Tour Type" data-es="Tipo de Tour">Tour Type</label>
-            <select id="tour" name="tour" required>
+            <label for="f-tour" data-en="Tour Type" data-es="Tipo de Tour">Tour Type</label>
+            <select id="f-tour" name="tour" required>
               <option value="" data-en="Select a tour" data-es="Selecciona un tour">Select a tour</option>
               <option value="day" data-en="Cloud Forest Day Tour" data-es="Tour Diurno del Bosque Nuboso">Cloud Forest Day Tour</option>
               <option value="night" data-en="Night Tour &mdash; Refugio Monteverde" data-es="Tour Nocturno &mdash; Refugio Monteverde">Night Tour &mdash; Refugio Monteverde</option>
@@ -350,19 +494,24 @@
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="date" data-en="Preferred Date" data-es="Fecha Preferida">Preferred Date</label>
-              <input type="date" id="date" name="date" required>
+              <label for="f-date" data-en="Preferred Date" data-es="Fecha Preferida">Preferred Date</label>
+              <input type="date" id="f-date" name="date" required>
             </div>
             <div class="form-group">
-              <label for="people" data-en="Number of People" data-es="N&uacute;mero de Personas">Number of People</label>
-              <input type="number" id="people" name="people" min="1" max="20" required placeholder="2">
+              <label for="f-people" data-en="Number of People" data-es="N&uacute;mero de Personas">Number of People</label>
+              <input type="number" id="f-people" name="people" min="1" max="20" required placeholder="2">
             </div>
           </div>
           <div class="form-group">
-            <label for="message" data-en="Message" data-es="Mensaje">Message</label>
-            <textarea id="message" name="message" rows="4" data-en-placeholder="Tell us about your trip..." data-es-placeholder="Cu&eacute;ntanos sobre tu viaje..."></textarea>
+            <label for="f-message" data-en="Message" data-es="Mensaje">Message</label>
+            <textarea id="f-message" name="message" rows="4" data-en-placeholder="Tell us about your trip..." data-es-placeholder="Cu&eacute;ntanos sobre tu viaje..."></textarea>
           </div>
-          <button type="submit" class="btn-submit" data-en="Send Reservation Request" data-es="Enviar Solicitud de Reserva">Send Reservation Request</button>
+          <button type="submit" class="btn-submit" id="whatsapp-submit">
+            <span data-en="SEND VIA WHATSAPP" data-es="ENVIAR POR WHATSAPP">SEND VIA WHATSAPP</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </button>
         </form>
       </div>
     </div>
@@ -410,5 +559,14 @@
   </a>
 
   <script src="js/main.js"></script>
+  <script>
+    const heroEl = document.querySelector('.hero');
+    window.addEventListener('scroll', () => {
+      if (heroEl) {
+        heroEl.style.backgroundPositionY =
+          `calc(50% + ${window.pageYOffset * 0.35}px)`;
+      }
+    });
+  </script>
 </body>
 </html>
