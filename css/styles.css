@@ -7,23 +7,36 @@
 /* --- CSS Variables --- */
 :root {
   --black:    #080c05;
-  --deep:     #0d1509;
-  --forest:   #111e09;
-  --moss:     #1e3410;
+  --deep:     #0e1a0a;
+  --forest:   #1a2e10;
+  --moss:     #2d4a1e;
   --sage:     #4a7a35;
-  --gold:     #c8a84b;
-  --gold-dim: #8a6f2e;
-  --amber:    #e8b84b;
-  --mist:     #7a9668;
-  --cream:    #f2ede3;
-  --white:    #fafaf7;
+  --leaf:     #6aab4a;
+  --mist:     #a8c898;
+  --cream:    #eef4ea;
+  --white:    #f8faf6;
+  --pure:     #ffffff;
 
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'DM Sans', Helvetica, Arial, sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Outfit', Helvetica, Arial, sans-serif;
 
   --max-width: 1280px;
   --section-padding: 120px 0;
   --section-padding-mobile: 72px 0;
+}
+
+h1, h2, h3, h4, .hero-title, .section-title {
+  font-family: 'Cormorant Garamond', serif;
+}
+body, p, nav, button, input, label, span, .btn {
+  font-family: 'Outfit', sans-serif;
+}
+.section-tag, .eyebrow {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 /* --- Reset --- */
@@ -60,7 +73,7 @@ button, input, textarea, select {
 /* --- Custom Cursor --- */
 .cursor-dot {
   width: 8px; height: 8px;
-  background: var(--gold);
+  background: var(--leaf);
   border-radius: 50%;
   position: fixed; top: 0; left: 0;
   pointer-events: none; z-index: 9999;
@@ -68,7 +81,7 @@ button, input, textarea, select {
 
 .cursor-ring {
   width: 36px; height: 36px;
-  border: 1px solid rgba(200,168,75,0.5);
+  border: 1px solid rgba(106,171,74,0.5);
   border-radius: 50%;
   position: fixed; top: 0; left: 0;
   pointer-events: none; z-index: 9998;
@@ -77,7 +90,7 @@ button, input, textarea, select {
 
 .cursor-ring.expand {
   width: 52px; height: 52px;
-  border-color: var(--gold);
+  border-color: var(--leaf);
 }
 
 /* --- Scroll Reveal --- */
@@ -116,7 +129,7 @@ button, input, textarea, select {
   font-weight: 300;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--leaf);
   margin-bottom: 24px;
 }
 
@@ -125,7 +138,7 @@ button, input, textarea, select {
   display: block;
   width: 40px;
   height: 1px;
-  background: var(--gold);
+  background: var(--leaf);
 }
 
 /* --- Navbar (hero-nav) --- */
@@ -159,7 +172,7 @@ button, input, textarea, select {
   font-weight: 500;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--leaf);
 }
 
 .nav-links {
@@ -185,13 +198,16 @@ button, input, textarea, select {
 }
 
 .nav-cta {
-  background: var(--gold) !important;
+  background: var(--leaf) !important;
   color: var(--black) !important;
+  border: 2px solid var(--leaf) !important;
   padding: 10px 24px;
+  transition: background 0.25s, color 0.25s;
 }
 
 .nav-cta:hover {
-  background: var(--amber) !important;
+  background: transparent !important;
+  color: var(--leaf) !important;
 }
 
 .nav-right {
@@ -202,8 +218,8 @@ button, input, textarea, select {
 
 .lang-btn {
   background: none;
-  border: 1px solid rgba(200,168,75,0.3);
-  color: var(--gold);
+  border: 1px solid rgba(106,171,74,0.3);
+  color: var(--leaf);
   font-family: var(--font-body);
   font-size: 11px;
   font-weight: 500;
@@ -214,7 +230,7 @@ button, input, textarea, select {
 }
 
 .lang-btn:hover {
-  background: var(--gold);
+  background: var(--leaf);
   color: var(--black);
 }
 
@@ -270,12 +286,53 @@ button, input, textarea, select {
 
 /* --- Hero Section --- */
 .hero {
-  min-height: 100vh;
   position: relative;
+  min-height: 100vh;
+  background-image: url('hero-bridge.jpg');
+  background-size: cover;
+  background-position: center center;
   display: flex;
   flex-direction: column;
-  background: var(--black);
+  align-items: stretch;
   overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to right,
+      rgba(8,12,5,0.92) 0%,
+      rgba(8,12,5,0.65) 55%,
+      rgba(8,12,5,0.20) 100%),
+    linear-gradient(to top,
+      rgba(8,12,5,0.95) 0%,
+      transparent 45%);
+  pointer-events: none;
+}
+
+.hero-canvas,
+.hero .orb-1,
+.hero .orb-2,
+.hero .orb-3 {
+  display: none;
+}
+
+.hero-nav,
+.hero-content,
+.hero-tag,
+.hero-title,
+.hero-sub,
+.hero-actions,
+.hero-stats,
+.scroll-indicator {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  text-shadow: 0 2px 30px rgba(0,0,0,0.7);
 }
 
 .hero-canvas {
@@ -293,7 +350,7 @@ button, input, textarea, select {
 }
 
 .orb-1 { width: 600px; height: 600px; background: #1e3410; top: -200px; left: -100px; animation-delay: 0s; }
-.orb-2 { width: 400px; height: 400px; background: #c8a84b; top: 20%; right: -100px; opacity: 0.08; animation-delay: -4s; }
+.orb-2 { width: 400px; height: 400px; background: #6aab4a; top: 20%; right: -100px; opacity: 0.08; animation-delay: -4s; }
 .orb-3 { width: 500px; height: 500px; background: #0d1509; bottom: -100px; left: 30%; animation-delay: -8s; }
 
 @keyframes orbFloat {
@@ -331,7 +388,7 @@ button, input, textarea, select {
 .tag-dot {
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--gold);
+  background: var(--leaf);
   animation: pulse 2s ease infinite;
 }
 
@@ -346,7 +403,7 @@ button, input, textarea, select {
   font-weight: 500;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--leaf);
 }
 
 .hero-title {
@@ -361,7 +418,7 @@ button, input, textarea, select {
 }
 
 .hero-title .line-1 { color: var(--mist); font-weight: 400; }
-.hero-title .line-2 em { font-style: italic; color: var(--amber); }
+.hero-title .line-2 em { font-style: italic; color: var(--mist); }
 .hero-title .line-3 { font-size: clamp(28px, 3.5vw, 52px); color: var(--cream); font-weight: 700; }
 
 .hero-sub {
@@ -382,7 +439,7 @@ button, input, textarea, select {
 }
 
 .btn-primary {
-  background: var(--gold);
+  background: var(--leaf);
   color: var(--black);
   padding: 16px 36px;
   font-family: var(--font-body);
@@ -396,7 +453,7 @@ button, input, textarea, select {
 }
 
 .btn-primary:hover {
-  background: var(--amber);
+  background: var(--mist);
   transform: translateY(-2px);
 }
 
@@ -420,8 +477,12 @@ button, input, textarea, select {
   display: flex;
   align-items: center;
   gap: 32px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(200,168,75,0.1);
+  padding: 24px 60px;
+  margin: 0 -60px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(14,26,10,0.55);
+  border-top: 1px solid rgba(106,171,74,0.25);
 }
 
 .stat {
@@ -434,7 +495,7 @@ button, input, textarea, select {
   font-family: var(--font-display);
   font-size: 28px;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--leaf);
   line-height: 1;
 }
 
@@ -450,7 +511,7 @@ button, input, textarea, select {
 .stat-divider {
   width: 1px;
   height: 40px;
-  background: rgba(200,168,75,0.15);
+  background: rgba(106,171,74,0.15);
 }
 
 .scroll-indicator {
@@ -467,7 +528,7 @@ button, input, textarea, select {
 .scroll-line {
   width: 1px;
   height: 56px;
-  background: linear-gradient(to bottom, var(--gold), transparent);
+  background: linear-gradient(to bottom, var(--leaf), transparent);
   animation: scrollDrop 2s ease infinite;
 }
 
@@ -502,8 +563,8 @@ button, input, textarea, select {
 /* --- Trust Bar (Social Proof) --- */
 .trust-bar {
   background: var(--deep);
-  border-top: 1px solid rgba(200,168,75,0.08);
-  border-bottom: 1px solid rgba(200,168,75,0.08);
+  border-top: 1px solid rgba(106,171,74,0.08);
+  border-bottom: 1px solid rgba(106,171,74,0.08);
   padding: 32px 60px;
 }
 
@@ -521,13 +582,13 @@ button, input, textarea, select {
   gap: 16px;
   text-decoration: none;
   padding: 16px 24px;
-  border: 1px solid rgba(200,168,75,0.1);
+  border: 1px solid rgba(106,171,74,0.1);
   transition: border-color 0.3s, background 0.3s;
 }
 
 .trust-item:hover {
-  border-color: rgba(200,168,75,0.3);
-  background: rgba(200,168,75,0.04);
+  border-color: rgba(106,171,74,0.3);
+  background: rgba(106,171,74,0.04);
 }
 
 .trust-logo {
@@ -551,7 +612,7 @@ button, input, textarea, select {
 }
 
 .trust-stars {
-  color: var(--gold);
+  color: var(--leaf);
   font-size: 13px;
   letter-spacing: 2px;
 }
@@ -569,18 +630,18 @@ button, input, textarea, select {
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--leaf);
   transition: color 0.25s;
 }
 
 .trust-item:hover .trust-cta {
-  color: var(--amber);
+  color: var(--mist);
 }
 
 .trust-divider {
   width: 1px;
   height: 60px;
-  background: rgba(200,168,75,0.1);
+  background: rgba(106,171,74,0.1);
 }
 
 /* --- Experience Cards --- */
@@ -592,7 +653,7 @@ button, input, textarea, select {
 
 .exp-card {
   background: rgba(17, 30, 9, 0.4);
-  border: 1px solid rgba(200,168,75,0.1);
+  border: 1px solid rgba(106,171,74,0.1);
   padding: 48px 36px;
   transition: all 0.4s ease;
   position: relative;
@@ -600,7 +661,7 @@ button, input, textarea, select {
 
 .exp-card:hover {
   background: rgba(30, 52, 16, 0.5);
-  border-color: rgba(200,168,75,0.25);
+  border-color: rgba(106,171,74,0.25);
 }
 
 .exp-icon {
@@ -642,7 +703,7 @@ button, input, textarea, select {
   font-family: var(--font-display);
   font-size: 1.3rem;
   font-style: italic;
-  color: var(--gold);
+  color: var(--leaf);
 }
 
 .exp-link {
@@ -652,7 +713,7 @@ button, input, textarea, select {
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--leaf);
   margin-top: 16px;
   transition: gap 0.3s ease;
 }
@@ -674,7 +735,7 @@ button, input, textarea, select {
 }
 
 .section-header h2 em {
-  color: var(--amber);
+  color: var(--mist);
 }
 
 .section-header p {
@@ -732,7 +793,7 @@ button, input, textarea, select {
   font-family: var(--font-display);
   font-size: 1.1rem;
   font-style: italic;
-  color: var(--amber);
+  color: var(--mist);
 }
 
 /* --- Testimonials --- */
@@ -758,13 +819,13 @@ button, input, textarea, select {
   left: 0;
   font-family: var(--font-display);
   font-size: 6rem;
-  color: var(--gold);
+  color: var(--leaf);
   opacity: 0.15;
   line-height: 1;
 }
 
 .testimonial-stars {
-  color: var(--gold);
+  color: var(--leaf);
   font-size: 0.85rem;
   margin-bottom: 16px;
   letter-spacing: 2px;
@@ -845,7 +906,7 @@ button, input, textarea, select {
 }
 
 .booking-info h2 em {
-  color: var(--amber);
+  color: var(--mist);
 }
 
 .booking-info > p {
@@ -888,7 +949,7 @@ button, input, textarea, select {
 }
 
 .contact-method:hover {
-  color: var(--gold);
+  color: var(--leaf);
 }
 
 .cancel-note {
@@ -902,7 +963,7 @@ button, input, textarea, select {
 .btn-gold {
   display: inline-block;
   padding: 16px 40px;
-  background: var(--gold);
+  background: var(--leaf);
   color: var(--black);
   font-family: var(--font-body);
   font-size: 0.82rem;
@@ -915,7 +976,7 @@ button, input, textarea, select {
 }
 
 .btn-gold:hover {
-  background: var(--amber);
+  background: var(--mist);
   transform: translateY(-2px);
 }
 
@@ -927,16 +988,16 @@ button, input, textarea, select {
   font-weight: 300;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--leaf);
   cursor: none;
   transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(200,168,75,0.3);
+  border-bottom: 1px solid rgba(106,171,74,0.3);
   padding-bottom: 4px;
 }
 
 .btn-ghost:hover {
-  color: var(--amber);
-  border-bottom-color: var(--amber);
+  color: var(--mist);
+  border-bottom-color: var(--mist);
 }
 
 .btn-ghost svg {
@@ -975,7 +1036,7 @@ button, input, textarea, select {
 .form-group textarea {
   padding: 14px 16px;
   background: rgba(17, 30, 9, 0.3);
-  border: 1px solid rgba(200,168,75,0.15);
+  border: 1px solid rgba(106,171,74,0.15);
   color: var(--cream);
   font-size: 0.92rem;
   font-weight: 300;
@@ -986,14 +1047,14 @@ button, input, textarea, select {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: var(--gold);
+  border-color: var(--leaf);
 }
 
 .form-group input.error,
 .form-group select.error,
 .form-group textarea.error {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 1px var(--gold);
+  border-color: var(--leaf);
+  box-shadow: 0 0 0 1px var(--leaf);
 }
 
 .form-group textarea {
@@ -1003,7 +1064,7 @@ button, input, textarea, select {
 
 .form-group select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c8a84b' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236aab4a' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 16px center;
 }
@@ -1020,30 +1081,35 @@ button, input, textarea, select {
 }
 
 .btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   width: 100%;
-  padding: 18px;
-  background: var(--gold);
-  color: var(--black);
-  font-family: var(--font-body);
+  padding: 18px 32px;
+  background: #25D366;
+  color: #080c05;
+  border: none;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  border: none;
-  cursor: none;
-  transition: all 0.3s ease;
+  border-radius: 2px;
+  transition: background 0.3s ease, transform 0.2s ease;
   margin-top: 8px;
 }
 
 .btn-submit:hover {
-  background: var(--amber);
+  background: #1db954;
   transform: translateY(-2px);
 }
 
 /* --- Footer --- */
 footer {
   background: var(--black);
-  border-top: 1px solid rgba(200,168,75,0.08);
+  border-top: 1px solid rgba(106,171,74,0.08);
   padding: 60px;
 }
 
@@ -1053,7 +1119,7 @@ footer {
   gap: 60px;
   margin-bottom: 40px;
   padding-bottom: 40px;
-  border-bottom: 1px solid rgba(200,168,75,0.08);
+  border-bottom: 1px solid rgba(106,171,74,0.08);
 }
 
 .footer-logo {
@@ -1107,21 +1173,88 @@ footer {
 }
 
 .tyt-credit a {
-  color: rgba(200,168,75,0.5);
+  color: rgba(106,171,74,0.5);
   text-decoration: none;
   transition: color 0.25s;
 }
 
 .tyt-credit a:hover {
-  color: var(--gold);
+  color: var(--leaf);
+}
+
+/* --- About Section (index) --- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-text h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin: 16px 0 24px;
+  line-height: 1.05;
+}
+
+.about-text h2 em {
+  font-style: italic;
+  color: var(--leaf);
+  font-weight: 400;
+}
+
+.about-text p {
+  color: var(--mist);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+
+/* --- Guide Photos (used on index About + guide.html bio) --- */
+.guide-photos {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.guide-photo-main img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 4px;
+}
+
+.guide-photo-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.guide-photo-stack img {
+  width: 100%;
+  height: 248px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .guide-photos { grid-template-columns: 1fr; }
+  .guide-photo-main img { height: 320px; }
+  .guide-photo-stack { flex-direction: row; }
+  .guide-photo-stack img { height: 180px; }
 }
 
 /* --- Guide Page: Bio --- */
 .bio-grid {
   display: grid;
-  grid-template-columns: 400px 1fr;
-  gap: 80px;
-  align-items: start;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
 }
 
 .bio-portrait {
@@ -1132,7 +1265,7 @@ footer {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 1px solid rgba(200,168,75,0.15);
+  border: 1px solid rgba(106,171,74,0.15);
 }
 
 .bio-portrait-icon {
@@ -1144,7 +1277,7 @@ footer {
   position: absolute;
   bottom: 24px;
   right: 24px;
-  background: var(--gold);
+  background: var(--leaf);
   color: var(--black);
   padding: 10px 20px;
   font-size: 0.78rem;
@@ -1163,7 +1296,7 @@ footer {
 }
 
 .bio-text h2 em {
-  color: var(--amber);
+  color: var(--mist);
 }
 
 .bio-text p {
@@ -1183,7 +1316,7 @@ footer {
 .credential {
   text-align: center;
   padding: 24px 16px;
-  border: 1px solid rgba(200,168,75,0.2);
+  border: 1px solid rgba(106,171,74,0.2);
   background: rgba(17, 30, 9, 0.3);
 }
 
@@ -1203,7 +1336,7 @@ footer {
 /* --- Experience Detail Cards (guide.html) --- */
 .experience-detail {
   padding: 80px 0;
-  border-bottom: 1px solid rgba(200,168,75,0.1);
+  border-bottom: 1px solid rgba(106,171,74,0.1);
 }
 
 .experience-detail:last-child {
@@ -1228,7 +1361,7 @@ footer {
 .exp-badge {
   display: inline-block;
   padding: 6px 16px;
-  background: var(--gold);
+  background: var(--leaf);
   color: var(--black);
   font-size: 0.65rem;
   font-weight: 500;
@@ -1260,7 +1393,7 @@ footer {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--leaf);
   margin-bottom: 8px;
 }
 
@@ -1284,12 +1417,12 @@ footer {
   content: '\00B7';
   position: absolute;
   left: 0;
-  color: var(--gold);
+  color: var(--leaf);
 }
 
 .exp-pricing {
   background: rgba(17, 30, 9, 0.4);
-  border: 1px solid rgba(200,168,75,0.15);
+  border: 1px solid rgba(106,171,74,0.15);
   padding: 36px;
 }
 
@@ -1297,7 +1430,7 @@ footer {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--leaf);
   margin-bottom: 24px;
 }
 
@@ -1306,7 +1439,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 16px 0;
-  border-bottom: 1px solid rgba(200,168,75,0.1);
+  border-bottom: 1px solid rgba(106,171,74,0.1);
 }
 
 .price-row:last-of-type {
@@ -1322,7 +1455,7 @@ footer {
   font-family: var(--font-display);
   font-size: 1.4rem;
   font-style: italic;
-  color: var(--gold);
+  color: var(--leaf);
 }
 
 .price-note {
@@ -1349,7 +1482,7 @@ footer {
 }
 
 .booking-cta h2 em {
-  color: var(--amber);
+  color: var(--mist);
 }
 
 .booking-cta-buttons {
@@ -1363,7 +1496,7 @@ footer {
 /* --- Places Page --- */
 .place-section {
   padding: 100px 0;
-  border-bottom: 1px solid rgba(200,168,75,0.1);
+  border-bottom: 1px solid rgba(106,171,74,0.1);
 }
 
 .place-header {
@@ -1380,7 +1513,7 @@ footer {
 }
 
 .place-header h2 em {
-  color: var(--amber);
+  color: var(--mist);
 }
 
 .place-description {
@@ -1400,7 +1533,7 @@ footer {
 
 .fact-card {
   background: rgba(17, 30, 9, 0.3);
-  border: 1px solid rgba(200,168,75,0.1);
+  border: 1px solid rgba(106,171,74,0.1);
   text-align: center;
   padding: 32px 20px;
 }
@@ -1409,7 +1542,7 @@ footer {
   font-family: var(--font-display);
   font-size: 2rem;
   font-style: italic;
-  color: var(--gold);
+  color: var(--leaf);
   margin-bottom: 8px;
   display: block;
 }
@@ -1433,14 +1566,14 @@ footer {
 .hours-table td {
   padding: 16px 24px;
   text-align: left;
-  border-bottom: 1px solid rgba(200,168,75,0.1);
+  border-bottom: 1px solid rgba(106,171,74,0.1);
 }
 
 .hours-table th {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--leaf);
   font-weight: 500;
 }
 
@@ -1454,7 +1587,7 @@ footer {
   color: var(--sage);
   line-height: 1.6;
   padding: 20px;
-  border: 1px solid rgba(200,168,75,0.15);
+  border: 1px solid rgba(106,171,74,0.15);
   margin-bottom: 48px;
 }
 
@@ -1468,7 +1601,7 @@ footer {
 .place-map iframe {
   width: 100%;
   height: 100%;
-  border: 1px solid rgba(200,168,75,0.15);
+  border: 1px solid rgba(106,171,74,0.15);
   filter: grayscale(100%) sepia(30%) hue-rotate(70deg) brightness(0.6);
   transition: filter 0.4s ease;
 }
@@ -1486,13 +1619,13 @@ footer {
 
 .tip-card {
   background: rgba(17, 30, 9, 0.3);
-  border: 1px solid rgba(200,168,75,0.1);
+  border: 1px solid rgba(106,171,74,0.1);
   padding: 36px 28px;
   transition: border-color 0.3s ease;
 }
 
 .tip-card:hover {
-  border-color: rgba(200,168,75,0.3);
+  border-color: rgba(106,171,74,0.3);
 }
 
 .tip-icon {
@@ -1549,6 +1682,151 @@ footer {
   font-weight: 500;
   letter-spacing: 0.08em;
   color: white;
+}
+
+/* --- Wildlife Section --- */
+.wildlife { padding: 120px 0; background: var(--deep); }
+
+.section-sub {
+  font-family: 'Outfit', sans-serif;
+  color: var(--mist);
+  font-size: 0.95rem;
+  margin-top: 12px;
+  max-width: 540px;
+}
+
+.wildlife-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 60px;
+  align-items: end;
+}
+
+.wildlife-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  height: 320px;
+}
+
+.wildlife-card--tall {
+  height: 420px;
+  margin-top: -100px;
+}
+
+.wildlife-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.wildlife-card:hover img { transform: scale(1.06); }
+
+.wildlife-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 28px 16px 16px;
+  background: linear-gradient(to top, rgba(8,12,5,0.93) 0%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.wildlife-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--white);
+}
+
+.wildlife-tag {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--leaf);
+  text-transform: uppercase;
+}
+
+/* --- FAQ Section --- */
+.faq { padding: 120px 0; background: var(--black); }
+
+.faq-list {
+  margin-top: 60px;
+  border-top: 1px solid rgba(106,171,74,0.2);
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(106,171,74,0.2);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 24px;
+}
+
+.faq-question > span[data-en] {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--white);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.faq-icon {
+  font-size: 1.6rem;
+  color: var(--leaf);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.faq-question[aria-expanded="true"] .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.faq-answer.open {
+  max-height: 300px;
+  padding-bottom: 28px;
+}
+
+.faq-answer p {
+  font-family: 'Outfit', sans-serif;
+  color: var(--mist);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  max-width: 680px;
+}
+
+/* --- Scroll Reveal (new) --- */
+.faq-item,
+.wildlife-card,
+.guide-photos,
+.section-header {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 /* ============================================
@@ -1629,8 +1907,17 @@ footer {
 
   .hamburger { display: flex; z-index: 201; }
 
+  .hero { background-position: 30% center; }
   .hero-content { padding: 40px 24px 32px; }
+  .hero-stats { padding: 20px 24px; margin: 0 -24px; }
   .hero-title { font-size: clamp(38px, 10vw, 64px); }
+
+  .wildlife { padding: 72px 0; }
+  .wildlife-grid { grid-template-columns: repeat(2, 1fr); }
+  .wildlife-card--tall { height: 320px; margin-top: 0; }
+
+  .faq { padding: 72px 0; }
+  .faq-question > span[data-en] { font-size: 1.05rem; }
 
   .hero-actions {
     flex-direction: column;

@@ -91,67 +91,63 @@ if (navbar) {
   handleNavScroll();
 }
 
-// Booking form
-const bookingForm = document.getElementById('bookingForm');
-if (bookingForm) {
-  bookingForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    let isValid = true;
-    const requiredFields = bookingForm.querySelectorAll('[required]');
-
-    requiredFields.forEach(field => field.classList.remove('error'));
-
-    requiredFields.forEach(field => {
-      if (!field.value.trim()) {
-        field.classList.add('error');
-        isValid = false;
-      }
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq-question').forEach(b => {
+      b.setAttribute('aria-expanded', 'false');
+      b.nextElementSibling.classList.remove('open');
     });
-
-    const emailField = bookingForm.querySelector('#email');
-    if (emailField && emailField.value) {
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(emailField.value)) {
-        emailField.classList.add('error');
-        isValid = false;
-      }
-    }
-
-    if (isValid) {
-      const name = bookingForm.querySelector('#name').value;
-      const email = bookingForm.querySelector('#email').value;
-      const phone = bookingForm.querySelector('#phone').value;
-      const tour = bookingForm.querySelector('#tour');
-      const tourText = tour.options[tour.selectedIndex].text;
-      const date = bookingForm.querySelector('#date').value;
-      const people = bookingForm.querySelector('#people').value;
-      const message = bookingForm.querySelector('#message').value;
-
-      let whatsappMsg = 'Hello Juan Carlos! I would like to book a tour.\n\n';
-      whatsappMsg += 'Name: ' + name + '\n';
-      whatsappMsg += 'Email: ' + email + '\n';
-      if (phone) whatsappMsg += 'Phone: ' + phone + '\n';
-      whatsappMsg += 'Tour: ' + tourText + '\n';
-      whatsappMsg += 'Date: ' + date + '\n';
-      whatsappMsg += 'People: ' + people + '\n';
-      if (message) whatsappMsg += 'Message: ' + message + '\n';
-
-      const whatsappURL = 'https://wa.me/50663914901?text=' + encodeURIComponent(whatsappMsg);
-      window.open(whatsappURL, '_blank');
-      bookingForm.reset();
-    } else {
-      const firstError = bookingForm.querySelector('.error');
-      if (firstError) {
-        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        firstError.focus();
-      }
+    if (!isOpen) {
+      btn.setAttribute('aria-expanded', 'true');
+      answer.classList.add('open');
     }
   });
+});
 
-  bookingForm.querySelectorAll('input, select, textarea').forEach(field => {
-    field.addEventListener('input', () => field.classList.remove('error'));
+// Booking form -> WhatsApp
+document.getElementById('booking-form')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name    = document.getElementById('f-name')?.value.trim() || '';
+  const email   = document.getElementById('f-email')?.value.trim() || '';
+  const phone   = document.getElementById('f-phone')?.value.trim() || '';
+  const tourSel = document.getElementById('f-tour');
+  const tour    = tourSel ? (tourSel.options[tourSel.selectedIndex]?.text || tourSel.value || '') : '';
+  const date    = document.getElementById('f-date')?.value || '';
+  const people  = document.getElementById('f-people')?.value || '';
+  const message = document.getElementById('f-message')?.value.trim() || '';
+  if (!name || !email || !tour) {
+    alert('Please fill in your name, email, and tour type.');
+    return;
+  }
+  const text =
+    `🌿 *NEW RESERVATION — JC Tours*\n\n` +
+    `👤 *Name:* ${name}\n` +
+    `📧 *Email:* ${email}\n` +
+    `📞 *Phone:* ${phone || 'Not provided'}\n` +
+    `🗺 *Tour:* ${tour}\n` +
+    `📅 *Date:* ${date || 'Flexible'}\n` +
+    `👥 *People:* ${people}\n` +
+    `💬 *Message:* ${message || '—'}\n\n` +
+    `_Sent from jctours.vercel.app_`;
+  window.open(`https://wa.me/50663914901?text=${encodeURIComponent(text)}`, '_blank');
+});
+
+// Scroll reveal (new sections)
+const revealTargets = document.querySelectorAll(
+  '.faq-item, .wildlife-card, .guide-photos, .section-header'
+);
+const newRevealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('revealed'), i * 80);
+      newRevealObserver.unobserve(entry.target);
+    }
   });
-}
+}, { threshold: 0.12 });
+revealTargets.forEach(el => newRevealObserver.observe(el));
 
 // Custom cursor (desktop only)
 if (window.innerWidth > 768) {
