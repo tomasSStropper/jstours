@@ -1288,7 +1288,13 @@ footer {
   font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 28px;
-  max-width: 480px;
+  max-width: 520px;
+}
+
+/* Credentials sit 2x2 inside the narrower guide column on the home page */
+.about-text .credential-badges {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 32px;
 }
 
 /* --- Guide Photos (used on index About + guide.html bio) --- */
