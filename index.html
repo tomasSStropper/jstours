@@ -45,56 +45,83 @@
     </nav>
 
     <div class="hero-content">
-      <div class="hero-tag">
-        <span class="tag-dot"></span>
-        <span data-en="Monteverde &middot; Costa Rica &middot; Since 1994"
-              data-es="Monteverde &middot; Costa Rica &middot; Desde 1994">
-          Monteverde &middot; Costa Rica &middot; Since 1994
-        </span>
-      </div>
-      <h1 class="hero-title">
-        <span class="line-1" data-en="The Forest" data-es="El Bosque">The Forest</span>
-        <span class="line-2">
-          <em data-en="Has Secrets." data-es="Tiene Secretos.">Has Secrets.</em>
-        </span>
-        <span class="line-3"
-              data-en="Juan Carlos Knows Them All."
-              data-es="Juan Carlos Los Conoce Todos.">
-          Juan Carlos Knows Them All.
-        </span>
-      </h1>
-      <p class="hero-sub"
-         data-en="30 years. 400 bird species. One cloud forest. Zero tourists who left disappointed."
-         data-es="30 a&ntilde;os. 400 especies de aves. Un bosque nuboso. Cero turistas decepcionados.">
-        30 years. 400 bird species. One cloud forest. Zero tourists who left disappointed.
-      </p>
-      <div class="hero-actions">
-        <a href="#booking" class="btn-primary"
-           data-en="Reserve Your Experience"
-           data-es="Reserv&aacute; tu Experiencia">Reserve Your Experience</a>
-        <a href="guide.html" class="btn-text">
-          <span data-en="Meet Juan Carlos" data-es="Conoc&eacute; a Juan Carlos">Meet Juan Carlos</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num" data-target="30" data-suffix="+">30+</span>
-          <span class="stat-label" data-en="Years" data-es="A&ntilde;os">Years</span>
+      <div class="hero-main">
+        <div class="hero-copy">
+          <div class="hero-tag">
+            <span class="tag-dot"></span>
+            <span data-en="Monteverde &middot; Costa Rica &middot; Since 1994"
+                  data-es="Monteverde &middot; Costa Rica &middot; Desde 1994">
+              Monteverde &middot; Costa Rica &middot; Since 1994
+            </span>
+          </div>
+          <h1 class="hero-title">
+            <span class="line-1">
+              <em data-en="Seeing it all isn't luck."
+                  data-es="Verlo todo no es suerte.">Seeing it all isn't luck.</em>
+            </span>
+            <span class="line-2"
+                  data-en="It's going with someone who sees 400 species."
+                  data-es="Es ir con quien ve 400 especies.">
+              It's going with someone who sees 400 species.
+            </span>
+          </h1>
+          <p class="hero-sub"
+             data-en="30 years. 400 bird species. One cloud forest. Zero tourists who left disappointed."
+             data-es="30 a&ntilde;os. 400 especies de aves. Un bosque nuboso. Cero turistas decepcionados.">
+            30 years. 400 bird species. One cloud forest. Zero tourists who left disappointed.
+          </p>
+          <div class="hero-actions">
+            <a href="#booking" class="btn-primary"
+               data-en="Reserve Your Experience"
+               data-es="Reserv&aacute; tu Experiencia">Reserve Your Experience</a>
+            <a href="#guia" class="btn-text">
+              <span data-en="Meet Juan Carlos" data-es="Conoc&eacute; a Juan Carlos">Meet Juan Carlos</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </a>
+          </div>
         </div>
-        <div class="stat-divider"></div>
+
+        <aside class="hero-showcase">
+          <div class="fauna-spotlight" id="faunaSpotlight" aria-label="Featured cloud forest species">
+            <div class="spotlight-atmosphere" aria-hidden="true">
+              <span class="spotlight-mist"></span>
+              <span class="spotlight-particles">
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              </span>
+            </div>
+            <div class="spotlight-media"></div>
+            <div class="spotlight-overlay">
+              <div class="spotlight-badge">
+                <span class="spotlight-dot"></span>
+                <span data-en="400+ species recorded" data-es="400+ especies registradas">400+ species recorded</span>
+              </div>
+              <div class="spotlight-foot">
+                <div class="spotlight-info">
+                  <span class="spotlight-common"></span>
+                  <span class="spotlight-sci"></span>
+                </div>
+                <span class="spotlight-counter"></span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat stat--lead">
+          <span class="stat-num" data-target="30" data-suffix="+">30+</span>
+          <span class="stat-label" data-en="Years guiding" data-es="A&ntilde;os guiando">Years guiding</span>
+        </div>
         <div class="stat">
           <span class="stat-num" data-target="400" data-suffix="+">400+</span>
-          <span class="stat-label" data-en="Bird Species" data-es="Especies">Bird Species</span>
+          <span class="stat-label" data-en="Bird species" data-es="Especies de aves">Bird species</span>
         </div>
-        <div class="stat-divider"></div>
         <div class="stat">
           <span class="stat-num">5&#9733;</span>
           <span class="stat-label" data-en="Rated" data-es="Calificaci&oacute;n">Rated</span>
         </div>
-        <div class="stat-divider"></div>
         <div class="stat">
           <span class="stat-num">EN/ES</span>
           <span class="stat-label" data-en="Bilingual" data-es="Biling&uuml;e">Bilingual</span>
@@ -576,6 +603,7 @@
     <span class="whatsapp-label" data-en="Book via WhatsApp" data-es="Reservar por WhatsApp">Book via WhatsApp</span>
   </a>
 
+  <script src="js/fauna.js"></script>
   <script src="js/main.js"></script>
   <script>
     const heroEl = document.querySelector('.hero');

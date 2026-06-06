@@ -59,6 +59,9 @@ function applyLang(lang) {
   if (btn) btn.textContent = lang === 'en' ? 'ES' : 'EN';
 
   document.documentElement.lang = lang === 'en' ? 'en' : 'es';
+
+  // Let JS-rendered content (spotlight, carousel, per-tour fauna) re-localize.
+  document.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
 }
 const langToggle = document.getElementById('langToggle');
 if (langToggle) langToggle.addEventListener('click', () => {
@@ -148,6 +151,51 @@ const newRevealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 revealTargets.forEach(el => newRevealObserver.observe(el));
+
+// Hero Fauna Spotlight — data-driven crossfade rotation (reads js/fauna.js)
+function initSpotlight() {
+  const root = document.getElementById('faunaSpotlight');
+  if (!root || typeof FaunaData === 'undefined') return;
+  const items = FaunaData.featured();
+  if (!items.length) return;
+
+  const media    = root.querySelector('.spotlight-media');
+  const commonEl = root.querySelector('.spotlight-common');
+  const sciEl    = root.querySelector('.spotlight-sci');
+  const counter  = root.querySelector('.spotlight-counter');
+
+  media.innerHTML = items.map((f, i) =>
+    `<img class="spotlight-img${i === 0 ? ' is-active' : ''}" src="${f.img}" alt="${f.comunEn}" ` +
+    `loading="${i === 0 ? 'eager' : 'lazy'}" onerror="this.classList.add('img-missing')">`
+  ).join('');
+  const imgs = Array.from(media.querySelectorAll('.spotlight-img'));
+
+  let idx = 0;
+  function render() {
+    imgs.forEach((im, i) => im.classList.toggle('is-active', i === idx));
+    const f = items[idx];
+    commonEl.innerHTML = FaunaData.name(f, currentLang);
+    sciEl.innerHTML = f.cientifico;
+    counter.textContent =
+      String(idx + 1).padStart(2, '0') + ' / ' + String(items.length).padStart(2, '0');
+  }
+  render();
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let timer = null;
+  function start() {
+    if (reduce || items.length < 2) return;
+    stop();
+    timer = setInterval(() => { idx = (idx + 1) % items.length; render(); }, 3500);
+  }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  start();
+
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  document.addEventListener('langchange', render);
+}
+initSpotlight();
 
 // Custom cursor (desktop only)
 if (window.innerWidth > 768) {
