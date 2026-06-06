@@ -208,6 +208,10 @@ button, input, textarea, select {
   color: var(--cream);
 }
 
+.nav-links a.active {
+  color: var(--cream);
+}
+
 .nav-cta {
   background: var(--leaf) !important;
   color: var(--black) !important;
@@ -397,10 +401,14 @@ button, input, textarea, select {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 44px;
-  padding: 48px 60px;
   position: relative;
   z-index: 5;
+}
+
+/* Home page hero is full-bleed (direct child of .hero); two-column wrapper */
+.hero > .hero-content {
+  gap: 44px;
+  padding: 48px 60px;
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
@@ -1601,7 +1609,7 @@ footer {
   margin-top: 32px;
 }
 
-/* --- Guide Photos (used on index About + guide.html bio) --- */
+/* --- Guide Photos (used on the home page guide section) --- */
 .guide-photos {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -1731,7 +1739,7 @@ footer {
   color: var(--sage);
 }
 
-/* --- Experience Detail Cards (guide.html) --- */
+/* --- Experience Detail Cards (tours.html) --- */
 .experience-detail {
   padding: 80px 0;
   border-bottom: 1px solid rgba(106,171,74,0.1);
@@ -1861,6 +1869,31 @@ footer {
   color: var(--sage);
   margin-top: 16px;
   line-height: 1.5;
+}
+
+/* Per-tour fauna ("What you'll spot on this tour") */
+.exp-fauna {
+  margin-top: 36px;
+  padding: 24px 28px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+}
+
+.exp-fauna h4 {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--leaf);
+  margin-bottom: 10px;
+}
+
+.exp-fauna-list {
+  color: var(--mist);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
 }
 
 /* --- Booking CTA Section --- */
@@ -2387,7 +2420,7 @@ footer {
   .hamburger { display: flex; z-index: 201; }
 
   .hero { background-position: 30% center; }
-  .hero-content { padding: 40px 24px; gap: 36px; }
+  .hero > .hero-content { padding: 40px 24px; gap: 36px; }
 
   .wildlife { padding: 72px 0; }
   .fauna-card { width: clamp(220px, 70vw, 280px); height: 340px; }

@@ -280,6 +280,33 @@ function initFaunaCarousel() {
 }
 initFaunaCarousel();
 
+// Per-tour fauna sentence on tours.html (reads js/fauna.js)
+function initTourFauna() {
+  if (typeof FaunaData === 'undefined') return;
+  const blocks = document.querySelectorAll('.exp-fauna[data-tour]');
+  if (!blocks.length) return;
+
+  function joinNames(names, lang) {
+    if (names.length <= 1) return names.join('');
+    const last = names[names.length - 1];
+    return names.slice(0, -1).join(', ') + (lang === 'es' ? ' y ' : ' and ') + last;
+  }
+
+  blocks.forEach((block) => {
+    const species = FaunaData.forTour(block.dataset.tour).slice(0, 5);
+    const target = block.querySelector('.exp-fauna-list');
+    if (!target || !species.length) { block.style.display = 'none'; return; }
+    const en = 'On this walk you can spot, among others: ' +
+      joinNames(species.map((f) => f.comunEn), 'en') + '.';
+    const es = 'En este recorrido pod&eacute;s observar, entre otras especies: ' +
+      joinNames(species.map((f) => f.comunEs), 'es') + '.';
+    target.setAttribute('data-en', en);
+    target.setAttribute('data-es', es);
+    target.innerHTML = currentLang === 'es' ? es : en;
+  });
+}
+initTourFauna();
+
 // Custom cursor (desktop only)
 if (window.innerWidth > 768) {
   const dot = document.createElement('div');

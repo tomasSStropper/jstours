@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/guide", "destination": "/guide.html" },
+    { "source": "/tours", "destination": "/tours.html" },
     { "source": "/places", "destination": "/places.html" }
   ]
 }
