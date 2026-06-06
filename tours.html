@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Guide | JC Tours Monteverde</title>
-  <meta name="description" content="Meet Juan Carlos Calvo Esquivel — 30+ years as a naturalist guide in Monteverde's cloud forest. Expert birding, night tours, and private experiences.">
+  <title>Tours & Pricing | JC Tours Monteverde</title>
+  <meta name="description" content="Cloud Forest day tour, night tour and private experiences in Monteverde with naturalist guide Juan Carlos Calvo Esquivel. Pricing, schedules and the wildlife you'll spot.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -20,16 +20,16 @@
     </a>
     <div class="nav-links" id="navLinks">
       <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
-      <a href="guide.html" data-en="The Guide" data-es="El Gu&iacute;a">The Guide</a>
+      <a href="tours.html" class="active" data-en="Tours" data-es="Tours">Tours</a>
       <a href="index.html#wildlife" data-en="Wildlife" data-es="Fauna">Wildlife</a>
       <a href="index.html#faq" data-en="FAQ" data-es="Preguntas">FAQ</a>
       <a href="places.html" data-en="Places & Hours" data-es="Lugares">Places & Hours</a>
-      <a href="index.html#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
+      <a href="index.html#booking" class="nav-cta" data-en="Book Now" data-es="Reservar">Book Now</a>
       <div style="margin-top:8px;">
         <button class="lang-btn" id="langToggle">ES</button>
       </div>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
       <span></span>
       <span></span>
     </button>
@@ -41,62 +41,22 @@
     <div class="grain"></div>
     <div class="container">
       <div class="hero-content" style="padding-top:120px;">
-        <div class="eyebrow" data-en="Naturalist Guide" data-es="Gu&iacute;a Naturalista">Naturalist Guide</div>
+        <div class="eyebrow" data-en="Experiences" data-es="Experiencias">Experiences</div>
         <h1 class="hero-title" style="font-size:clamp(36px,5vw,72px);">
-          <span class="line-1" data-en="Meet Your" data-es="Conoc&eacute; a tu">Meet Your</span>
-          <span class="line-2"><em data-en="Guide." data-es="Gu&iacute;a.">Guide.</em></span>
+          <span class="line-1" data-en="Our" data-es="Nuestros">Our</span>
+          <span class="line-2"><em data-en="Tours." data-es="Tours.">Tours.</em></span>
         </h1>
-        <p class="hero-sub" data-en="A life dedicated to the cloud forest." data-es="Una vida dedicada al bosque nuboso.">A life dedicated to the cloud forest.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bio Section -->
-  <section class="section">
-    <div class="container">
-      <div class="bio-grid">
-        <div class="guide-photos reveal">
-          <div class="guide-photo-main">
-            <img src="guide-group.jpeg" alt="Juan Carlos with guests in Monteverde">
-          </div>
-          <div class="guide-photo-stack">
-            <img src="guide-teaching.jpeg" alt="Juan Carlos explaining wildlife">
-            <img src="guide-action.jpeg" alt="Juan Carlos scanning the forest canopy">
-          </div>
-        </div>
-        <div class="bio-text reveal">
-          <h2 data-en="Juan Carlos <em>Calvo Esquivel</em>" data-es="Juan Carlos <em>Calvo Esquivel</em>">Juan Carlos <em>Calvo Esquivel</em></h2>
-          <p data-en="My name is Juan Carlos Calvo Esquivel. I was born in the mountains of Costa Rica, and I have never left &mdash; not because I couldn't, but because I found everything worth finding right here. For over 30 years I have walked these trails, watching the forest change with the seasons, listening to birds that most people will never hear in their lifetime. I guide in English and Spanish, and I bring one thing that no app or tour company can offer: a lifetime of paying attention." data-es="Mi nombre es Juan Carlos Calvo Esquivel. Nac&iacute; en las monta&ntilde;as de Costa Rica y nunca me fui &mdash; no porque no pudiera, sino porque aqu&iacute; encontr&eacute; todo lo que vale la pena encontrar. Por m&aacute;s de 30 a&ntilde;os he caminado estos senderos, escuchando aves que la mayor&iacute;a nunca escuchar&aacute; en su vida.">My name is Juan Carlos Calvo Esquivel. I was born in the mountains of Costa Rica, and I have never left &mdash; not because I couldn't, but because I found everything worth finding right here. For over 30 years I have walked these trails, watching the forest change with the seasons, listening to birds that most people will never hear in their lifetime. I guide in English and Spanish, and I bring one thing that no app or tour company can offer: a lifetime of paying attention.</p>
-
-          <div class="credential-badges">
-            <div class="credential">
-              <span class="credential-icon">&#127942;</span>
-              <span data-en="30+ Years" data-es="30+ A&ntilde;os">30+ Years</span>
-            </div>
-            <div class="credential">
-              <span class="credential-icon">&#127760;</span>
-              <span data-en="Bilingual EN/ES" data-es="Biling&uuml;e EN/ES">Bilingual EN/ES</span>
-            </div>
-            <div class="credential">
-              <span class="credential-icon">&#127807;</span>
-              <span data-en="Flora & Fauna Expert" data-es="Experto en Flora y Fauna">Flora & Fauna Expert</span>
-            </div>
-            <div class="credential">
-              <span class="credential-icon">&#128220;</span>
-              <span data-en="ICT Certified" data-es="Certificado ICT">ICT Certified</span>
-            </div>
-          </div>
-        </div>
+        <p class="hero-sub" data-en="Three ways to experience Monteverde with Juan Carlos." data-es="Tres formas de vivir Monteverde con Juan Carlos.">Three ways to experience Monteverde with Juan Carlos.</p>
       </div>
     </div>
   </section>
 
   <!-- Experiences Full Detail -->
-  <section class="section" style="background: var(--forest);">
+  <section class="section">
     <div class="container">
       <div class="section-header reveal">
         <div class="eyebrow" data-en="Experiences" data-es="Experiencias">Experiences</div>
-        <h2 data-en="Our <em>Tours</em>" data-es="Nuestros <em>Tours</em>">Our <em>Tours</em></h2>
+        <h2 data-en="Choose Your <em>Tour</em>" data-es="Eleg&iacute; tu <em>Tour</em>">Choose Your <em>Tour</em></h2>
       </div>
 
       <!-- Day Tour -->
@@ -152,6 +112,10 @@
             <p class="price-note" data-en="+ Reserve entrance fee (paid separately at the reserve)" data-es="+ Tarifa de entrada a la reserva (se paga por separado)">+ Reserve entrance fee (paid separately at the reserve)</p>
           </div>
         </div>
+        <div class="exp-fauna" data-tour="day">
+          <h4 data-en="What you'll spot on this tour" data-es="Qu&eacute; vas a observar en este tour">What you'll spot on this tour</h4>
+          <p class="exp-fauna-list"></p>
+        </div>
       </div>
 
       <!-- Night Tour -->
@@ -199,6 +163,10 @@
             <p class="price-note" data-en="+ Reserve entrance fee (paid separately at the reserve)" data-es="+ Tarifa de entrada a la reserva (se paga por separado)">+ Reserve entrance fee (paid separately at the reserve)</p>
           </div>
         </div>
+        <div class="exp-fauna" data-tour="night">
+          <h4 data-en="What you'll spot on this tour" data-es="Qu&eacute; vas a observar en este tour">What you'll spot on this tour</h4>
+          <p class="exp-fauna-list"></p>
+        </div>
       </div>
 
       <!-- Private Tour -->
@@ -238,6 +206,10 @@
             <p class="price-note" data-en="+ Reserve entrance fees (paid separately). Additional guests welcome &mdash; contact us for group rates." data-es="+ Tarifas de entrada a la reserva (se pagan por separado). Invitados adicionales bienvenidos &mdash; cont&aacute;ctanos para tarifas de grupo.">+ Reserve entrance fees (paid separately). Additional guests welcome &mdash; contact us for group rates.</p>
           </div>
         </div>
+        <div class="exp-fauna" data-tour="private">
+          <h4 data-en="What you'll spot on this tour" data-es="Qu&eacute; vas a observar en este tour">What you'll spot on this tour</h4>
+          <p class="exp-fauna-list"></p>
+        </div>
       </div>
     </div>
   </section>
@@ -265,7 +237,7 @@
       </div>
       <div class="footer-links">
         <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
-        <a href="guide.html" data-en="The Guide" data-es="El Gu&iacute;a">The Guide</a>
+        <a href="tours.html" data-en="Tours" data-es="Tours">Tours</a>
         <a href="places.html" data-en="Places & Hours" data-es="Lugares">Places & Hours</a>
         <a href="index.html#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
       </div>
@@ -294,6 +266,7 @@
     <span class="whatsapp-label" data-en="Book via WhatsApp" data-es="Reservar por WhatsApp">Book via WhatsApp</span>
   </a>
 
+  <script src="js/fauna.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

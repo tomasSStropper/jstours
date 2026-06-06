@@ -17,8 +17,19 @@
   --white:    #f8faf6;
   --pure:     #ffffff;
 
+  /* Extended surface + hairline tokens (added for the rework) */
+  --surface:        #0c1608;          /* intermediate tinted surface */
+  --surface-raised: #122109;          /* slightly lifted surface for hover */
+  --hairline:        rgba(106,171,74,0.16);
+  --hairline-strong: rgba(106,171,74,0.32);
+  --label:           #7a9c5e;         /* small-caps labels (mockup sage) */
+
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Outfit', Helvetica, Arial, sans-serif;
+
+  /* Motion tokens */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);   /* entrances / hover */
+  --ease-io:  cubic-bezier(0.77, 0, 0.175, 1);  /* on-screen movement */
 
   --max-width: 1280px;
   --section-padding: 120px 0;
@@ -197,18 +208,27 @@ button, input, textarea, select {
   color: var(--cream);
 }
 
+.nav-links a.active {
+  color: var(--cream);
+}
+
 .nav-cta {
   background: var(--leaf) !important;
   color: var(--black) !important;
-  border: 2px solid var(--leaf) !important;
+  border: 1px solid var(--leaf) !important;
   padding: 10px 24px;
-  transition: background 0.25s, color 0.25s;
+  border-radius: 8px;
+  transition: background 0.25s var(--ease-out), color 0.25s var(--ease-out);
 }
 
-.nav-cta:hover {
-  background: transparent !important;
-  color: var(--leaf) !important;
+@media (hover: hover) and (pointer: fine) {
+  .nav-cta:hover {
+    background: transparent !important;
+    color: var(--leaf) !important;
+  }
 }
+
+.nav-cta:active { transform: scale(0.97); }
 
 .nav-right {
   display: flex;
@@ -218,21 +238,28 @@ button, input, textarea, select {
 
 .lang-btn {
   background: none;
-  border: 1px solid rgba(106,171,74,0.3);
+  border: 1px solid var(--hairline-strong);
   color: var(--leaf);
   font-family: var(--font-body);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.15em;
   padding: 6px 14px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.25s;
+  transition: background 0.25s var(--ease-out), color 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
 }
 
-.lang-btn:hover {
-  background: var(--leaf);
-  color: var(--black);
+@media (hover: hover) and (pointer: fine) {
+  .lang-btn:hover {
+    background: var(--leaf);
+    color: var(--black);
+    border-color: var(--leaf);
+  }
 }
+
+.lang-btn:active { transform: scale(0.97); }
+.lang-btn:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
 
 .hamburger {
   display: none;
@@ -249,8 +276,10 @@ button, input, textarea, select {
   width: 22px;
   height: 1.5px;
   background: var(--cream);
-  transition: all 0.3s;
+  transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
 }
+
+.hamburger:focus-visible { outline: 2px solid var(--leaf); outline-offset: 4px; }
 
 /* --- Old navbar (for guide/places pages) --- */
 .navbar {
@@ -288,7 +317,7 @@ button, input, textarea, select {
 .hero {
   position: relative;
   min-height: 100vh;
-  background-image: url('hero-bridge.jpg');
+  background-image: url('../images/hero/hero-bridge.jpg');
   background-size: cover;
   background-position: center center;
   display: flex;
@@ -372,11 +401,27 @@ button, input, textarea, select {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 60px 60px 40px;
   position: relative;
   z-index: 5;
-  max-width: 900px;
 }
+
+/* Home page hero is full-bleed (direct child of .hero); two-column wrapper */
+.hero > .hero-content {
+  gap: 44px;
+  padding: 48px 60px;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.hero-main {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.hero-copy { min-width: 0; }
 
 .hero-tag {
   display: flex;
@@ -406,6 +451,7 @@ button, input, textarea, select {
   color: var(--leaf);
 }
 
+/* Generic hero title (subpage heros: line-1 + line-2 em) */
 .hero-title {
   font-family: var(--font-display);
   font-size: clamp(48px, 7vw, 100px);
@@ -419,7 +465,33 @@ button, input, textarea, select {
 
 .hero-title .line-1 { color: var(--mist); font-weight: 400; }
 .hero-title .line-2 em { font-style: italic; color: var(--mist); }
-.hero-title .line-3 { font-size: clamp(28px, 3.5vw, 52px); color: var(--cream); font-weight: 700; }
+
+/* Home page slogan: serif italic line over a bold sans line */
+.hero-title--slogan {
+  gap: 14px;
+}
+
+.hero-title--slogan .line-1 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.6vw, 84px);
+  font-weight: 500;
+  line-height: 1.0;
+  color: var(--cream);
+}
+
+.hero-title--slogan .line-1 em {
+  font-style: italic;
+  color: var(--mist);
+}
+
+.hero-title--slogan .line-2 {
+  font-family: var(--font-body);
+  font-size: clamp(19px, 2.3vw, 32px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+}
 
 .hero-sub {
   font-family: var(--font-body);
@@ -427,7 +499,7 @@ button, input, textarea, select {
   font-weight: 300;
   color: var(--mist);
   line-height: 1.7;
-  max-width: 560px;
+  max-width: 520px;
   margin-bottom: 40px;
 }
 
@@ -435,7 +507,6 @@ button, input, textarea, select {
   display: flex;
   align-items: center;
   gap: 32px;
-  margin-bottom: 64px;
 }
 
 .btn-primary {
@@ -449,13 +520,20 @@ button, input, textarea, select {
   text-transform: uppercase;
   text-decoration: none;
   display: inline-block;
-  transition: background 0.25s, transform 0.25s;
+  border-radius: 8px;
+  transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
 }
 
-.btn-primary:hover {
-  background: var(--mist);
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover {
+    background: var(--mist);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(106,171,74,0.22);
+  }
 }
+
+.btn-primary:active { transform: scale(0.97); }
+.btn-primary:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
 
 .btn-text {
   display: flex;
@@ -466,52 +544,243 @@ button, input, textarea, select {
   font-weight: 400;
   color: var(--mist);
   text-decoration: none;
-  transition: color 0.25s;
+  transition: color 0.25s var(--ease-out);
   border-bottom: 1px solid rgba(122,150,104,0.3);
   padding-bottom: 2px;
 }
 
-.btn-text:hover { color: var(--cream); }
+.btn-text svg { transition: transform 0.3s var(--ease-out); }
 
+@media (hover: hover) and (pointer: fine) {
+  .btn-text:hover { color: var(--cream); }
+  .btn-text:hover svg { transform: translateX(4px); }
+}
+
+.btn-text:focus-visible { outline: 2px solid var(--leaf); outline-offset: 3px; }
+
+/* --- Hero Stats Strip (asymmetric, hairline separators) --- */
 .hero-stats {
   display: flex;
-  align-items: center;
-  gap: 32px;
-  padding: 24px 60px;
-  margin: 0 -60px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: rgba(14,26,10,0.55);
-  border-top: 1px solid rgba(106,171,74,0.25);
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 0;
+  padding-top: 28px;
+  position: relative;
+}
+
+.hero-stats::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--leaf), transparent);
+  opacity: 0.55;
 }
 
 .stat {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 10px;
+  padding: 6px 30px;
+  transition: transform 0.4s var(--ease-out);
 }
+
+.stat:first-child { padding-left: 0; }
+.stat + .stat { border-left: 1px solid var(--hairline); }
 
 .stat-num {
   font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--leaf);
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--mist);
   line-height: 1;
+  transition: color 0.3s var(--ease-out);
+}
+
+.stat--lead .stat-num {
+  font-size: clamp(40px, 4vw, 52px);
 }
 
 .stat-label {
   font-family: var(--font-body);
-  font-size: 10px;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--label);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .stat:hover { transform: translateY(-3px); }
+  .stat:hover .stat-num { color: var(--cream); }
+}
+
+/* --- Hero Showcase: Fauna Spotlight --- */
+.hero-showcase { position: relative; min-width: 0; }
+
+.fauna-spotlight {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  max-width: 440px;
+  margin-left: auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(150deg, var(--moss), var(--deep));
+  border: 1px solid var(--hairline);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+}
+
+.spotlight-media { position: absolute; inset: 0; z-index: 1; }
+
+.spotlight-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1.1s var(--ease-out), transform 6s linear;
+}
+
+.spotlight-img.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.spotlight-img.img-missing { display: none; }
+
+/* atmosphere: drifting mist + rising light particles */
+.spotlight-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.spotlight-mist {
+  position: absolute;
+  width: 170%;
+  height: 170%;
+  top: -35%;
+  left: -35%;
+  background: radial-gradient(ellipse at 32% 42%, rgba(168,200,152,0.12), transparent 55%);
+  animation: mistDrift 18s ease-in-out infinite;
+}
+
+.spotlight-particles i {
+  position: absolute;
+  bottom: -12px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(168,200,152,0.65);
+  opacity: 0;
+  animation: floatUp 7s linear infinite;
+}
+
+.spotlight-particles i:nth-child(1) { left: 12%; animation-delay: 0s; }
+.spotlight-particles i:nth-child(2) { left: 26%; animation-delay: 1.4s; }
+.spotlight-particles i:nth-child(3) { left: 40%; animation-delay: 2.8s; }
+.spotlight-particles i:nth-child(4) { left: 55%; animation-delay: 0.8s; }
+.spotlight-particles i:nth-child(5) { left: 68%; animation-delay: 3.6s; }
+.spotlight-particles i:nth-child(6) { left: 80%; animation-delay: 2.1s; }
+.spotlight-particles i:nth-child(7) { left: 90%; animation-delay: 4.3s; }
+
+@keyframes mistDrift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(6%, -4%); }
+}
+
+@keyframes floatUp {
+  0% { opacity: 0; transform: translateY(0) scale(1); }
+  15% { opacity: 0.85; }
+  85% { opacity: 0.45; }
+  100% { opacity: 0; transform: translateY(-360px) scale(0.4); }
+}
+
+.spotlight-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+  background: linear-gradient(to top, rgba(8,12,5,0.86) 0%, transparent 44%);
+}
+
+.spotlight-badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: rgba(8,12,5,0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid var(--hairline);
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--cream);
+}
+
+.spotlight-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--leaf);
+  animation: spotlightPulse 2.4s ease-out infinite;
+}
+
+@keyframes spotlightPulse {
+  0% { box-shadow: 0 0 0 0 rgba(106,171,74,0.55); }
+  70% { box-shadow: 0 0 0 8px rgba(106,171,74,0); }
+  100% { box-shadow: 0 0 0 0 rgba(106,171,74,0); }
+}
+
+.spotlight-foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.spotlight-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.spotlight-common {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--white);
+  line-height: 1.15;
+}
+
+.spotlight-sci {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
   color: var(--mist);
 }
 
-.stat-divider {
-  width: 1px;
-  height: 40px;
-  background: rgba(106,171,74,0.15);
+.spotlight-counter {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--leaf);
+  white-space: nowrap;
+  padding-bottom: 2px;
 }
 
 .scroll-indicator {
@@ -562,53 +831,75 @@ button, input, textarea, select {
 
 /* --- Trust Bar (Social Proof) --- */
 .trust-bar {
-  background: var(--deep);
-  border-top: 1px solid rgba(106,171,74,0.08);
-  border-bottom: 1px solid rgba(106,171,74,0.08);
-  padding: 32px 60px;
+  background: var(--black);
+  padding: 44px 48px;
 }
 
 .trust-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.35s var(--ease-out);
+}
+
+.trust-inner:has(.trust-item:hover) {
+  border-color: var(--hairline-strong);
 }
 
 .trust-item {
   display: flex;
-  align-items: center;
-  gap: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
   text-decoration: none;
-  padding: 16px 24px;
-  border: 1px solid rgba(106,171,74,0.1);
-  transition: border-color 0.3s, background 0.3s;
+  padding: 24px 28px;
+  transition: background 0.35s var(--ease-out);
 }
 
-.trust-item:hover {
-  border-color: rgba(106,171,74,0.3);
-  background: rgba(106,171,74,0.04);
+.trust-item + .trust-item {
+  border-left: 1px solid var(--hairline);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .trust-item:hover {
+    background: rgba(106,171,74,0.06);
+  }
+  .trust-item:hover .trust-cta {
+    color: var(--leaf);
+  }
+  .trust-item:hover .trust-arrow {
+    transform: translateX(4px);
+  }
+}
+
+.trust-item:focus-visible {
+  outline: 2px solid var(--leaf);
+  outline-offset: -2px;
 }
 
 .trust-logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .trust-platform {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--cream);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
 }
 
 .trust-rating {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .trust-stars {
@@ -619,49 +910,52 @@ button, input, textarea, select {
 
 .trust-score {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--mist);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
 }
 
 .trust-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
   font-family: var(--font-body);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--leaf);
-  transition: color 0.25s;
-}
-
-.trust-item:hover .trust-cta {
   color: var(--mist);
+  transition: color 0.25s var(--ease-out);
 }
 
-.trust-divider {
-  width: 1px;
-  height: 60px;
-  background: rgba(106,171,74,0.1);
+.trust-arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease-out);
 }
 
 /* --- Experience Cards --- */
 .experiences-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap: 16px;
 }
 
 .exp-card {
-  background: rgba(17, 30, 9, 0.4);
-  border: 1px solid rgba(106,171,74,0.1);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
   padding: 48px 36px;
-  transition: all 0.4s ease;
+  border-radius: 14px;
+  transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out), transform 0.4s var(--ease-out);
   position: relative;
 }
 
-.exp-card:hover {
-  background: rgba(30, 52, 16, 0.5);
-  border-color: rgba(106,171,74,0.25);
+@media (hover: hover) and (pointer: fine) {
+  .exp-card:hover {
+    background: var(--surface-raised);
+    border-color: var(--hairline-strong);
+    transform: translateY(-4px);
+  }
 }
 
 .exp-icon {
@@ -715,10 +1009,14 @@ button, input, textarea, select {
   text-transform: uppercase;
   color: var(--leaf);
   margin-top: 16px;
-  transition: gap 0.3s ease;
+  transition: gap 0.3s var(--ease-out), color 0.25s var(--ease-out);
 }
 
-.exp-link:hover { gap: 14px; }
+@media (hover: hover) and (pointer: fine) {
+  .exp-link:hover { gap: 14px; color: var(--mist); }
+}
+
+.exp-link:focus-visible { outline: 2px solid var(--leaf); outline-offset: 3px; }
 
 /* --- Section Headers --- */
 .section-header {
@@ -796,69 +1094,116 @@ button, input, textarea, select {
   color: var(--mist);
 }
 
-/* --- Testimonials --- */
+/* --- Testimonials (editorial) --- */
 .testimonials-section {
   background: var(--forest);
 }
 
-.testimonials-grid {
+.testimonials {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
+  gap: 28px;
 }
 
-.testimonial-card {
+.tm-feature {
   position: relative;
-  padding-top: 40px;
+  padding: 52px 44px 40px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  overflow: hidden;
 }
 
-.testimonial-card::before {
+.tm-feature::before {
   content: '\201C';
   position: absolute;
-  top: -16px;
-  left: 0;
+  top: -52px;
+  left: 16px;
   font-family: var(--font-display);
-  font-size: 6rem;
-  color: var(--leaf);
-  opacity: 0.15;
+  font-size: 16rem;
   line-height: 1;
-}
-
-.testimonial-stars {
   color: var(--leaf);
-  font-size: 0.85rem;
-  margin-bottom: 16px;
-  letter-spacing: 2px;
-  display: block;
+  opacity: 0.14;
+  pointer-events: none;
 }
 
-.testimonial-text {
+.tm-quote {
+  position: relative;
   font-family: var(--font-display);
-  font-size: 1.15rem;
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.1vw, 1.55rem);
+  line-height: 1.55;
   color: var(--cream);
-  line-height: 1.8;
-  margin-bottom: 24px;
+  max-width: 900px;
+  margin-bottom: 28px;
 }
 
-.testimonial-author {
-  font-size: 0.82rem;
-  color: var(--sage);
-  letter-spacing: 0.05em;
-  margin-bottom: 4px;
+.tm-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
 }
 
-.testimonial-origin {
-  font-size: 0.75rem;
+.tm-stars {
+  color: var(--leaf);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+.tm-author {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--cream);
+}
+
+.tm-origin {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
   color: var(--mist);
-  letter-spacing: 0.05em;
 }
 
-.testimonial-avatar {
-  font-size: 1.5rem;
-  margin-bottom: 12px;
-  display: block;
+.tm-origin::before {
+  content: '\00B7';
+  margin-right: 14px;
+  color: var(--sage);
+}
+
+.tm-flag {
+  font-size: 1.15rem;
+  margin-left: auto;
+}
+
+.tm-secondary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.tm-card {
+  position: relative;
+  padding: 32px 28px 28px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tm-card:hover {
+    border-color: var(--hairline-strong);
+    transform: translateY(-4px);
+  }
+}
+
+.tm-quote-sm {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: var(--cream);
+  margin-bottom: 22px;
 }
 
 /* --- TripAdvisor Button --- */
@@ -870,19 +1215,33 @@ button, input, textarea, select {
   border: 1px solid #34E0A1;
   color: #34E0A1;
   padding: 14px 32px;
+  border-radius: 8px;
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out);
 }
 
-.btn-tripadvisor:hover {
-  background: #34E0A1;
-  color: var(--black);
+.btn-tripadvisor .ta-arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease-out);
 }
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-tripadvisor:hover {
+    background: #34E0A1;
+    color: var(--black);
+  }
+  .btn-tripadvisor:hover .ta-arrow {
+    transform: translateX(4px);
+  }
+}
+
+.btn-tripadvisor:active { transform: scale(0.97); }
+.btn-tripadvisor:focus-visible { outline: 2px solid #34E0A1; outline-offset: 3px; }
 
 /* --- Booking / Contact Section --- */
 .booking-section {
@@ -971,14 +1330,21 @@ button, input, textarea, select {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   border: none;
+  border-radius: 8px;
   cursor: none;
-  transition: all 0.3s ease;
+  transition: background 0.3s var(--ease-out), transform 0.25s var(--ease-out), box-shadow 0.3s var(--ease-out);
 }
 
-.btn-gold:hover {
-  background: var(--mist);
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .btn-gold:hover {
+    background: var(--mist);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(106,171,74,0.22);
+  }
 }
+
+.btn-gold:active { transform: scale(0.97); }
+.btn-gold:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
 
 .btn-ghost {
   display: inline-flex;
@@ -990,24 +1356,27 @@ button, input, textarea, select {
   text-transform: uppercase;
   color: var(--leaf);
   cursor: none;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(106,171,74,0.3);
+  transition: color 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+  border-bottom: 1px solid var(--hairline-strong);
   padding-bottom: 4px;
 }
 
-.btn-ghost:hover {
-  color: var(--mist);
-  border-bottom-color: var(--mist);
+@media (hover: hover) and (pointer: fine) {
+  .btn-ghost:hover {
+    color: var(--mist);
+    border-bottom-color: var(--mist);
+  }
+  .btn-ghost:hover svg {
+    transform: translateX(4px);
+  }
 }
+
+.btn-ghost:focus-visible { outline: 2px solid var(--leaf); outline-offset: 3px; }
 
 .btn-ghost svg {
   width: 16px;
   height: 16px;
-  transition: transform 0.3s ease;
-}
-
-.btn-ghost:hover svg {
-  transform: translateX(4px);
+  transition: transform 0.3s var(--ease-out);
 }
 
 /* --- Form --- */
@@ -1035,19 +1404,35 @@ button, input, textarea, select {
 .form-group select,
 .form-group textarea {
   padding: 14px 16px;
-  background: rgba(17, 30, 9, 0.3);
-  border: 1px solid rgba(106,171,74,0.15);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
   color: var(--cream);
   font-size: 0.92rem;
   font-weight: 300;
-  transition: border-color 0.3s ease;
+  border-radius: 8px;
+  transition: border-color 0.3s var(--ease-out), background 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
   cursor: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .form-group input:hover,
+  .form-group select:hover,
+  .form-group textarea:hover {
+    border-color: var(--hairline-strong);
+  }
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--leaf);
+  background: var(--surface-raised);
+  box-shadow: 0 0 0 3px rgba(106,171,74,0.14);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(168,200,152,0.45);
 }
 
 .form-group input.error,
@@ -1096,15 +1481,21 @@ button, input, textarea, select {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  border-radius: 2px;
-  transition: background 0.3s ease, transform 0.2s ease;
+  border-radius: 8px;
+  transition: background 0.3s var(--ease-out), transform 0.2s var(--ease-out), box-shadow 0.3s var(--ease-out);
   margin-top: 8px;
 }
 
-.btn-submit:hover {
-  background: #1db954;
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .btn-submit:hover {
+    background: #1db954;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(37,211,102,0.28);
+  }
 }
+
+.btn-submit:active { transform: scale(0.97); }
+.btn-submit:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
 
 /* --- Footer --- */
 footer {
@@ -1209,10 +1600,16 @@ footer {
   font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 28px;
-  max-width: 480px;
+  max-width: 520px;
 }
 
-/* --- Guide Photos (used on index About + guide.html bio) --- */
+/* Credentials sit 2x2 inside the narrower guide column on the home page */
+.about-text .credential-badges {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 32px;
+}
+
+/* --- Guide Photos (used on the home page guide section) --- */
 .guide-photos {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -1316,8 +1713,17 @@ footer {
 .credential {
   text-align: center;
   padding: 24px 16px;
-  border: 1px solid rgba(106,171,74,0.2);
-  background: rgba(17, 30, 9, 0.3);
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  border-radius: 14px;
+  transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .credential:hover {
+    border-color: var(--hairline-strong);
+    transform: translateY(-3px);
+  }
 }
 
 .credential-icon {
@@ -1333,7 +1739,7 @@ footer {
   color: var(--sage);
 }
 
-/* --- Experience Detail Cards (guide.html) --- */
+/* --- Experience Detail Cards (tours.html) --- */
 .experience-detail {
   padding: 80px 0;
   border-bottom: 1px solid rgba(106,171,74,0.1);
@@ -1465,6 +1871,31 @@ footer {
   line-height: 1.5;
 }
 
+/* Per-tour fauna ("What you'll spot on this tour") */
+.exp-fauna {
+  margin-top: 36px;
+  padding: 24px 28px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+}
+
+.exp-fauna h4 {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--leaf);
+  margin-bottom: 10px;
+}
+
+.exp-fauna-list {
+  color: var(--mist);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
 /* --- Booking CTA Section --- */
 .booking-cta {
   background: linear-gradient(135deg, var(--forest), var(--black));
@@ -1527,15 +1958,24 @@ footer {
 .place-facts {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
+  gap: 12px;
   margin-bottom: 48px;
 }
 
 .fact-card {
-  background: rgba(17, 30, 9, 0.3);
-  border: 1px solid rgba(106,171,74,0.1);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
   text-align: center;
   padding: 32px 20px;
+  border-radius: 14px;
+  transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .fact-card:hover {
+    border-color: var(--hairline-strong);
+    transform: translateY(-3px);
+  }
 }
 
 .fact-value {
@@ -1618,14 +2058,19 @@ footer {
 }
 
 .tip-card {
-  background: rgba(17, 30, 9, 0.3);
-  border: 1px solid rgba(106,171,74,0.1);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
   padding: 36px 28px;
-  transition: border-color 0.3s ease;
+  border-radius: 14px;
+  transition: border-color 0.3s var(--ease-out), background 0.3s var(--ease-out), transform 0.3s var(--ease-out);
 }
 
-.tip-card:hover {
-  border-color: rgba(106,171,74,0.3);
+@media (hover: hover) and (pointer: fine) {
+  .tip-card:hover {
+    border-color: var(--hairline-strong);
+    background: var(--surface-raised);
+    transform: translateY(-4px);
+  }
 }
 
 .tip-icon {
@@ -1695,59 +2140,118 @@ footer {
   max-width: 540px;
 }
 
-.wildlife-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-top: 60px;
-  align-items: end;
-}
-
-.wildlife-card {
+/* --- Fauna Carousel (auto-scrolling marquee, draggable) --- */
+.fauna-carousel {
   position: relative;
+  margin-top: 56px;
+}
+
+.fauna-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fauna-viewport::-webkit-scrollbar { display: none; }
+.fauna-viewport.dragging { cursor: grabbing; }
+.fauna-viewport.dragging .fauna-card { pointer-events: none; }
+
+.fauna-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  padding: 4px;
+}
+
+.fauna-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(240px, 24vw, 300px);
+  height: 380px;
+  border-radius: 14px;
   overflow: hidden;
-  border-radius: 4px;
-  height: 320px;
+  background: linear-gradient(135deg, var(--moss), var(--forest));
+  border: 1px solid var(--hairline);
 }
 
-.wildlife-card--tall {
-  height: 420px;
-  margin-top: -100px;
-}
-
-.wildlife-card img {
+.fauna-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s ease;
+  transition: transform 0.7s var(--ease-out);
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
-.wildlife-card:hover img { transform: scale(1.06); }
+.fauna-card img.img-missing { visibility: hidden; }
 
-.wildlife-label {
+@media (hover: hover) and (pointer: fine) {
+  .fauna-card:hover img { transform: scale(1.05); }
+}
+
+.fauna-card-info {
   position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: 28px 16px 16px;
-  background: linear-gradient(to top, rgba(8,12,5,0.93) 0%, transparent 100%);
+  left: 0; right: 0; bottom: 0;
+  padding: 28px 18px 18px;
+  background: linear-gradient(to top, rgba(8,12,5,0.92) 0%, transparent 100%);
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 
-.wildlife-name {
-  font-family: 'Cormorant Garamond', serif;
+.fauna-name {
+  font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   color: var(--white);
+  line-height: 1.2;
 }
 
-.wildlife-tag {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
+.fauna-sci {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
   color: var(--leaf);
-  text-transform: uppercase;
 }
+
+.fauna-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(12,22,8,0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid var(--hairline);
+  color: var(--mist);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+}
+
+.fauna-arrow--prev { left: -6px; }
+.fauna-arrow--next { right: -6px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .fauna-arrow:hover {
+    background: var(--leaf);
+    color: var(--black);
+    border-color: var(--leaf);
+  }
+}
+
+.fauna-arrow:active { transform: translateY(-50%) scale(0.94); }
+.fauna-arrow:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
 
 /* --- FAQ Section --- */
 .faq { padding: 120px 0; background: var(--black); }
@@ -1816,7 +2320,6 @@ footer {
 
 /* --- Scroll Reveal (new) --- */
 .faq-item,
-.wildlife-card,
 .guide-photos,
 .section-header {
   opacity: 0;
@@ -1833,8 +2336,17 @@ footer {
    RESPONSIVE
    ============================================ */
 @media (max-width: 1024px) {
-  .experiences-grid,
-  .testimonials-grid {
+  .hero-main {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .fauna-spotlight {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+
+  .experiences-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
@@ -1908,13 +2420,14 @@ footer {
   .hamburger { display: flex; z-index: 201; }
 
   .hero { background-position: 30% center; }
-  .hero-content { padding: 40px 24px 32px; }
-  .hero-stats { padding: 20px 24px; margin: 0 -24px; }
-  .hero-title { font-size: clamp(38px, 10vw, 64px); }
+  .hero > .hero-content { padding: 40px 24px; gap: 36px; }
 
   .wildlife { padding: 72px 0; }
-  .wildlife-grid { grid-template-columns: repeat(2, 1fr); }
-  .wildlife-card--tall { height: 320px; margin-top: 0; }
+  .fauna-card { width: clamp(220px, 70vw, 280px); height: 340px; }
+
+  .tm-secondary { grid-template-columns: 1fr; }
+  .tm-feature { padding: 44px 26px 32px; }
+  .tm-feature::before { font-size: 11rem; top: -34px; }
 
   .faq { padding: 72px 0; }
   .faq-question > span[data-en] { font-size: 1.05rem; }
@@ -1925,25 +2438,26 @@ footer {
     gap: 20px;
   }
 
-  .hero-stats { gap: 20px; flex-wrap: wrap; }
-  .stat-divider { display: none; }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding-top: 24px;
+  }
+  .hero-stats .stat { padding: 16px 0 16px 18px; }
+  .hero-stats .stat:nth-child(odd) { padding-left: 0; border-left: none; }
+  .hero-stats .stat:nth-child(even) { border-left: 1px solid var(--hairline); }
+  .hero-stats .stat:nth-child(n+3) { border-top: 1px solid var(--hairline); }
 
   .trust-bar { padding: 24px; }
 
   .trust-inner {
-    gap: 0;
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
-  .trust-divider {
-    width: 100%;
-    height: 1px;
-    margin: 4px 0;
-  }
-
-  .trust-item {
-    width: 100%;
-    justify-content: space-between;
+  .trust-item + .trust-item {
+    border-left: none;
+    border-top: 1px solid var(--hairline);
   }
 
   .logo-sub { display: none; }
@@ -2029,5 +2543,30 @@ footer {
 
   .credential-badges {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   Respect users who prefer no animation: drop
+   transforms and looping motion, keep simple
+   opacity/color transitions only.
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .faq-item,
+  .guide-photos,
+  .section-header {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

@@ -59,6 +59,9 @@ function applyLang(lang) {
   if (btn) btn.textContent = lang === 'en' ? 'ES' : 'EN';
 
   document.documentElement.lang = lang === 'en' ? 'en' : 'es';
+
+  // Let JS-rendered content (spotlight, carousel, per-tour fauna) re-localize.
+  document.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
 }
 const langToggle = document.getElementById('langToggle');
 if (langToggle) langToggle.addEventListener('click', () => {
@@ -70,10 +73,14 @@ applyLang(currentLang);
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.querySelector('.nav-links');
 if (hamburger && navLinks) {
-  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  const setMenu = (open) => {
+    navLinks.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  hamburger.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
   // Close menu on link click
   navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => navLinks.classList.remove('open'));
+    link.addEventListener('click', () => setMenu(false));
   });
 }
 
@@ -137,7 +144,7 @@ document.getElementById('booking-form')?.addEventListener('submit', function(e) 
 
 // Scroll reveal (new sections)
 const revealTargets = document.querySelectorAll(
-  '.faq-item, .wildlife-card, .guide-photos, .section-header'
+  '.faq-item, .guide-photos, .section-header'
 );
 const newRevealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
@@ -148,6 +155,161 @@ const newRevealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 revealTargets.forEach(el => newRevealObserver.observe(el));
+
+// Hero Fauna Spotlight — data-driven crossfade rotation (reads js/fauna.js)
+function initSpotlight() {
+  const root = document.getElementById('faunaSpotlight');
+  if (!root || typeof FaunaData === 'undefined') return;
+  const items = FaunaData.featured();
+  if (!items.length) return;
+
+  const media    = root.querySelector('.spotlight-media');
+  const commonEl = root.querySelector('.spotlight-common');
+  const sciEl    = root.querySelector('.spotlight-sci');
+  const counter  = root.querySelector('.spotlight-counter');
+
+  media.innerHTML = items.map((f, i) =>
+    `<img class="spotlight-img${i === 0 ? ' is-active' : ''}" src="${f.img}" alt="${f.comunEn}" ` +
+    `loading="${i === 0 ? 'eager' : 'lazy'}" onerror="this.classList.add('img-missing')">`
+  ).join('');
+  const imgs = Array.from(media.querySelectorAll('.spotlight-img'));
+
+  let idx = 0;
+  function render() {
+    imgs.forEach((im, i) => im.classList.toggle('is-active', i === idx));
+    const f = items[idx];
+    commonEl.innerHTML = FaunaData.name(f, currentLang);
+    sciEl.innerHTML = f.cientifico;
+    counter.textContent =
+      String(idx + 1).padStart(2, '0') + ' / ' + String(items.length).padStart(2, '0');
+  }
+  render();
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let timer = null;
+  function start() {
+    if (reduce || items.length < 2) return;
+    stop();
+    timer = setInterval(() => { idx = (idx + 1) % items.length; render(); }, 3500);
+  }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  start();
+
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  document.addEventListener('langchange', render);
+}
+initSpotlight();
+
+// Wildlife carousel — continuous marquee, pause on hover, draggable (reads js/fauna.js)
+function initFaunaCarousel() {
+  const root = document.getElementById('faunaCarousel');
+  if (!root || typeof FaunaData === 'undefined') return;
+  const viewport = root.querySelector('.fauna-viewport');
+  const track = root.querySelector('.fauna-track');
+  const items = FaunaData.all();
+  if (!viewport || !track || !items.length) return;
+
+  const cardHTML = (f) =>
+    `<article class="fauna-card">` +
+      `<img src="${f.img}" alt="${f.comunEn}" loading="lazy" onerror="this.classList.add('img-missing')">` +
+      `<div class="fauna-card-info">` +
+        `<span class="fauna-name" data-en="${f.comunEn}" data-es="${f.comunEs}">${FaunaData.name(f, currentLang)}</span>` +
+        `<span class="fauna-sci">${f.cientifico}</span>` +
+      `</div>` +
+    `</article>`;
+
+  // Duplicate the list so the marquee can loop seamlessly.
+  track.innerHTML = items.map(cardHTML).join('') + items.map(cardHTML).join('');
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const half = () => track.scrollWidth / 2;
+  let paused = false, dragging = false, startX = 0, startScroll = 0;
+  const speed = 0.5;
+
+  function step() {
+    if (!paused && !dragging) {
+      viewport.scrollLeft += speed;
+      if (viewport.scrollLeft >= half()) viewport.scrollLeft -= half();
+    }
+    requestAnimationFrame(step);
+  }
+  if (!reduce) requestAnimationFrame(step);
+
+  root.addEventListener('mouseenter', () => { paused = true; });
+  root.addEventListener('mouseleave', () => { paused = false; });
+
+  // Pointer drag
+  viewport.addEventListener('pointerdown', (e) => {
+    dragging = true;
+    startX = e.clientX;
+    startScroll = viewport.scrollLeft;
+    viewport.classList.add('dragging');
+    viewport.setPointerCapture(e.pointerId);
+  });
+  viewport.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    viewport.scrollLeft = startScroll - (e.clientX - startX);
+  });
+  function endDrag() {
+    if (!dragging) return;
+    dragging = false;
+    viewport.classList.remove('dragging');
+    // keep within the loop window
+    if (viewport.scrollLeft <= 0) viewport.scrollLeft += half();
+    else if (viewport.scrollLeft >= half()) viewport.scrollLeft -= half();
+  }
+  viewport.addEventListener('pointerup', endDrag);
+  viewport.addEventListener('pointercancel', endDrag);
+
+  // Arrows
+  const cardWidth = () => {
+    const c = track.querySelector('.fauna-card');
+    return c ? c.offsetWidth + 16 : 280;
+  };
+  root.querySelector('.fauna-arrow--prev')?.addEventListener('click',
+    () => viewport.scrollBy({ left: -cardWidth(), behavior: 'smooth' }));
+  root.querySelector('.fauna-arrow--next')?.addEventListener('click',
+    () => viewport.scrollBy({ left: cardWidth(), behavior: 'smooth' }));
+
+  // Localize icon-button labels (names are handled by applyLang via data-en/es).
+  function applyArrowLabels() {
+    root.querySelectorAll('.fauna-arrow').forEach((btn) => {
+      const label = currentLang === 'es' ? btn.dataset.labelEs : btn.dataset.labelEn;
+      if (label) btn.setAttribute('aria-label', label);
+    });
+  }
+  applyArrowLabels();
+  document.addEventListener('langchange', applyArrowLabels);
+}
+initFaunaCarousel();
+
+// Per-tour fauna sentence on tours.html (reads js/fauna.js)
+function initTourFauna() {
+  if (typeof FaunaData === 'undefined') return;
+  const blocks = document.querySelectorAll('.exp-fauna[data-tour]');
+  if (!blocks.length) return;
+
+  function joinNames(names, lang) {
+    if (names.length <= 1) return names.join('');
+    const last = names[names.length - 1];
+    return names.slice(0, -1).join(', ') + (lang === 'es' ? ' y ' : ' and ') + last;
+  }
+
+  blocks.forEach((block) => {
+    const species = FaunaData.forTour(block.dataset.tour).slice(0, 5);
+    const target = block.querySelector('.exp-fauna-list');
+    if (!target || !species.length) { block.style.display = 'none'; return; }
+    const en = 'On this walk you can spot, among others: ' +
+      joinNames(species.map((f) => f.comunEn), 'en') + '.';
+    const es = 'En este recorrido pod&eacute;s observar, entre otras especies: ' +
+      joinNames(species.map((f) => f.comunEs), 'es') + '.';
+    target.setAttribute('data-en', en);
+    target.setAttribute('data-es', es);
+    target.innerHTML = currentLang === 'es' ? es : en;
+  });
+}
+initTourFauna();
 
 // Custom cursor (desktop only)
 if (window.innerWidth > 768) {
