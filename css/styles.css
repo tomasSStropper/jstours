@@ -811,53 +811,75 @@ button, input, textarea, select {
 
 /* --- Trust Bar (Social Proof) --- */
 .trust-bar {
-  background: var(--deep);
-  border-top: 1px solid rgba(106,171,74,0.08);
-  border-bottom: 1px solid rgba(106,171,74,0.08);
-  padding: 32px 60px;
+  background: var(--black);
+  padding: 44px 48px;
 }
 
 .trust-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.35s var(--ease-out);
+}
+
+.trust-inner:has(.trust-item:hover) {
+  border-color: var(--hairline-strong);
 }
 
 .trust-item {
   display: flex;
-  align-items: center;
-  gap: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
   text-decoration: none;
-  padding: 16px 24px;
-  border: 1px solid rgba(106,171,74,0.1);
-  transition: border-color 0.3s, background 0.3s;
+  padding: 24px 28px;
+  transition: background 0.35s var(--ease-out);
 }
 
-.trust-item:hover {
-  border-color: rgba(106,171,74,0.3);
-  background: rgba(106,171,74,0.04);
+.trust-item + .trust-item {
+  border-left: 1px solid var(--hairline);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .trust-item:hover {
+    background: rgba(106,171,74,0.06);
+  }
+  .trust-item:hover .trust-cta {
+    color: var(--leaf);
+  }
+  .trust-item:hover .trust-arrow {
+    transform: translateX(4px);
+  }
+}
+
+.trust-item:focus-visible {
+  outline: 2px solid var(--leaf);
+  outline-offset: -2px;
 }
 
 .trust-logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .trust-platform {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--cream);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
 }
 
 .trust-rating {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .trust-stars {
@@ -868,29 +890,28 @@ button, input, textarea, select {
 
 .trust-score {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--mist);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
 }
 
 .trust-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
   font-family: var(--font-body);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--leaf);
-  transition: color 0.25s;
-}
-
-.trust-item:hover .trust-cta {
   color: var(--mist);
+  transition: color 0.25s var(--ease-out);
 }
 
-.trust-divider {
-  width: 1px;
-  height: 60px;
-  background: rgba(106,171,74,0.1);
+.trust-arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease-out);
 }
 
 /* --- Experience Cards --- */
@@ -2265,19 +2286,12 @@ footer {
   .trust-bar { padding: 24px; }
 
   .trust-inner {
-    gap: 0;
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
-  .trust-divider {
-    width: 100%;
-    height: 1px;
-    margin: 4px 0;
-  }
-
-  .trust-item {
-    width: 100%;
-    justify-content: space-between;
+  .trust-item + .trust-item {
+    border-left: none;
+    border-top: 1px solid var(--hairline);
   }
 
   .logo-sub { display: none; }
