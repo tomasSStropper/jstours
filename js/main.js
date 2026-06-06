@@ -73,10 +73,14 @@ applyLang(currentLang);
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.querySelector('.nav-links');
 if (hamburger && navLinks) {
-  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  const setMenu = (open) => {
+    navLinks.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  hamburger.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
   // Close menu on link click
   navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => navLinks.classList.remove('open'));
+    link.addEventListener('click', () => setMenu(false));
   });
 }
 
