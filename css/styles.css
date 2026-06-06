@@ -2095,59 +2095,118 @@ footer {
   max-width: 540px;
 }
 
-.wildlife-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-top: 60px;
-  align-items: end;
-}
-
-.wildlife-card {
+/* --- Fauna Carousel (auto-scrolling marquee, draggable) --- */
+.fauna-carousel {
   position: relative;
+  margin-top: 56px;
+}
+
+.fauna-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fauna-viewport::-webkit-scrollbar { display: none; }
+.fauna-viewport.dragging { cursor: grabbing; }
+.fauna-viewport.dragging .fauna-card { pointer-events: none; }
+
+.fauna-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  padding: 4px;
+}
+
+.fauna-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(240px, 24vw, 300px);
+  height: 380px;
+  border-radius: 14px;
   overflow: hidden;
-  border-radius: 4px;
-  height: 320px;
+  background: linear-gradient(135deg, var(--moss), var(--forest));
+  border: 1px solid var(--hairline);
 }
 
-.wildlife-card--tall {
-  height: 420px;
-  margin-top: -100px;
-}
-
-.wildlife-card img {
+.fauna-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s ease;
+  transition: transform 0.7s var(--ease-out);
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
-.wildlife-card:hover img { transform: scale(1.06); }
+.fauna-card img.img-missing { visibility: hidden; }
 
-.wildlife-label {
+@media (hover: hover) and (pointer: fine) {
+  .fauna-card:hover img { transform: scale(1.05); }
+}
+
+.fauna-card-info {
   position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: 28px 16px 16px;
-  background: linear-gradient(to top, rgba(8,12,5,0.93) 0%, transparent 100%);
+  left: 0; right: 0; bottom: 0;
+  padding: 28px 18px 18px;
+  background: linear-gradient(to top, rgba(8,12,5,0.92) 0%, transparent 100%);
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 
-.wildlife-name {
-  font-family: 'Cormorant Garamond', serif;
+.fauna-name {
+  font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   color: var(--white);
+  line-height: 1.2;
 }
 
-.wildlife-tag {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
+.fauna-sci {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
   color: var(--leaf);
-  text-transform: uppercase;
 }
+
+.fauna-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(12,22,8,0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid var(--hairline);
+  color: var(--mist);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+}
+
+.fauna-arrow--prev { left: -6px; }
+.fauna-arrow--next { right: -6px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .fauna-arrow:hover {
+    background: var(--leaf);
+    color: var(--black);
+    border-color: var(--leaf);
+  }
+}
+
+.fauna-arrow:active { transform: translateY(-50%) scale(0.94); }
+.fauna-arrow:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
 
 /* --- FAQ Section --- */
 .faq { padding: 120px 0; background: var(--black); }
@@ -2216,7 +2275,6 @@ footer {
 
 /* --- Scroll Reveal (new) --- */
 .faq-item,
-.wildlife-card,
 .guide-photos,
 .section-header {
   opacity: 0;
@@ -2320,8 +2378,7 @@ footer {
   .hero-content { padding: 40px 24px; gap: 36px; }
 
   .wildlife { padding: 72px 0; }
-  .wildlife-grid { grid-template-columns: repeat(2, 1fr); }
-  .wildlife-card--tall { height: 320px; margin-top: 0; }
+  .fauna-card { width: clamp(220px, 70vw, 280px); height: 340px; }
 
   .tm-secondary { grid-template-columns: 1fr; }
   .tm-feature { padding: 44px 26px 32px; }
@@ -2462,7 +2519,6 @@ footer {
 
   .reveal,
   .faq-item,
-  .wildlife-card,
   .guide-photos,
   .section-header {
     opacity: 1 !important;

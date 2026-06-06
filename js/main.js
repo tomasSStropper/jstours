@@ -140,7 +140,7 @@ document.getElementById('booking-form')?.addEventListener('submit', function(e) 
 
 // Scroll reveal (new sections)
 const revealTargets = document.querySelectorAll(
-  '.faq-item, .wildlife-card, .guide-photos, .section-header'
+  '.faq-item, .guide-photos, .section-header'
 );
 const newRevealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
@@ -196,6 +196,89 @@ function initSpotlight() {
   document.addEventListener('langchange', render);
 }
 initSpotlight();
+
+// Wildlife carousel — continuous marquee, pause on hover, draggable (reads js/fauna.js)
+function initFaunaCarousel() {
+  const root = document.getElementById('faunaCarousel');
+  if (!root || typeof FaunaData === 'undefined') return;
+  const viewport = root.querySelector('.fauna-viewport');
+  const track = root.querySelector('.fauna-track');
+  const items = FaunaData.all();
+  if (!viewport || !track || !items.length) return;
+
+  const cardHTML = (f) =>
+    `<article class="fauna-card">` +
+      `<img src="${f.img}" alt="${f.comunEn}" loading="lazy" onerror="this.classList.add('img-missing')">` +
+      `<div class="fauna-card-info">` +
+        `<span class="fauna-name" data-en="${f.comunEn}" data-es="${f.comunEs}">${FaunaData.name(f, currentLang)}</span>` +
+        `<span class="fauna-sci">${f.cientifico}</span>` +
+      `</div>` +
+    `</article>`;
+
+  // Duplicate the list so the marquee can loop seamlessly.
+  track.innerHTML = items.map(cardHTML).join('') + items.map(cardHTML).join('');
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const half = () => track.scrollWidth / 2;
+  let paused = false, dragging = false, startX = 0, startScroll = 0;
+  const speed = 0.5;
+
+  function step() {
+    if (!paused && !dragging) {
+      viewport.scrollLeft += speed;
+      if (viewport.scrollLeft >= half()) viewport.scrollLeft -= half();
+    }
+    requestAnimationFrame(step);
+  }
+  if (!reduce) requestAnimationFrame(step);
+
+  root.addEventListener('mouseenter', () => { paused = true; });
+  root.addEventListener('mouseleave', () => { paused = false; });
+
+  // Pointer drag
+  viewport.addEventListener('pointerdown', (e) => {
+    dragging = true;
+    startX = e.clientX;
+    startScroll = viewport.scrollLeft;
+    viewport.classList.add('dragging');
+    viewport.setPointerCapture(e.pointerId);
+  });
+  viewport.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    viewport.scrollLeft = startScroll - (e.clientX - startX);
+  });
+  function endDrag() {
+    if (!dragging) return;
+    dragging = false;
+    viewport.classList.remove('dragging');
+    // keep within the loop window
+    if (viewport.scrollLeft <= 0) viewport.scrollLeft += half();
+    else if (viewport.scrollLeft >= half()) viewport.scrollLeft -= half();
+  }
+  viewport.addEventListener('pointerup', endDrag);
+  viewport.addEventListener('pointercancel', endDrag);
+
+  // Arrows
+  const cardWidth = () => {
+    const c = track.querySelector('.fauna-card');
+    return c ? c.offsetWidth + 16 : 280;
+  };
+  root.querySelector('.fauna-arrow--prev')?.addEventListener('click',
+    () => viewport.scrollBy({ left: -cardWidth(), behavior: 'smooth' }));
+  root.querySelector('.fauna-arrow--next')?.addEventListener('click',
+    () => viewport.scrollBy({ left: cardWidth(), behavior: 'smooth' }));
+
+  // Localize icon-button labels (names are handled by applyLang via data-en/es).
+  function applyArrowLabels() {
+    root.querySelectorAll('.fauna-arrow').forEach((btn) => {
+      const label = currentLang === 'es' ? btn.dataset.labelEs : btn.dataset.labelEn;
+      if (label) btn.setAttribute('aria-label', label);
+    });
+  }
+  applyArrowLabels();
+  document.addEventListener('langchange', applyArrowLabels);
+}
+initFaunaCarousel();
 
 // Custom cursor (desktop only)
 if (window.innerWidth > 768) {
