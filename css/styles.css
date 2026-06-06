@@ -1074,69 +1074,116 @@ button, input, textarea, select {
   color: var(--mist);
 }
 
-/* --- Testimonials --- */
+/* --- Testimonials (editorial) --- */
 .testimonials-section {
   background: var(--forest);
 }
 
-.testimonials-grid {
+.testimonials {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
+  gap: 28px;
 }
 
-.testimonial-card {
+.tm-feature {
   position: relative;
-  padding-top: 40px;
+  padding: 52px 44px 40px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  overflow: hidden;
 }
 
-.testimonial-card::before {
+.tm-feature::before {
   content: '\201C';
   position: absolute;
-  top: -16px;
-  left: 0;
+  top: -52px;
+  left: 16px;
   font-family: var(--font-display);
-  font-size: 6rem;
-  color: var(--leaf);
-  opacity: 0.15;
+  font-size: 16rem;
   line-height: 1;
-}
-
-.testimonial-stars {
   color: var(--leaf);
-  font-size: 0.85rem;
-  margin-bottom: 16px;
-  letter-spacing: 2px;
-  display: block;
+  opacity: 0.14;
+  pointer-events: none;
 }
 
-.testimonial-text {
+.tm-quote {
+  position: relative;
   font-family: var(--font-display);
-  font-size: 1.15rem;
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.1vw, 1.55rem);
+  line-height: 1.55;
   color: var(--cream);
-  line-height: 1.8;
-  margin-bottom: 24px;
+  max-width: 900px;
+  margin-bottom: 28px;
 }
 
-.testimonial-author {
-  font-size: 0.82rem;
-  color: var(--sage);
-  letter-spacing: 0.05em;
-  margin-bottom: 4px;
+.tm-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
 }
 
-.testimonial-origin {
-  font-size: 0.75rem;
+.tm-stars {
+  color: var(--leaf);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+.tm-author {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--cream);
+}
+
+.tm-origin {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
   color: var(--mist);
-  letter-spacing: 0.05em;
 }
 
-.testimonial-avatar {
-  font-size: 1.5rem;
-  margin-bottom: 12px;
-  display: block;
+.tm-origin::before {
+  content: '\00B7';
+  margin-right: 14px;
+  color: var(--sage);
+}
+
+.tm-flag {
+  font-size: 1.15rem;
+  margin-left: auto;
+}
+
+.tm-secondary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.tm-card {
+  position: relative;
+  padding: 32px 28px 28px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tm-card:hover {
+    border-color: var(--hairline-strong);
+    transform: translateY(-4px);
+  }
+}
+
+.tm-quote-sm {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: var(--cream);
+  margin-bottom: 22px;
 }
 
 /* --- TripAdvisor Button --- */
@@ -1148,19 +1195,33 @@ button, input, textarea, select {
   border: 1px solid #34E0A1;
   color: #34E0A1;
   padding: 14px 32px;
+  border-radius: 8px;
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out);
 }
 
-.btn-tripadvisor:hover {
-  background: #34E0A1;
-  color: var(--black);
+.btn-tripadvisor .ta-arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease-out);
 }
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-tripadvisor:hover {
+    background: #34E0A1;
+    color: var(--black);
+  }
+  .btn-tripadvisor:hover .ta-arrow {
+    transform: translateX(4px);
+  }
+}
+
+.btn-tripadvisor:active { transform: scale(0.97); }
+.btn-tripadvisor:focus-visible { outline: 2px solid #34E0A1; outline-offset: 3px; }
 
 /* --- Booking / Contact Section --- */
 .booking-section {
@@ -2182,8 +2243,7 @@ footer {
     max-width: 400px;
   }
 
-  .experiences-grid,
-  .testimonials-grid {
+  .experiences-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
@@ -2262,6 +2322,10 @@ footer {
   .wildlife { padding: 72px 0; }
   .wildlife-grid { grid-template-columns: repeat(2, 1fr); }
   .wildlife-card--tall { height: 320px; margin-top: 0; }
+
+  .tm-secondary { grid-template-columns: 1fr; }
+  .tm-feature { padding: 44px 26px 32px; }
+  .tm-feature::before { font-size: 11rem; top: -34px; }
 
   .faq { padding: 72px 0; }
   .faq-question > span[data-en] { font-size: 1.05rem; }
