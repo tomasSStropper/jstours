@@ -443,15 +443,27 @@ button, input, textarea, select {
   color: var(--leaf);
 }
 
+/* Generic hero title (subpage heros: line-1 + line-2 em) */
 .hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 100px);
+  font-weight: 400;
+  line-height: 1.0;
   color: var(--cream);
   margin-bottom: 28px;
   display: flex;
   flex-direction: column;
+}
+
+.hero-title .line-1 { color: var(--mist); font-weight: 400; }
+.hero-title .line-2 em { font-style: italic; color: var(--mist); }
+
+/* Home page slogan: serif italic line over a bold sans line */
+.hero-title--slogan {
   gap: 14px;
 }
 
-.hero-title .line-1 {
+.hero-title--slogan .line-1 {
   font-family: var(--font-display);
   font-size: clamp(40px, 5.6vw, 84px);
   font-weight: 500;
@@ -459,12 +471,12 @@ button, input, textarea, select {
   color: var(--cream);
 }
 
-.hero-title .line-1 em {
+.hero-title--slogan .line-1 em {
   font-style: italic;
   color: var(--mist);
 }
 
-.hero-title .line-2 {
+.hero-title--slogan .line-2 {
   font-family: var(--font-body);
   font-size: clamp(19px, 2.3vw, 32px);
   font-weight: 600;
