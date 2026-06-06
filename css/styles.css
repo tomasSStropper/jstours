@@ -288,7 +288,7 @@ button, input, textarea, select {
 .hero {
   position: relative;
   min-height: 100vh;
-  background-image: url('hero-bridge.jpg');
+  background-image: url('../images/hero/hero-bridge.jpg');
   background-size: cover;
   background-position: center center;
   display: flex;
