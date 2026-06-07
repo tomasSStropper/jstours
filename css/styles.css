@@ -213,22 +213,42 @@ button, input, textarea, select {
 }
 
 .nav-cta {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
   background: var(--leaf) !important;
   color: var(--black) !important;
   border: 1px solid var(--leaf) !important;
   padding: 10px 24px;
   border-radius: 8px;
-  transition: background 0.25s var(--ease-out), color 0.25s var(--ease-out);
+  box-shadow: 0 6px 18px rgba(106,171,74,0.22);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), background 0.25s ease;
+}
+
+.nav-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.6s var(--ease-out);
+  pointer-events: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .nav-cta:hover {
-    background: transparent !important;
-    color: var(--leaf) !important;
+    background: #7cbf5b !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(106,171,74,0.34);
   }
+  .nav-cta:hover::before { left: 150%; }
 }
 
 .nav-cta:active { transform: scale(0.97); }
+.nav-cta:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
 
 .nav-right {
   display: flex;
@@ -510,6 +530,8 @@ button, input, textarea, select {
 }
 
 .btn-primary {
+  position: relative;
+  overflow: hidden;
   background: var(--leaf);
   color: var(--black);
   padding: 16px 36px;
@@ -521,15 +543,30 @@ button, input, textarea, select {
   text-decoration: none;
   display: inline-block;
   border-radius: 8px;
-  transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+  box-shadow: 0 6px 18px rgba(106,171,74,0.22);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), background 0.25s ease;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.6s var(--ease-out);
+  pointer-events: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .btn-primary:hover {
-    background: var(--mist);
+    background: #7cbf5b;
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(106,171,74,0.22);
+    box-shadow: 0 10px 26px rgba(106,171,74,0.34);
   }
+  .btn-primary:hover::before { left: 150%; }
 }
 
 .btn-primary:active { transform: scale(0.97); }
@@ -544,15 +581,15 @@ button, input, textarea, select {
   font-weight: 400;
   color: var(--mist);
   text-decoration: none;
-  transition: color 0.25s var(--ease-out);
-  border-bottom: 1px solid rgba(122,150,104,0.3);
+  transition: color 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+  border-bottom: 1px solid var(--sage);
   padding-bottom: 2px;
 }
 
 .btn-text svg { transition: transform 0.3s var(--ease-out); }
 
 @media (hover: hover) and (pointer: fine) {
-  .btn-text:hover { color: var(--cream); }
+  .btn-text:hover { color: var(--cream); border-bottom-color: var(--leaf); }
   .btn-text:hover svg { transform: translateX(4px); }
 }
 
@@ -840,34 +877,45 @@ button, input, textarea, select {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background: var(--surface);
-  border: 1px solid var(--hairline);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: border-color 0.35s var(--ease-out);
-}
-
-.trust-inner:has(.trust-item:hover) {
-  border-color: var(--hairline-strong);
+  gap: 16px;
 }
 
 .trust-item {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
   text-decoration: none;
   padding: 24px 28px;
-  transition: background 0.35s var(--ease-out);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  background: var(--surface);
+  transition: transform 0.4s var(--ease-out), background 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
 }
 
-.trust-item + .trust-item {
-  border-left: 1px solid var(--hairline);
+.trust-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--leaf);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .trust-item:hover {
+    transform: translateY(-4px);
     background: rgba(106,171,74,0.06);
+    border-color: var(--hairline-strong);
+  }
+  .trust-item:hover::before {
+    transform: scaleX(1);
   }
   .trust-item:hover .trust-cta {
     color: var(--leaf);
@@ -879,7 +927,7 @@ button, input, textarea, select {
 
 .trust-item:focus-visible {
   outline: 2px solid var(--leaf);
-  outline-offset: -2px;
+  outline-offset: 2px;
 }
 
 .trust-logo {
@@ -909,10 +957,11 @@ button, input, textarea, select {
 }
 
 .trust-score {
-  font-family: var(--font-body);
-  font-size: 12px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 15px;
   color: var(--mist);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
 }
 
 .trust-cta {
@@ -1009,11 +1058,17 @@ button, input, textarea, select {
   text-transform: uppercase;
   color: var(--leaf);
   margin-top: 16px;
-  transition: gap 0.3s var(--ease-out), color 0.25s var(--ease-out);
+  transition: color 0.25s var(--ease-out);
+}
+
+.exp-link .exp-arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .exp-link:hover { gap: 14px; color: var(--mist); }
+  .exp-link:hover { color: var(--cream); }
+  .exp-link:hover .exp-arrow { transform: translateX(4px); }
 }
 
 .exp-link:focus-visible { outline: 2px solid var(--leaf); outline-offset: 3px; }
@@ -1040,58 +1095,6 @@ button, input, textarea, select {
   font-size: 1rem;
   color: var(--mist);
   max-width: 520px;
-}
-
-/* --- Gallery --- */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto auto;
-  gap: 4px;
-}
-
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  cursor: none;
-}
-
-.gallery-item:nth-child(1) {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
-
-.gallery-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(8, 12, 5, 0.7);
-  display: flex;
-  align-items: flex-end;
-  padding: 24px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.gallery-item:hover .gallery-overlay {
-  opacity: 1;
-}
-
-.gallery-overlay span {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--mist);
 }
 
 /* --- Testimonials (editorial) --- */
@@ -1320,6 +1323,8 @@ button, input, textarea, select {
 
 /* --- Buttons --- */
 .btn-gold {
+  position: relative;
+  overflow: hidden;
   display: inline-block;
   padding: 16px 40px;
   background: var(--leaf);
@@ -1332,15 +1337,30 @@ button, input, textarea, select {
   border: none;
   border-radius: 8px;
   cursor: none;
-  transition: background 0.3s var(--ease-out), transform 0.25s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  box-shadow: 0 6px 18px rgba(106,171,74,0.22);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), background 0.25s ease;
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.6s var(--ease-out);
+  pointer-events: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .btn-gold:hover {
-    background: var(--mist);
+    background: #7cbf5b;
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(106,171,74,0.22);
+    box-shadow: 0 10px 26px rgba(106,171,74,0.34);
   }
+  .btn-gold:hover::before { left: 150%; }
 }
 
 .btn-gold:active { transform: scale(0.97); }
@@ -1354,17 +1374,17 @@ button, input, textarea, select {
   font-weight: 300;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--leaf);
+  color: var(--mist);
   cursor: none;
   transition: color 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
-  border-bottom: 1px solid var(--hairline-strong);
+  border-bottom: 1px solid var(--sage);
   padding-bottom: 4px;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .btn-ghost:hover {
-    color: var(--mist);
-    border-bottom-color: var(--mist);
+    color: var(--cream);
+    border-bottom-color: var(--leaf);
   }
   .btn-ghost:hover svg {
     transform: translateX(4px);
@@ -2100,34 +2120,69 @@ footer {
   bottom: 32px;
   right: 32px;
   z-index: 500;
+  display: inline-flex;
+  align-items: center;
+  height: 58px;
+  padding: 0;
+  border-radius: 40px;
+  overflow: hidden;
   background: #25D366;
+  text-decoration: none;
+  box-shadow: 0 8px 28px rgba(37,211,102,0.32);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+}
+
+.whatsapp-float .wa-icon {
+  position: relative;
+  flex: 0 0 58px;
+  width: 58px;
+  height: 58px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 22px;
-  text-decoration: none;
-  box-shadow: 0 8px 32px rgba(37,211,102,0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
-  animation: waBounce 3s ease-in-out 2s infinite;
+  justify-content: center;
 }
 
-.whatsapp-float:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(37,211,102,0.45);
+.whatsapp-float .wa-icon::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  animation: waRing 2.6s var(--ease-out) infinite;
+  pointer-events: none;
 }
 
-@keyframes waBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+@keyframes waRing {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.5); opacity: 0; }
 }
 
 .whatsapp-label {
+  max-width: 0;
+  opacity: 0;
+  white-space: nowrap;
   font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   color: white;
+  transition: max-width 0.45s var(--ease-out), opacity 0.3s ease, padding 0.45s var(--ease-out);
 }
+
+@media (hover: hover) and (pointer: fine) {
+  .whatsapp-float:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 38px rgba(37,211,102,0.45);
+  }
+  .whatsapp-float:hover .whatsapp-label {
+    max-width: 260px;
+    opacity: 1;
+    padding-right: 24px;
+  }
+}
+
+.whatsapp-float:active { transform: scale(0.96); }
+.whatsapp-float:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
 
 /* --- Wildlife Section --- */
 .wildlife { padding: 120px 0; background: var(--deep); }
@@ -2370,15 +2425,6 @@ footer {
     gap: 60px;
   }
 
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .gallery-item:nth-child(1) {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-
   .place-facts,
   .tips-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2455,11 +2501,6 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .trust-item + .trust-item {
-    border-left: none;
-    border-top: 1px solid var(--hairline);
-  }
-
   .logo-sub { display: none; }
 
   .container { padding: 0 24px; }
@@ -2468,14 +2509,6 @@ footer {
   .navbar.scrolled { padding: 12px 24px; }
 
   .scroll-indicator { display: none; }
-
-  .gallery-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .gallery-item:nth-child(1) {
-    grid-column: span 2;
-  }
 
   .form-row {
     grid-template-columns: 1fr;
@@ -2530,7 +2563,6 @@ footer {
   .whatsapp-float {
     bottom: 20px;
     right: 20px;
-    padding: 14px;
   }
 
   .whatsapp-label { display: none; }
@@ -2569,4 +2601,12 @@ footer {
     opacity: 1 !important;
     transform: none !important;
   }
+
+  /* WhatsApp float: show the label, drop the pulsing ring */
+  .whatsapp-label {
+    max-width: 260px;
+    opacity: 1;
+    padding-right: 24px;
+  }
+  .whatsapp-float .wa-icon::after { display: none; }
 }
