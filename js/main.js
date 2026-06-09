@@ -16,7 +16,12 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 revealElements.forEach(el => revealObserver.observe(el));
 
-// Animated stat counters
+// Animated stat counters (locale-aware thousands separator + optional prefix)
+function formatStat(el, value) {
+  const sep = currentLang === 'es' ? '.' : ',';
+  const num = Math.floor(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, sep);
+  el.textContent = (el.dataset.prefix || '') + num + (el.dataset.suffix || '');
+}
 function animateCount(el) {
   const target = parseInt(el.dataset.target);
   if (!target) return;
@@ -25,8 +30,8 @@ function animateCount(el) {
   let current = 0;
   const timer = setInterval(() => {
     current += step;
-    if (current >= target) { current = target; clearInterval(timer); }
-    el.textContent = Math.floor(current) + (el.dataset.suffix || '');
+    if (current >= target) { current = target; clearInterval(timer); el.classList.add('counted'); }
+    formatStat(el, current);
   }, 16);
 }
 const statObserver = new IntersectionObserver(entries => {
@@ -38,6 +43,12 @@ const statObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.5 });
 document.querySelectorAll('.stat-num[data-target]').forEach(el => statObserver.observe(el));
+// Re-format finished counters when the language changes (4.500 ⇄ 4,500).
+document.addEventListener('langchange', () => {
+  document.querySelectorAll('.stat-num[data-target].counted').forEach(el => {
+    formatStat(el, parseInt(el.dataset.target));
+  });
+});
 
 // Language toggle
 let currentLang = localStorage.getItem('lang') || 'en';
@@ -56,7 +67,16 @@ function applyLang(lang) {
   });
 
   const btn = document.getElementById('langToggle');
-  if (btn) btn.textContent = lang === 'en' ? 'ES' : 'EN';
+  if (btn) {
+    const active = btn.querySelector('[data-lang-active]');
+    const inactive = btn.querySelector('[data-lang-inactive]');
+    if (active && inactive) {
+      active.textContent = lang === 'en' ? 'EN' : 'ES';
+      inactive.textContent = lang === 'en' ? 'ES' : 'EN';
+    } else {
+      btn.textContent = lang === 'en' ? 'ES' : 'EN';
+    }
+  }
 
   document.documentElement.lang = lang === 'en' ? 'en' : 'es';
 
@@ -66,6 +86,10 @@ function applyLang(lang) {
 const langToggle = document.getElementById('langToggle');
 if (langToggle) langToggle.addEventListener('click', () => {
   applyLang(currentLang === 'en' ? 'es' : 'en');
+  // quick flip on the active code
+  langToggle.classList.remove('flip');
+  void langToggle.offsetWidth;
+  langToggle.classList.add('flip');
 });
 applyLang(currentLang);
 
@@ -75,6 +99,7 @@ const navLinks = document.querySelector('.nav-links');
 if (hamburger && navLinks) {
   const setMenu = (open) => {
     navLinks.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
     hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
   };
   hamburger.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
@@ -139,7 +164,7 @@ document.getElementById('booking-form')?.addEventListener('submit', function(e) 
     `👥 *People:* ${people}\n` +
     `💬 *Message:* ${message || '—'}\n\n` +
     `_Sent from jctours.vercel.app_`;
-  window.open(`https://wa.me/50663914901?text=${encodeURIComponent(text)}`, '_blank');
+  window.open(`https://wa.me/50683014402?text=${encodeURIComponent(text)}`, '_blank');
 });
 
 // Scroll reveal (new sections)
@@ -166,7 +191,6 @@ function initSpotlight() {
   const media    = root.querySelector('.spotlight-media');
   const commonEl = root.querySelector('.spotlight-common');
   const sciEl    = root.querySelector('.spotlight-sci');
-  const counter  = root.querySelector('.spotlight-counter');
 
   media.innerHTML = items.map((f, i) =>
     `<img class="spotlight-img${i === 0 ? ' is-active' : ''}" src="${f.img}" alt="${f.comunEn}" ` +
@@ -180,8 +204,6 @@ function initSpotlight() {
     const f = items[idx];
     commonEl.innerHTML = FaunaData.name(f, currentLang);
     sciEl.innerHTML = f.cientifico;
-    counter.textContent =
-      String(idx + 1).padStart(2, '0') + ' / ' + String(items.length).padStart(2, '0');
   }
   render();
 
@@ -300,7 +322,7 @@ function initTourFauna() {
     const species = FaunaData.forTour(block.dataset.tour).slice(0, 5);
     const target = block.querySelector('.exp-fauna-list');
     if (!target || !species.length) { block.style.display = 'none'; return; }
-    const en = 'On this walk you can spot, among others: ' +
+    const en = 'On this walk you might spot, among others: ' +
       joinNames(species.map((f) => f.comunEn), 'en') + '.';
     const es = 'En este recorrido pod&eacute;s observar, entre otras especies: ' +
       joinNames(species.map((f) => f.comunEs), 'es') + '.';
@@ -335,3 +357,34 @@ if (window.innerWidth > 768) {
     el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
   });
 }
+
+// ICT certificate modal (index.html only)
+(function initIctModal() {
+  const modal = document.getElementById('ictModal');
+  const opener = document.getElementById('ictTrigger');
+  if (!modal || !opener) return;
+  const closeBtn = document.getElementById('ictModalClose');
+  let lastFocus = null;
+
+  function onKey(e) { if (e.key === 'Escape') close(); }
+
+  function open() {
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => modal.classList.add('open'));
+    closeBtn && closeBtn.focus();
+    document.addEventListener('keydown', onKey);
+  }
+
+  function close() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    document.removeEventListener('keydown', onKey);
+    setTimeout(() => { modal.hidden = true; }, 250);
+    lastFocus && lastFocus.focus();
+  }
+
+  opener.addEventListener('click', open);
+  modal.querySelectorAll('[data-ict-close]').forEach(el => el.addEventListener('click', close));
+})();

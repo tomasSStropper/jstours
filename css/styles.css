@@ -2610,3 +2610,247 @@ footer {
   }
   .whatsapp-float .wa-icon::after { display: none; }
 }
+
+/* ============================================
+   RONDA 3 — language toggle · email float ·
+   ICT modal · responsive polish
+   ============================================ */
+
+/* --- Language Toggle (translation pill, Option B) --- */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 15px;
+  border-radius: 26px;
+  background: rgba(106,171,74,0.18);
+  border: 1.5px solid var(--leaf);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.25s var(--ease-out), border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+
+.lang-toggle-icon { width: 15px; height: 15px; color: var(--leaf); flex: 0 0 auto; }
+
+.lang-code { display: inline-block; }
+.lang-code--active { color: var(--cream); }
+.lang-code--inactive { color: var(--sage); }
+.lang-sep { color: var(--sage); opacity: 0.6; }
+
+@media (hover: hover) and (pointer: fine) {
+  .lang-toggle:hover {
+    background: rgba(106,171,74,0.28);
+    transform: translateY(-1px);
+  }
+}
+
+.lang-toggle:active { transform: scale(0.97); }
+.lang-toggle:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
+
+.lang-toggle.flip .lang-code--active { animation: langFlip 0.35s var(--ease-out); }
+
+@keyframes langFlip {
+  0%   { transform: rotateX(-90deg); opacity: 0; }
+  100% { transform: rotateX(0); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-toggle.flip .lang-code--active { animation: none; }
+}
+
+/* --- Floating Email Button --- */
+.email-float {
+  position: fixed;
+  right: 32px;
+  bottom: 102px;
+  z-index: 500;
+  display: inline-flex;
+  align-items: center;
+  height: 56px;
+  border-radius: 40px;
+  overflow: hidden;
+  background: #15280f;
+  color: var(--cream);
+  border: 1px solid rgba(106,171,74,0.4);
+  box-shadow: 0 8px 26px rgba(0,0,0,0.35);
+  text-decoration: none;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+}
+
+.email-float .ef-icon {
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-float .ef-label {
+  max-width: 0;
+  opacity: 0;
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  transition: max-width 0.45s var(--ease-out), opacity 0.3s ease, padding 0.45s var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .email-float:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
+  .email-float:hover .ef-label { max-width: 240px; opacity: 1; padding-right: 22px; }
+}
+
+.email-float:active { transform: scale(0.96); }
+.email-float:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .email-float .ef-label { max-width: 240px; opacity: 1; padding-right: 22px; }
+}
+
+/* --- Clickable ICT credential --- */
+.credential-btn {
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+}
+
+.credential-btn .credential-icon { transition: transform 0.25s var(--ease-out); }
+
+@media (hover: hover) and (pointer: fine) {
+  .credential-btn:hover {
+    border-color: var(--leaf);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.28);
+  }
+  .credential-btn:hover .credential-icon { transform: scale(1.08); }
+}
+
+.credential-btn:active { transform: scale(0.98); }
+.credential-btn:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
+
+/* --- ICT Certificate Modal --- */
+.ict-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+}
+
+.ict-modal[hidden] { display: none; }
+.ict-modal.open { opacity: 1; }
+
+.ict-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8,12,5,0.82);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.ict-modal-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  transform: translateY(14px) scale(0.98);
+  transition: transform 0.35s var(--ease-out);
+}
+
+.ict-modal.open .ict-modal-card { transform: none; }
+
+.ict-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--cream);
+  background: rgba(8,12,5,0.5);
+  border: 1px solid var(--hairline);
+  cursor: pointer;
+  transition: background 0.25s var(--ease-out), color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ict-modal-close:hover { background: var(--leaf); color: var(--black); }
+}
+
+.ict-modal-close:active { transform: scale(0.94); }
+.ict-modal-close:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
+
+.ict-modal-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--cream);
+  margin-bottom: 22px;
+  padding-right: 44px;
+}
+
+.ict-modal-images { display: flex; flex-direction: column; gap: 16px; }
+
+.ict-modal-images img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--hairline);
+  background: var(--deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ict-modal, .ict-modal-card { transition: none; }
+  .ict-modal-card { transform: none; }
+}
+
+/* --- Responsive polish (Ronda 3) --- */
+@media (max-width: 1024px) {
+  .email-float { right: 28px; }
+}
+
+@media (max-width: 768px) {
+  .email-float { right: 20px; bottom: 88px; cursor: auto; }
+  .email-float .ef-label { display: none; }
+  .lang-toggle { cursor: auto; }
+}
+
+/* Keep the floating buttons from covering the open mobile menu */
+body.menu-open .whatsapp-float,
+body.menu-open .email-float {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s var(--ease-out);
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 20px; }
+  .hero > .hero-content { padding: 32px 20px; gap: 30px; }
+  .hero { background-position: 32% center; }
+  .hero-title--slogan .line-1 { font-size: clamp(28px, 8vw, 42px); }
+  .fauna-card { width: clamp(200px, 80vw, 260px); height: 300px; }
+  .ict-modal { padding: 16px; }
+  .ict-modal-card { padding: 20px; }
+  .whatsapp-float { bottom: 16px; right: 16px; }
+  .email-float { bottom: 84px; right: 16px; }
+}
