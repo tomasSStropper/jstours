@@ -28,11 +28,9 @@ Premium tourist guide website for Juan Carlos Calvo Esquivel, a naturalist guide
 - Mobile responsive with hamburger menu
 - Booking form with WhatsApp integration
 - Floating WhatsApp + email contact buttons (icon expands to label on hover)
-- ICT certificate modal (credential opens front/back of the carné; closes via ×, backdrop or Esc)
+- ICT certificate modal (credential opens front/back of the carné from `images/ict/ict-front.webp` and `ict-back.webp`; closes via ×, backdrop or Esc)
 - Google Maps embeds with dark theme filter
 - Respects `prefers-reduced-motion`
-
-> Note: drop the ICT credential photos into `images/ict/` as `ict-front.png` and `ict-back.png` (see `images/ict/README.txt`).
 
 ## Development
 
