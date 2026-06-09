@@ -26,7 +26,16 @@
       <a href="places.html" data-en="Places & Hours" data-es="Lugares">Places & Hours</a>
       <a href="index.html#booking" class="nav-cta" data-en="Book Now" data-es="Reservar">Book Now</a>
       <div style="margin-top:8px;">
-        <button class="lang-btn" id="langToggle">ES</button>
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language / Cambiar idioma">
+          <svg class="lang-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 5h7M9 3v2c0 4-2.4 7-5 8.5"/>
+            <path d="M5 9c0 2.6 2.6 4.6 5.5 5.5"/>
+            <path d="M12 20l4-9 4 9M13.4 17h5.2"/>
+          </svg>
+          <span class="lang-code lang-code--active" data-lang-active>EN</span>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <span class="lang-code lang-code--inactive" data-lang-inactive>ES</span>
+        </button>
       </div>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
@@ -220,7 +229,7 @@
       <h2 data-en="Ready for Your Monteverde <em>Experience</em>?" data-es="&iquest;Listo para Tu <em>Experiencia</em> en Monteverde?">Ready for Your Monteverde <em>Experience</em>?</h2>
       <div class="booking-cta-buttons">
         <a href="index.html#booking" class="btn-gold" data-en="Book Now" data-es="Reservar Ahora">Book Now</a>
-        <a href="https://wa.me/50663914901" class="btn-ghost" target="_blank" rel="noopener" data-en="WhatsApp Us" data-es="Escr&iacute;benos por WhatsApp">WhatsApp Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="https://wa.me/50683014402" class="btn-ghost" target="_blank" rel="noopener" data-en="WhatsApp Us" data-es="Escr&iacute;benos por WhatsApp">WhatsApp Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
     </div>
   </section>
@@ -242,8 +251,8 @@
         <a href="index.html#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
       </div>
       <div class="footer-contact">
-        <a href="https://wa.me/50663914901" target="_blank">+506 6391-4901</a>
-        <a href="mailto:jce1310@hotmail.com">jce1310@hotmail.com</a>
+        <a href="https://wa.me/50683014402" target="_blank">+506 8301 4402</a>
+        <a href="mailto:jc.tour.cr@gmail.com">jc.tour.cr@gmail.com</a>
         <a href="https://www.tripadvisor.com/Attraction_Review-g309277-d11739359-Reviews-JC_Nature_Tour-Monteverde_Cloud_Forest_Reserve_Monteverde_Province_of_Puntarenas.html"
            target="_blank" data-en="TripAdvisor Reviews" data-es="Rese&ntilde;as TripAdvisor">TripAdvisor Reviews</a>
         <a href="https://www.airbnb.co.cr/experiences/6914172"
@@ -257,7 +266,7 @@
   </footer>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/50663914901?text=Hello%20Juan%20Carlos!%20I%20found%20JC%20Tours%20and%20I%27m%20interested%20in%20booking%20a%20tour%20in%20Monteverde."
+  <a href="https://wa.me/50683014402?text=Hello%20Juan%20Carlos!%20I%20found%20JC%20Tours%20and%20I%27m%20interested%20in%20booking%20a%20tour%20in%20Monteverde."
      target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
     <span class="wa-icon">
       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
@@ -266,6 +275,17 @@
       </svg>
     </span>
     <span class="whatsapp-label" data-en="Book via WhatsApp" data-es="Reservar por WhatsApp">Book via WhatsApp</span>
+  </a>
+
+  <!-- Floating Email Button -->
+  <a href="mailto:jc.tour.cr@gmail.com" class="email-float" aria-label="Send an email / Escribir un correo">
+    <span class="ef-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M4 7.5l8 5.5 8-5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <span class="ef-label" data-en="Send an email" data-es="Escribir un correo">Send an email</span>
   </a>
 
   <script src="js/fauna.js"></script>

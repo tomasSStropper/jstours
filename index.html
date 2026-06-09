@@ -37,7 +37,16 @@
         <li><a href="#booking" class="nav-cta" data-en="Book Now" data-es="Reservar">Book Now</a></li>
       </ul>
       <div class="nav-right">
-        <button class="lang-btn" id="langToggle">ES</button>
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language / Cambiar idioma">
+          <svg class="lang-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 5h7M9 3v2c0 4-2.4 7-5 8.5"/>
+            <path d="M5 9c0 2.6 2.6 4.6 5.5 5.5"/>
+            <path d="M12 20l4-9 4 9M13.4 17h5.2"/>
+          </svg>
+          <span class="lang-code lang-code--active" data-lang-active>EN</span>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <span class="lang-code lang-code--inactive" data-lang-inactive>ES</span>
+        </button>
         <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
           <span></span><span></span>
         </button>
@@ -56,19 +65,19 @@
           </div>
           <h1 class="hero-title hero-title--slogan">
             <span class="line-1">
-              <em data-en="Seeing it all isn't luck."
-                  data-es="Verlo todo no es suerte.">Seeing it all isn't luck.</em>
+              <em data-en="Explore Monteverde"
+                  data-es="Explor&aacute; Monteverde">Explore Monteverde</em>
             </span>
             <span class="line-2"
-                  data-en="It's going with someone who sees 400 species."
-                  data-es="Es ir con quien ve 400 especies.">
-              It's going with someone who sees 400 species.
+                  data-en="with the one who knows it best."
+                  data-es="con quien mejor lo conoce.">
+              with the one who knows it best.
             </span>
           </h1>
           <p class="hero-sub"
-             data-en="30 years. 400 bird species. One cloud forest. Zero tourists who left disappointed."
-             data-es="30 a&ntilde;os. 400 especies de aves. Un bosque nuboso. Cero turistas decepcionados.">
-            30 years. 400 bird species. One cloud forest. Zero tourists who left disappointed.
+             data-en="Private nature and wildlife tours in the heart of Monteverde's cloud forest."
+             data-es="Tours privados de naturaleza y fauna en el coraz&oacute;n del bosque nuboso de Monteverde.">
+            Private nature and wildlife tours in the heart of Monteverde's cloud forest.
           </p>
           <div class="hero-actions">
             <a href="#booking" class="btn-primary"
@@ -95,14 +104,13 @@
             <div class="spotlight-overlay">
               <div class="spotlight-badge">
                 <span class="spotlight-dot"></span>
-                <span data-en="400+ species recorded" data-es="400+ especies registradas">400+ species recorded</span>
+                <span data-en="+4,500 species documented" data-es="+4.500 especies documentadas">+4,500 species documented</span>
               </div>
               <div class="spotlight-foot">
                 <div class="spotlight-info">
                   <span class="spotlight-common"></span>
                   <span class="spotlight-sci"></span>
                 </div>
-                <span class="spotlight-counter"></span>
               </div>
             </div>
           </div>
@@ -115,8 +123,8 @@
           <span class="stat-label" data-en="Years guiding" data-es="A&ntilde;os guiando">Years guiding</span>
         </div>
         <div class="stat">
-          <span class="stat-num" data-target="400" data-suffix="+">400+</span>
-          <span class="stat-label" data-en="Bird species" data-es="Especies de aves">Bird species</span>
+          <span class="stat-num" data-target="4500" data-prefix="+">+4,500</span>
+          <span class="stat-label" data-en="Documented species" data-es="Especies documentadas">Documented species</span>
         </div>
         <div class="stat">
           <span class="stat-num">5&#9733;</span>
@@ -176,7 +184,7 @@
           <span class="trust-arrow" aria-hidden="true">&rarr;</span>
         </span>
       </a>
-      <a href="https://wa.me/50663914901" target="_blank" rel="noopener" class="trust-item">
+      <a href="https://wa.me/50683014402" target="_blank" rel="noopener" class="trust-item">
         <div class="trust-logo">
           <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
             <circle cx="14" cy="14" r="14" fill="#25D366"/>
@@ -188,7 +196,7 @@
           <span class="trust-score" data-en="Reply within 1 hour" data-es="Responde en 1 hora">Reply within 1 hour</span>
         </div>
         <span class="trust-cta">
-          <span>+506 6391-4901</span>
+          <span>+506 8301 4402</span>
           <span class="trust-arrow" aria-hidden="true">&rarr;</span>
         </span>
       </a>
@@ -217,10 +225,12 @@
             <span class="credential-icon">&#127807;</span>
             <span data-en="Flora & Fauna Expert" data-es="Experto en Flora y Fauna">Flora & Fauna Expert</span>
           </div>
-          <div class="credential">
+          <button type="button" class="credential credential-btn" id="ictTrigger"
+                  aria-haspopup="dialog" aria-controls="ictModal"
+                  aria-label="ICT Certified &mdash; view certificate / Certificado ICT &mdash; ver certificado">
             <span class="credential-icon">&#128220;</span>
             <span data-en="ICT Certified" data-es="Certificado ICT">ICT Certified</span>
-          </div>
+          </button>
         </div>
       </div>
       <div class="guide-photos">
@@ -248,7 +258,7 @@
         <div class="exp-card reveal">
           <span class="exp-icon">&#127807;</span>
           <h3 data-en="Cloud Forest Day Tour" data-es="Tour Diurno del Bosque Nuboso">Cloud Forest Day Tour</h3>
-          <p data-en="Walk the legendary trails of the Monteverde Cloud Forest Reserve. Spot the Resplendent Quetzal and over 400 bird species." data-es="Recorre los senderos legendarios de la Reserva del Bosque Nuboso de Monteverde. Observa el Quetzal Resplandeciente y m&aacute;s de 400 especies de aves.">Walk the legendary trails of the Monteverde Cloud Forest Reserve. Spot the Resplendent Quetzal and over 400 bird species.</p>
+          <p data-en="Walk the legendary trails of the Monteverde Cloud Forest Reserve. Find the Resplendent Quetzal among 400+ birds, in a forest alive with orchids, mammals and amphibians." data-es="Record&aacute; los senderos legendarios de la Reserva del Bosque Nuboso de Monteverde. Encontr&aacute; el Quetzal Resplandeciente entre m&aacute;s de 400 aves, en un bosque lleno de orqu&iacute;deas, mam&iacute;feros y anfibios.">Walk the legendary trails of the Monteverde Cloud Forest Reserve. Find the Resplendent Quetzal among 400+ birds, in a forest alive with orchids, mammals and amphibians.</p>
           <div class="exp-meta">
             <span data-en="&#9201; ~2.5 hours &middot; 8:00 AM & 11:30 AM" data-es="&#9201; ~2.5 horas &middot; 8:00 AM & 11:30 AM">&#9201; ~2.5 hours &middot; 8:00 AM & 11:30 AM</span>
           </div>
@@ -286,9 +296,9 @@
         <span class="section-tag" data-en="WILDLIFE" data-es="FAUNA">WILDLIFE</span>
         <h2 class="section-title" data-en="What You'll <em>See</em>" data-es="Qu&eacute; <em>Ver&aacute;s</em>">What You'll <em>See</em></h2>
         <p class="section-sub"
-           data-en="Real photos taken inside Monteverde Cloud Forest Reserve. Not stock images."
-           data-es="Fotos reales dentro de la Reserva. No son de banco de im&aacute;genes.">
-          Real photos taken inside Monteverde Cloud Forest Reserve. Not stock images.
+           data-en="Birds, mammals, amphibians and more &mdash; real photos taken inside the Monteverde Cloud Forest Reserve, never stock images."
+           data-es="Aves, mam&iacute;feros, anfibios y m&aacute;s &mdash; fotos reales tomadas dentro de la Reserva de Monteverde, nunca de banco de im&aacute;genes.">
+          Birds, mammals, amphibians and more &mdash; real photos taken inside the Monteverde Cloud Forest Reserve, never stock images.
         </p>
       </div>
       <div class="fauna-carousel" id="faunaCarousel">
@@ -424,8 +434,8 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p data-en="Fill out the form below and Juan Carlos will confirm via WhatsApp within a few hours. You can also message him directly at +506 6391-4901. Spots are limited &mdash; early booking is recommended."
-               data-es="Complete el formulario abajo y Juan Carlos confirmar&aacute; por WhatsApp en pocas horas. Tambi&eacute;n puede escribirle al +506 6391-4901. Los cupos son limitados &mdash; se recomienda reservar con anticipaci&oacute;n.">Fill out the form below and Juan Carlos confirms via WhatsApp within hours. Direct: +506 6391-4901. Spots are limited.</p>
+            <p data-en="Fill out the form below and Juan Carlos will confirm via WhatsApp within a few hours. You can also message him directly at +506 8301 4402. Spots are limited &mdash; early booking is recommended."
+               data-es="Complete el formulario abajo y Juan Carlos confirmar&aacute; por WhatsApp en pocas horas. Tambi&eacute;n puede escribirle al +506 8301 4402. Los cupos son limitados &mdash; se recomienda reservar con anticipaci&oacute;n.">Fill out the form below and Juan Carlos confirms via WhatsApp within hours. Direct: +506 8301 4402. Spots are limited.</p>
           </div>
         </div>
 
@@ -445,19 +455,19 @@
           <div class="direct-contact">
             <p data-en="Or reach us directly:" data-es="O cont&aacute;ctanos directamente:">Or reach us directly:</p>
             <div class="contact-methods">
-              <a href="https://wa.me/50663914901" target="_blank" class="contact-method">
+              <a href="https://wa.me/50683014402" target="_blank" class="contact-method">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <circle cx="9" cy="9" r="9" fill="#25D366"/>
                   <path d="M12.5 10.5c-.2-.1-1.1-.5-1.3-.6-.2-.1-.3-.1-.5.1-.1.2-.5.6-.6.7-.1.1-.2.1-.4 0-.2-.1-.8-.3-1.6-1-.6-.5-.9-1.1-1-1.3-.1-.2 0-.3.1-.4l.3-.3c.1-.1.1-.2.1-.3 0-.1-.4-1-.6-1.4-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.3 0-.5.2-.2.2-.7.6-.7 1.5s.7 1.8.8 1.9c.1.1 1.3 2 3.2 2.8.5.2.8.3 1.1.4.5.1.9.1 1.2 0 .4-.1 1.1-.4 1.2-.9.1-.4.1-.8.1-.8 0-.1-.1-.1-.3-.2z" fill="white"/>
                 </svg>
-                <span>+506 6391-4901</span>
+                <span>+506 8301 4402</span>
               </a>
-              <a href="mailto:jce1310@hotmail.com" class="contact-method">
+              <a href="mailto:jc.tour.cr@gmail.com" class="contact-method">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <rect x="2" y="4" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.2" fill="none"/>
                   <path d="M2 5l7 5 7-5" stroke="currentColor" stroke-width="1.2"/>
                 </svg>
-                <span>jce1310@hotmail.com</span>
+                <span>jc.tour.cr@gmail.com</span>
               </a>
               <a href="https://www.tripadvisor.com/Attraction_Review-g309277-d11739359-Reviews-JC_Nature_Tour-Monteverde_Cloud_Forest_Reserve_Monteverde_Province_of_Puntarenas.html"
                  target="_blank" class="contact-method">
@@ -544,8 +554,8 @@
         <a href="#booking" data-en="Book Now" data-es="Reservar">Book Now</a>
       </div>
       <div class="footer-contact">
-        <a href="https://wa.me/50663914901" target="_blank">+506 6391-4901</a>
-        <a href="mailto:jce1310@hotmail.com">jce1310@hotmail.com</a>
+        <a href="https://wa.me/50683014402" target="_blank">+506 8301 4402</a>
+        <a href="mailto:jc.tour.cr@gmail.com">jc.tour.cr@gmail.com</a>
         <a href="https://www.tripadvisor.com/Attraction_Review-g309277-d11739359-Reviews-JC_Nature_Tour-Monteverde_Cloud_Forest_Reserve_Monteverde_Province_of_Puntarenas.html"
            target="_blank" data-en="TripAdvisor Reviews" data-es="Rese&ntilde;as TripAdvisor">TripAdvisor Reviews</a>
         <a href="https://www.airbnb.co.cr/experiences/6914172"
@@ -559,7 +569,7 @@
   </footer>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/50663914901?text=Hello%20Juan%20Carlos!%20I%20found%20JC%20Tours%20and%20I%27m%20interested%20in%20booking%20a%20tour%20in%20Monteverde."
+  <a href="https://wa.me/50683014402?text=Hello%20Juan%20Carlos!%20I%20found%20JC%20Tours%20and%20I%27m%20interested%20in%20booking%20a%20tour%20in%20Monteverde."
      target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
     <span class="wa-icon">
       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
@@ -570,16 +580,44 @@
     <span class="whatsapp-label" data-en="Book via WhatsApp" data-es="Reservar por WhatsApp">Book via WhatsApp</span>
   </a>
 
+  <!-- Floating Email Button -->
+  <a href="mailto:jc.tour.cr@gmail.com" class="email-float" aria-label="Send an email / Escribir un correo">
+    <span class="ef-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M4 7.5l8 5.5 8-5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <span class="ef-label" data-en="Send an email" data-es="Escribir un correo">Send an email</span>
+  </a>
+
+  <!-- ICT Certificate Modal -->
+  <div class="ict-modal" id="ictModal" hidden>
+    <div class="ict-modal-backdrop" data-ict-close></div>
+    <div class="ict-modal-card" role="dialog" aria-modal="true" aria-labelledby="ictModalTitle">
+      <button type="button" class="ict-modal-close" id="ictModalClose" aria-label="Close / Cerrar" data-ict-close>&times;</button>
+      <h3 class="ict-modal-title" id="ictModalTitle" data-en="ICT Certification" data-es="Certificaci&oacute;n ICT">ICT Certification</h3>
+      <div class="ict-modal-images">
+        <img src="images/ict/ict-front.png" alt="ICT tourism guide credential, front" loading="lazy" onerror="this.style.display='none'">
+        <img src="images/ict/ict-back.png" alt="ICT tourism guide credential, back" loading="lazy" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </div>
+
   <script src="js/fauna.js"></script>
   <script src="js/main.js"></script>
   <script>
+    // Hero parallax — desktop only, and skipped under reduced-motion (avoids the
+    // background drifting / cropping on touch devices).
     const heroEl = document.querySelector('.hero');
-    window.addEventListener('scroll', () => {
-      if (heroEl) {
+    const allowParallax = window.matchMedia('(min-width: 769px)').matches
+      && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (heroEl && allowParallax) {
+      window.addEventListener('scroll', () => {
         heroEl.style.backgroundPositionY =
           `calc(50% + ${window.pageYOffset * 0.35}px)`;
-      }
-    });
+      }, { passive: true });
+    }
   </script>
 </body>
 </html>
