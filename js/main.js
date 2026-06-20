@@ -97,15 +97,35 @@ applyLang(currentLang);
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.querySelector('.nav-links');
 if (hamburger && navLinks) {
+  // Inject a close (✕) button that overlays the open menu panel.
+  const navClose = document.createElement('button');
+  navClose.type = 'button';
+  navClose.className = 'nav-close';
+  navClose.setAttribute('aria-label', 'Close menu / Cerrar menú');
+  navClose.innerHTML =
+    '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  document.body.appendChild(navClose);
+
+  const isOpen = () => navLinks.classList.contains('open');
   const setMenu = (open) => {
     navLinks.classList.toggle('open', open);
     document.body.classList.toggle('menu-open', open);
     hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
   };
-  hamburger.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+
+  hamburger.addEventListener('click', () => setMenu(!isOpen()));
+  navClose.addEventListener('click', () => setMenu(false));
   // Close menu on link click
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => setMenu(false));
+  });
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen()) setMenu(false);
+  });
+  // Reset if resized up to desktop while open (avoids a stuck scroll lock)
+  window.matchMedia('(min-width: 769px)').addEventListener('change', (e) => {
+    if (e.matches && isOpen()) setMenu(false);
   });
 }
 
