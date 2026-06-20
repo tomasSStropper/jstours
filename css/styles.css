@@ -2886,6 +2886,16 @@ body.menu-open .email-float {
 /* Lock the page behind the open mobile menu */
 body.menu-open { overflow: hidden; }
 
+/* The home nav (.hero-nav) ends up at z-index:2 (a later grouped rule overrides
+   its own z-index:10), which sits BELOW .hero-content (z-index:5) — so the fixed
+   menu, trapped in the nav's stacking context, rendered under the hero. Lift the
+   nav above the page while the menu is open so the overlay actually covers it.
+   The injected ✕ button (z-index:2100) still sits above the panel. */
+body.menu-open .hero-nav,
+body.menu-open .navbar {
+  z-index: 2000;
+}
+
 /* The subpage navbar uses backdrop-filter when scrolled, which turns it into the
    containing block for the fixed menu — neutralize it while the menu is open so
    the overlay covers the whole viewport. */
