@@ -42,6 +42,17 @@ h1, h2, h3, h4, .hero-title, .section-title {
 body, p, nav, button, input, label, span, .btn {
   font-family: 'Outfit', sans-serif;
 }
+/* Visually hidden, but readable by screen readers and crawlers (SEO/a11y) */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
 .section-tag, .eyebrow {
   font-family: 'Outfit', sans-serif;
   letter-spacing: 0.2em;
