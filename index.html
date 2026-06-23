@@ -3,8 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JC Tours | Monteverde Cloud Forest Guide</title>
-  <meta name="description" content="30+ years guiding travelers through Monteverde's cloud forest. Expert naturalist tours, bird watching, and night wildlife experiences in Costa Rica.">
+
+  <!-- Primary SEO -->
+  <title>Monteverde Tours, Costa Rica | JC Tours – Naturalist Guide</title>
+  <meta name="description" content="Private nature, bird and wildlife tours in Monteverde's cloud forest, Costa Rica, with a naturalist guide of 30+ years. Reserve your cloud forest experience.">
+  <link rel="canonical" href="https://jstours.vercel.app/">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="JC Tours – Juan Carlos Calvo">
+  <meta name="theme-color" content="#1a2e10">
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="JC Tours">
+  <meta property="og:title" content="Monteverde Tours, Costa Rica | JC Tours – Naturalist Guide">
+  <meta property="og:description" content="Private nature, bird and wildlife tours in Monteverde's cloud forest, Costa Rica, with a naturalist guide of 30+ years. Reserve your cloud forest experience.">
+  <meta property="og:url" content="https://jstours.vercel.app/">
+  <meta property="og:image" content="https://jstours.vercel.app/images/hero/hero-bridge.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_CR">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Monteverde Tours, Costa Rica | JC Tours – Naturalist Guide">
+  <meta name="twitter:description" content="Private nature, bird and wildlife tours in Monteverde's cloud forest, Costa Rica, with a naturalist guide of 30+ years. Reserve your cloud forest experience.">
+  <meta name="twitter:image" content="https://jstours.vercel.app/images/hero/hero-bridge.jpg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -64,6 +92,7 @@
             </span>
           </div>
           <h1 class="hero-title hero-title--slogan">
+            <span class="sr-only">Monteverde nature &amp; birdwatching tours &mdash; </span>
             <span class="line-1">
               <em data-en="Explore Monteverde"
                   data-es="Explor&aacute; Monteverde">Explore Monteverde</em>
@@ -239,11 +268,11 @@
       </div>
       <div class="guide-photos">
         <div class="guide-photo-main">
-          <img src="images/guide/guide-group.jpeg" alt="Juan Carlos with guests in Monteverde">
+          <img src="images/guide/guide-group.jpeg" alt="Juan Carlos, naturalist guide, with guests on a tour in Monteverde, Costa Rica" width="700" height="520" loading="lazy" decoding="async">
         </div>
         <div class="guide-photo-stack">
-          <img src="images/guide/guide-teaching.jpeg" alt="Juan Carlos explaining wildlife">
-          <img src="images/guide/guide-action.jpeg" alt="Juan Carlos scanning the forest canopy">
+          <img src="images/guide/guide-teaching.jpeg" alt="Juan Carlos explaining cloud forest wildlife to visitors in Monteverde" width="400" height="248" loading="lazy" decoding="async">
+          <img src="images/guide/guide-action.jpeg" alt="Juan Carlos scanning the forest canopy for birds in Monteverde, Costa Rica" width="400" height="248" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -602,11 +631,125 @@
       <button type="button" class="ict-modal-close" id="ictModalClose" aria-label="Close / Cerrar" data-ict-close>&times;</button>
       <h3 class="ict-modal-title" id="ictModalTitle" data-en="ICT Certification" data-es="Certificaci&oacute;n ICT">ICT Certification</h3>
       <div class="ict-modal-images">
-        <img src="images/ict/ict-front.webp" alt="ICT tourism guide credential, front" loading="lazy" onerror="this.style.display='none'">
-        <img src="images/ict/ict-back.webp" alt="ICT tourism guide credential, back" loading="lazy" onerror="this.style.display='none'">
+        <img src="images/ict/ict-front.webp" alt="ICT certified naturalist tourism guide license of Juan Carlos Calvo, Costa Rica (front)" width="600" height="380" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <img src="images/ict/ict-back.webp" alt="ICT certified naturalist tourism guide license of Juan Carlos Calvo, Costa Rica (back)" width="600" height="380" loading="lazy" decoding="async" onerror="this.style.display='none'">
       </div>
     </div>
   </div>
+
+  <!-- Structured data (schema.org / JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://jstours.vercel.app/#website",
+    "name": "JC Tours",
+    "url": "https://jstours.vercel.app/",
+    "inLanguage": ["en", "es"],
+    "publisher": { "@id": "https://jstours.vercel.app/#business" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["TravelAgency", "LocalBusiness"],
+    "@id": "https://jstours.vercel.app/#business",
+    "name": "JC Tours",
+    "description": "Private nature, bird and wildlife tours in the Monteverde cloud forest, Costa Rica, with a naturalist guide of more than 30 years of experience.",
+    "url": "https://jstours.vercel.app/",
+    "telephone": "+50683014402",
+    "email": "jc.tour.cr@gmail.com",
+    "image": "https://jstours.vercel.app/images/hero/hero-bridge.jpg",
+    "priceRange": "$$",
+    "founder": { "@id": "https://jstours.vercel.app/#guide" },
+    "areaServed": [
+      { "@type": "Place", "name": "Monteverde" },
+      { "@type": "Place", "name": "Santa Elena" },
+      { "@type": "Place", "name": "Costa Rica" }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Monteverde",
+      "addressRegion": "Puntarenas",
+      "addressCountry": "CR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 10.3009, "longitude": -84.8094 },
+    "knowsLanguage": ["es", "en"],
+    "sameAs": [
+      "https://www.tripadvisor.com/Attraction_Review-g309277-d11739359-Reviews-JC_Nature_Tour-Monteverde_Cloud_Forest_Reserve_Monteverde_Province_of_Puntarenas.html",
+      "https://www.airbnb.co.cr/experiences/6914172"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://jstours.vercel.app/#guide",
+    "name": "Juan Carlos Calvo Esquivel",
+    "jobTitle": "Naturalist guide",
+    "worksFor": { "@id": "https://jstours.vercel.app/#business" },
+    "knowsAbout": ["Birds of Costa Rica", "Monteverde cloud forest", "Wildlife", "Nature"],
+    "knowsLanguage": ["es", "en"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jstours.vercel.app/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is included in the tour price?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The price includes expert guide service, high-quality optical equipment (telescope and binoculars), and a printed bird identification guide. Reserve entry fees are NOT included — paid separately at the entrance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the tour suitable for children and elderly people?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The trails are well-maintained and accessible. Juan Carlos adapts the pace to every group. The Private Tour is especially recommended for families and older adults."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I wear and bring?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wear long pants, a light waterproof jacket, and comfortable closed-toe shoes or hiking boots. Bring water, insect repellent, and a camera. The cloud forest is cool and misty — layers are recommended."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the cancellation policy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Free cancellation with 24 hours advance notice. Tours operate rain or shine — the cloud forest is beautiful in all weather. In case of severe weather, Juan Carlos will contact you directly to reschedule."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I confirm my reservation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fill out the form below and Juan Carlos will confirm via WhatsApp within a few hours. You can also message him directly at +506 8301 4402. Spots are limited — early booking is recommended."
+        }
+      }
+    ]
+  }
+  </script>
 
   <script src="js/fauna.js"></script>
   <script src="js/main.js"></script>
