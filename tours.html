@@ -3,8 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tours & Pricing | JC Tours Monteverde</title>
-  <meta name="description" content="Cloud Forest day tour, night tour and private experiences in Monteverde with naturalist guide Juan Carlos Calvo Esquivel. Pricing, schedules and the wildlife you'll spot.">
+
+  <!-- Primary SEO -->
+  <title>Monteverde Tours: Day, Night &amp; Private | JC Tours</title>
+  <meta name="description" content="Choose your Monteverde tour: cloud forest day hike, night wildlife tour, or private birdwatching experience. Bilingual naturalist guide, ICT certified.">
+  <link rel="canonical" href="https://jstours.vercel.app/tours">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="JC Tours – Juan Carlos Calvo">
+  <meta name="theme-color" content="#1a2e10">
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="JC Tours">
+  <meta property="og:title" content="Monteverde Tours: Day, Night &amp; Private | JC Tours">
+  <meta property="og:description" content="Choose your Monteverde tour: cloud forest day hike, night wildlife tour, or private birdwatching experience. Bilingual naturalist guide, ICT certified.">
+  <meta property="og:url" content="https://jstours.vercel.app/tours">
+  <meta property="og:image" content="https://jstours.vercel.app/images/hero/hero-bridge.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_CR">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Monteverde Tours: Day, Night &amp; Private | JC Tours">
+  <meta name="twitter:description" content="Choose your Monteverde tour: cloud forest day hike, night wildlife tour, or private birdwatching experience. Bilingual naturalist guide, ICT certified.">
+  <meta name="twitter:image" content="https://jstours.vercel.app/images/hero/hero-bridge.jpg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -52,6 +80,7 @@
       <div class="hero-content" style="padding-top:120px;">
         <div class="eyebrow" data-en="Experiences" data-es="Experiencias">Experiences</div>
         <h1 class="hero-title" style="font-size:clamp(36px,5vw,72px);">
+          <span class="sr-only">Monteverde nature tours &mdash; </span>
           <span class="line-1" data-en="Our" data-es="Nuestros">Our</span>
           <span class="line-2"><em data-en="Tours." data-es="Tours.">Tours.</em></span>
         </h1>
@@ -287,6 +316,54 @@
     </span>
     <span class="ef-label" data-en="Send an email" data-es="Escribir un correo">Send an email</span>
   </a>
+
+  <!-- Structured data (schema.org / JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+    "name": "Cloud Forest Day Tour",
+    "description": "Walk the legendary trails of the Monteverde Cloud Forest Biological Reserve with an expert naturalist at your side. Spot the Resplendent Quetzal, learn about 400+ bird species, and understand the fragile ecosystem that makes Monteverde one of Earth's most biodiverse places.",
+    "url": "https://jstours.vercel.app/tours#day-tour",
+    "touristType": ["Birdwatching", "Nature", "Hiking"],
+    "provider": { "@type": "TravelAgency", "name": "JC Tours", "@id": "https://jstours.vercel.app/#business" },
+    "offers": { "@type": "Offer", "price": "30", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+    "name": "Night Tour — Refugio Monteverde",
+    "description": "Discover Monteverde after dark. 80% of the cloud forest's wildlife is nocturnal — and this is your chance to witness it. Red-eyed tree frogs, pit vipers, sloths, armadillos, sleeping toucans, and fireflies. An experience unlike anything you've seen before.",
+    "url": "https://jstours.vercel.app/tours#night-tour",
+    "touristType": ["Wildlife watching", "Nature"],
+    "provider": { "@type": "TravelAgency", "name": "JC Tours", "@id": "https://jstours.vercel.app/#business" },
+    "offers": { "@type": "Offer", "price": "30", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+    "name": "Private Exclusive Tour",
+    "description": "Design your own Monteverde adventure. Choose your trail, your pace, your time. Perfect for families, couples, or groups who want a fully personalized experience with zero compromise. Available morning, midday, or evening.",
+    "url": "https://jstours.vercel.app/tours#private-tour",
+    "touristType": ["Private tour", "Birdwatching", "Nature"],
+    "provider": { "@type": "TravelAgency", "name": "JC Tours", "@id": "https://jstours.vercel.app/#business" },
+    "offers": { "@type": "Offer", "price": "180", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jstours.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Tours", "item": "https://jstours.vercel.app/tours" }
+    ]
+  }
+  </script>
 
   <script src="js/fauna.js"></script>
   <script src="js/main.js"></script>
