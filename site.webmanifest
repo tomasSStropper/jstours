@@ -1,0 +1,14 @@
+{
+  "name": "JC Tours — Monteverde Naturalist Guide",
+  "short_name": "JC Tours",
+  "description": "Private nature, bird and wildlife tours in the Monteverde cloud forest, Costa Rica.",
+  "lang": "en",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a2e10",
+  "theme_color": "#1a2e10",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
+  ]
+}

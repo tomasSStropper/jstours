@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="JC Tours">
+  <rect width="180" height="180" rx="36" fill="#1a2e10"/>
+  <g transform="rotate(45 90 90)">
+    <path d="M90 22
+             C128 38 148 70 148 90
+             C148 110 128 142 90 158
+             C52 142 32 110 32 90
+             C32 70 52 38 90 22 Z" fill="#6aab4a"/>
+    <line x1="90" y1="24" x2="90" y2="156" stroke="#2d4a1e" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>
