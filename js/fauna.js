@@ -34,5 +34,7 @@ const FaunaData = {
   all() { return FAUNA.filter(f => !f.porConfirmar); },
   featured() { return FAUNA.filter(f => f.destacada && !f.porConfirmar); },
   forTour(tourId) { return FAUNA.filter(f => !f.porConfirmar && f.tours.includes(tourId)); },
-  name(f, lang) { return lang === 'es' ? f.comunEs : f.comunEn; }
+  name(f, lang) { return lang === 'es' ? f.comunEs : f.comunEn; },
+  // Descriptive image alt for SEO + accessibility, built from the data.
+  altText(f) { return `${f.comunEn} (${f.cientifico}) in the cloud forest of Monteverde, Costa Rica`; }
 };

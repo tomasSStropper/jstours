@@ -213,8 +213,8 @@ function initSpotlight() {
   const sciEl    = root.querySelector('.spotlight-sci');
 
   media.innerHTML = items.map((f, i) =>
-    `<img class="spotlight-img${i === 0 ? ' is-active' : ''}" src="${f.img}" alt="${f.comunEn}" ` +
-    `loading="${i === 0 ? 'eager' : 'lazy'}" onerror="this.classList.add('img-missing')">`
+    `<img class="spotlight-img${i === 0 ? ' is-active' : ''}" src="${f.img}" alt="${FaunaData.altText(f)}" ` +
+    `width="440" height="550" loading="${i === 0 ? 'eager' : 'lazy'}" decoding="async" onerror="this.classList.add('img-missing')">`
   ).join('');
   const imgs = Array.from(media.querySelectorAll('.spotlight-img'));
 
@@ -254,7 +254,7 @@ function initFaunaCarousel() {
 
   const cardHTML = (f) =>
     `<article class="fauna-card">` +
-      `<img src="${f.img}" alt="${f.comunEn}" loading="lazy" onerror="this.classList.add('img-missing')">` +
+      `<img src="${f.img}" alt="${FaunaData.altText(f)}" width="300" height="380" loading="lazy" decoding="async" onerror="this.classList.add('img-missing')">` +
       `<div class="fauna-card-info">` +
         `<span class="fauna-name" data-en="${f.comunEn}" data-es="${f.comunEs}">${FaunaData.name(f, currentLang)}</span>` +
         `<span class="fauna-sci">${f.cientifico}</span>` +
