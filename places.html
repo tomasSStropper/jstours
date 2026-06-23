@@ -3,8 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Places & Hours | JC Tours Monteverde</title>
-  <meta name="description" content="Explore the Monteverde Cloud Forest Reserve and Refugio Monteverde. Hours, entrance fees, location maps, and visitor tips.">
+
+  <!-- Primary SEO -->
+  <title>Monteverde Cloud Forest &amp; Reserves to Visit | JC Tours</title>
+  <meta name="description" content="Discover the best places to visit in Monteverde, Costa Rica: the cloud forest reserve and Refugio Monteverde — hours, entrance fees, maps and visitor tips.">
+  <link rel="canonical" href="https://jstours.vercel.app/places">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="JC Tours – Juan Carlos Calvo">
+  <meta name="theme-color" content="#1a2e10">
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="JC Tours">
+  <meta property="og:title" content="Monteverde Cloud Forest &amp; Reserves to Visit | JC Tours">
+  <meta property="og:description" content="Discover the best places to visit in Monteverde, Costa Rica: the cloud forest reserve and Refugio Monteverde — hours, entrance fees, maps and visitor tips.">
+  <meta property="og:url" content="https://jstours.vercel.app/places">
+  <meta property="og:image" content="https://jstours.vercel.app/images/hero/hero-bridge.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_CR">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Monteverde Cloud Forest &amp; Reserves to Visit | JC Tours">
+  <meta name="twitter:description" content="Discover the best places to visit in Monteverde, Costa Rica: the cloud forest reserve and Refugio Monteverde — hours, entrance fees, maps and visitor tips.">
+  <meta name="twitter:image" content="https://jstours.vercel.app/images/hero/hero-bridge.jpg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -52,6 +80,7 @@
       <div class="hero-content" style="padding-top:120px;">
         <div class="eyebrow" data-en="Destinations" data-es="Destinos">Destinations</div>
         <h1 class="hero-title" style="font-size:clamp(36px,5vw,72px);">
+          <span class="sr-only">Places to visit in Monteverde, Costa Rica &mdash; </span>
           <span class="line-1" data-en="Where We" data-es="Donde">Where We</span>
           <span class="line-2"><em data-en="Explore." data-es="Exploramos.">Explore.</em></span>
         </h1>
@@ -320,6 +349,49 @@
     </span>
     <span class="ef-label" data-en="Send an email" data-es="Escribir un correo">Send an email</span>
   </a>
+
+  <!-- Structured data (schema.org / JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    "name": "Monteverde Cloud Forest Biological Reserve",
+    "description": "Established in 1972 and spanning over 10,500 hectares, the Monteverde Cloud Forest Biological Reserve protects one of the last pristine cloud forests in Central America, home to 400+ bird species and 50% of Costa Rica's biodiversity.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Monteverde",
+      "addressRegion": "Puntarenas",
+      "addressCountry": "CR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 10.2993, "longitude": -84.7899 },
+    "isAccessibleForFree": false
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    "name": "Refugio Monteverde",
+    "description": "A 55-acre private conservation area and natural wildlife refuge in the heart of Monteverde, where wildlife is completely wild and observed in its natural state — the prime location for night tours.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santa Elena, Monteverde",
+      "addressRegion": "Puntarenas",
+      "addressCountry": "CR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 10.3100, "longitude": -84.8175 }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jstours.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Places & Hours", "item": "https://jstours.vercel.app/places" }
+    ]
+  }
+  </script>
 
   <script src="js/main.js"></script>
 </body>
