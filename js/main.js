@@ -43,7 +43,7 @@ const statObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.5 });
 document.querySelectorAll('.stat-num[data-target]').forEach(el => statObserver.observe(el));
-// Re-format finished counters when the language changes (4.500 ⇄ 4,500).
+// Re-format finished counters when the language changes (e.g. 1.000 ⇄ 1,000).
 document.addEventListener('langchange', () => {
   document.querySelectorAll('.stat-num[data-target].counted').forEach(el => {
     formatStat(el, parseInt(el.dataset.target));
