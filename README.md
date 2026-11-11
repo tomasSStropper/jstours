@@ -34,12 +34,25 @@ Premium tourist guide website for Juan Carlos Calvo Esquivel, a naturalist guide
 
 ## Development
 
-This is a static site. Open `index.html` in a browser or deploy to Vercel.
+This is a static site. Internal links use clean URLs (`/`, `/tours`, `/places`),
+so run it through a static server instead of opening the files directly:
 
 ```bash
+# Local preview (serves tours.html at /tours, like Vercel does)
+npx serve .
+
 # Deploy to Vercel
 vercel
 ```
+
+## Domain & SEO
+
+- Production domain: **https://www.jctourscr.com** (`jctourscr.com` redirects to `www`).
+- Every `canonical`, `og:url`, JSON-LD `url`, `sitemap.xml` and `robots.txt` entry must
+  use that domain. Never point them at `*.vercel.app`: Google would index the Vercel
+  copy and drop the real home page from search results.
+- `vercel.json` permanently redirects `jstours.vercel.app` to the production domain and
+  enables `cleanUrls` (`/tours.html` redirects to `/tours`), so each page has one URL.
 
 ## Contact
 
