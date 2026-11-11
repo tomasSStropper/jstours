@@ -183,7 +183,7 @@ document.getElementById('booking-form')?.addEventListener('submit', function(e) 
     `📅 *Date:* ${date || 'Flexible'}\n` +
     `👥 *People:* ${people}\n` +
     `💬 *Message:* ${message || '—'}\n\n` +
-    `_Sent from jctours.vercel.app_`;
+    `_Sent from jctourscr.com_`;
   window.open(`https://wa.me/50683014402?text=${encodeURIComponent(text)}`, '_blank');
 });
 

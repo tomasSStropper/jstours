@@ -1,6 +1,12 @@
 {
-  "rewrites": [
-    { "source": "/tours", "destination": "/tours.html" },
-    { "source": "/places", "destination": "/places.html" }
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "jstours.vercel.app" }],
+      "destination": "https://www.jctourscr.com/:path*",
+      "permanent": true
+    }
   ]
 }
