@@ -5,7 +5,7 @@ Premium tourist guide website for Juan Carlos Calvo Esquivel, a naturalist guide
 ## Stack
 
 - HTML + CSS + Vanilla JS (no frameworks)
-- Deployed on Vercel (static site)
+- Static site, served from Vercel today and prepared for Cloudflare Pages (no build command, output directory is the root)
 
 ## Pages
 
@@ -51,6 +51,7 @@ vercel
 - Every `canonical`, `og:url`, JSON-LD `url`, `sitemap.xml` and `robots.txt` entry must
   use that domain. Never point them at `*.vercel.app`: Google would index the Vercel
   copy and drop the real home page from search results.
+- `404.html` is the custom not-found page. Cloudflare Pages needs it: without it, Pages treats the site as a single-page app and answers every unknown path with the home page and a 200.
 - `vercel.json` permanently redirects `jstours.vercel.app` to the production domain and
   enables `cleanUrls` (`/tours.html` redirects to `/tours`), so each page has one URL.
 
